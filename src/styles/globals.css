@@ -115,6 +115,17 @@ a {
   display: flex;
   flex-direction: row;
   background-color: #f1ead9;
+  color: #b2b4ba;
+}
+
+p {
+  margin-bottom: 0px !important;
+  margin-top: 16px !important;
+}
+
+.title-macros {
+  color: #001858;
+  font-weight: 700;
 }
 
 .daily-macro-title {

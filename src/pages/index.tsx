@@ -99,7 +99,7 @@ export default function Home() {
           <div className="line"></div>
           <div className="main-page-layout">
             <div className="main-page">
-              <h2>Calculate Your Macros</h2>
+              <h2 className="title-macros">Calculate Your Macros</h2>
               <p>
                 Craft your ideal macronutrient ratio now using our macros
                 calculator
