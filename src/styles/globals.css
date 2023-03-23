@@ -119,7 +119,7 @@ a {
 }
 
 p {
-  margin-bottom: 0px !important;
+  margin-bottom: 5px !important;
   margin-top: 16px !important;
 }
 
@@ -156,7 +156,7 @@ p {
 .nav-bar {
   background-color: #f1ead9;
   height: 100vh;
-  width: 230px;
+  width: 30vw !important;
   position: relative;
 }
 
@@ -225,7 +225,7 @@ p {
 
 .main-title {
   background-color: #fef6e4;
-  width: 100%;
+  width: 80vw;
   padding: 20px;
   font-size: 20px;
   font-weight: 600;
@@ -246,4 +246,33 @@ p {
   background-color: #fef6e4;
   height: 100vh;
   padding: 10px 30px 10px 30px;
+}
+
+.ant-radio-button-wrapper-checked {
+  background-color: #8bd3dd !important;
+  color: #24487a !important;
+  border-color: none;
+}
+
+.ant-radio-button-wrapper {
+  color: #07225f !important;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  z-index: 1;
+  color: #1677ff;
+  background: #ffffff;
+  border-color: transparent !important;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  )::before {
+  background-color: transparent !important;
 }
