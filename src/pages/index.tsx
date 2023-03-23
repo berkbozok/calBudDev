@@ -107,23 +107,23 @@ export default function Home() {
               <div>
                 <p>System</p>
                 <Radio.Group>
-                  <Radio.Button value="horizontal">Imperial</Radio.Button>
-                  <Radio.Button value="vertical">Metric</Radio.Button>
+                  <Radio.Button value="imperial">Imperial</Radio.Button>
+                  <Radio.Button value="metric">Metric</Radio.Button>
                 </Radio.Group>
               </div>
               <div>
                 <p>I'm a</p>
                 <Radio.Group>
-                  <Radio.Button value="horizontal">Male</Radio.Button>
-                  <Radio.Button value="vertical">Female</Radio.Button>
+                  <Radio.Button value="male">Male</Radio.Button>
+                  <Radio.Button value="female">Female</Radio.Button>
                 </Radio.Group>
               </div>
               <div>
                 <p>What is your main weight goal?</p>
                 <Radio.Group>
-                  <Radio.Button value="horizontal">Lose</Radio.Button>
-                  <Radio.Button value="vertical">Maintain</Radio.Button>
-                  <Radio.Button value="vertical">Gain</Radio.Button>
+                  <Radio.Button value="lose">Lose</Radio.Button>
+                  <Radio.Button value="maintain">Maintain</Radio.Button>
+                  <Radio.Button value="gain">Gain</Radio.Button>
                 </Radio.Group>
               </div>
               <div>
@@ -163,9 +163,9 @@ export default function Home() {
               <div>
                 <p>Activity Level</p>
                 <Radio.Group>
-                  <Radio.Button value="horizontal">Sedentary</Radio.Button>
-                  <Radio.Button value="vertical">Moderate</Radio.Button>
-                  <Radio.Button value="vertical">Active</Radio.Button>
+                  <Radio.Button value="sedentary">Sedentary</Radio.Button>
+                  <Radio.Button value="moderate">Moderate</Radio.Button>
+                  <Radio.Button value="active">Active</Radio.Button>
                 </Radio.Group>
               </div>
               <div className="calculate-macros-div">
