@@ -129,10 +129,10 @@ p {
 }
 
 .daily-macro-title {
-  /* display: flex;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 50%; */
+  margin-top: 50px;
 }
 
 .right-side-title {
@@ -141,7 +141,8 @@ p {
 
 .daily-macro-value {
   display: flex;
-  flex-direction: row !important;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .macro-value-div {
@@ -156,7 +157,7 @@ p {
 .nav-bar {
   background-color: #f1ead9;
   height: 100vh;
-  width: 30vw !important;
+  width: 15vw !important;
   position: relative;
 }
 
@@ -165,6 +166,7 @@ p {
   font-size: 30px;
   padding: 10px 0 50px 0;
   font-weight: bold;
+  color: #152a63;
 }
 
 .items {
@@ -225,7 +227,7 @@ p {
 
 .main-title {
   background-color: #fef6e4;
-  width: 80vw;
+  width: 85vw;
   padding: 20px;
   font-size: 20px;
   font-weight: 600;

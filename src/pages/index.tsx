@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+// import styles from "@/styles/Home.module.css";
 import { Button, Radio, Slider, Space } from "antd";
 import {
   CalculatorFilled,
@@ -10,6 +10,10 @@ import {
   PieChartFilled,
 } from "@ant-design/icons";
 import React, { useState } from "react";
+import Protein from "../../shared/protein";
+import Fat from "../../shared/fat";
+import Carbs from "../../shared/carbs";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -179,9 +183,18 @@ export default function Home() {
               <h3>Total 2300 kcal</h3>
               <h4>Daily Macros</h4>
               <div className="daily-macro-value">
-                <div className="macro-value-div">75gr protein</div>
-                <div className="macro-value-div">36gr carbs</div>
-                <div className="macro-value-div">62gr fat</div>
+                <div className="macro-value-div">
+                  <Protein />
+                  75gr protein
+                </div>
+                <div className="macro-value-div">
+                  <Carbs />
+                  36gr carbs
+                </div>
+                <div className="macro-value-div">
+                  <Fat />
+                  62gr fat
+                </div>
               </div>
             </div>
           </div>
