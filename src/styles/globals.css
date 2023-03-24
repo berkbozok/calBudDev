@@ -148,10 +148,16 @@ p {
 .macro-value-div {
   background-color: #fef6e4;
   margin: 10px;
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   border-radius: 10px;
   text-align: center;
+}
+
+.value-box-alignment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-bar {
