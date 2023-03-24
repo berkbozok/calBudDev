@@ -20,45 +20,44 @@ export default function Home() {
   const [sliderValue1, setSliderValue1] = useState<number>(25);
   const [sliderValue2, setSliderValue2] = useState<number>(170);
   const [sliderValue3, setSliderValue3] = useState<number>(75);
+  const [BmrValue, setBmrValue] = useState<number>(0)
+  const [height, setHeight] = useState<number>(0)
+  const [sex, setSex] = useState<string>('')
+  const [weight, setWeight] = useState<number>(0)
+  const [age, setAge] = useState<number>(0)
 
-  const onChange1 = (value: number | [number, number]) => {
-    console.log("onChange: ", value);
+  const handleAge = (value: number | [number, number]) => {
     if (typeof value === "number") {
-      setSliderValue1(value);
-    }
-  };
-  const onAfterChange1 = (value: number | [number, number]) => {
-    if (typeof value === "number") {
-      setSliderValue1(value);
-    }
-  };
-  const onChange2 = (value: number | [number, number]) => {
-    console.log("onChange2: ", value);
-    if (typeof value === "number") {
-      setSliderValue2(value);
+      setAge(value);
     }
   };
 
-  const onAfterChange2 = (value: number | [number, number]) => {
-    console.log("onAfterChange2: ", value);
+  const handleHeight = (value: number | [number, number]) => {
     if (typeof value === "number") {
-      setSliderValue2(value);
+      setHeight(value);
     }
   };
 
-  const onChange3 = (value: number | [number, number]) => {
-    console.log("onChange3: ", value);
+  const handleWeight = (value: number | [number, number]) => {
     if (typeof value === "number") {
-      setSliderValue3(value);
+      setWeight(value);
     }
   };
 
-  const onAfterChange3 = (value: number | [number, number]) => {
-    console.log("onAfterChange3: ", value);
-    if (typeof value === "number") {
-      setSliderValue3(value);
+  const handleBmrComputation = () => {
+    let bmr;
+    if (sex === 'male') {
+      bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
+      setBmrValue(bmr)
+    } else {
+      bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+      setBmrValue(bmr)
     }
-  };
+  }
+
+  const handleSex = (event: any) => {
+    setSex(event.target.value)
+  }
 
   return (
     <>
@@ -116,8 +115,8 @@ export default function Home() {
                 </Radio.Group>
               </div>
               <div>
-                <p>I'm a</p>
-                <Radio.Group>
+                <p>I am a</p>
+                <Radio.Group onChange={ handleSex}>
                   <Radio.Button value="male">Male</Radio.Button>
                   <Radio.Button value="female">Female</Radio.Button>
                 </Radio.Group>
@@ -132,36 +131,33 @@ export default function Home() {
               </div>
               <div>
                 <p>
-                  I am <b>{sliderValue1}</b> years old
+                  I am <b>{age}</b> years old
                 </p>
                 <Slider
                   defaultValue={25}
-                  onChange={onChange1}
-                  onAfterChange={onAfterChange1}
+                  onAfterChange={handleAge}
                 />
               </div>
               <div>
                 <p>
-                  My Height: <b>{sliderValue2}</b> cm
+                  My Height: <b>{height}</b> cm
                 </p>
                 <Slider
                   min={0}
                   max={250}
                   defaultValue={170}
-                  onChange={onChange2}
-                  onAfterChange={onAfterChange2}
+                  onAfterChange={handleHeight}
                 />
               </div>
               <div>
                 <p>
-                  Current Weight: <b>{sliderValue3}</b> kg
+                  Current Weight: <b>{weight}</b> kg
                 </p>
                 <Slider
                   min={0}
                   max={200}
                   defaultValue={75}
-                  onChange={onChange3}
-                  onAfterChange={onAfterChange3}
+                  onAfterChange={handleWeight}
                 />
               </div>
               <div>
@@ -173,14 +169,14 @@ export default function Home() {
                 </Radio.Group>
               </div>
               <div className="calculate-macros-div">
-                <Button className="calculate-macros-button">
+                <Button className="calculate-macros-button" onClick={() => handleBmrComputation()}>
                   Calculate Macros
                 </Button>
               </div>
             </div>
             <div className="daily-macro-title">
               <h2 className="right-side-title">Your Daily Macro Goals</h2>
-              <h3>Total 2300 kcal</h3>
+              <h3>Total {BmrValue} kcal</h3>
               <h4>Daily Macros</h4>
               <div className="daily-macro-value">
                 <div className="macro-value-div">
