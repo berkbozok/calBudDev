@@ -13,7 +13,6 @@ import React, { useState } from "react";
 import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
