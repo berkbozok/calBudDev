@@ -47,10 +47,10 @@ export default function Home() {
     let bmr;
     if (sex === "male") {
       bmr = 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
-      setBmrValue(bmr);
+      setBmrValue(parseInt(bmr.toFixed(0)));
     } else {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
-      setBmrValue(bmr);
+      setBmrValue(parseInt(bmr.toFixed(0)));
     }
   };
 
