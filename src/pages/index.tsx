@@ -24,7 +24,7 @@ export default function Home() {
   const [sex, setSex] = useState<string>("");
   const [weight, setWeight] = useState<number>(0);
   const [age, setAge] = useState<number>(0);
-  const [goal, setGoal] = useState<number>(0);
+  const [goal, setGoal] = useState<number>(1.0);
 
   const handleAge = (value: number | [number, number]) => {
     if (typeof value === "number") {
@@ -44,41 +44,41 @@ export default function Home() {
     }
   };
 
-  const handleGoal = (value: number | [number, number]) => {
-    if (typeof value === "number") {
-      setWeight(value);
+  const handleGoal = (event: any) => {
+    const value = event.target.value
+    console.log('value', value)
+    if (!value) {
+      setGoal(value);
+    }
+    let goalMultiplier;
+
+    switch (value) {
+      case "lose":
+        setGoal(0.8); // aim for 20% calorie deficit
+        break;
+      case "maintain":
+        setGoal(1.0); // aim to maintain current weight
+        break;
+      case "gain":
+        setGoal(1.2); // aim for 20% calorie surplus
+        break;
+      default:
+        setGoal(1.0)
     }
   };
 
   const handleBmrComputation = () => {
+    
     let bmr;
     if (sex === "male") {
       bmr = 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
-      setBmrValue(parseInt(bmr.toFixed(0)));
+      setBmrValue(parseInt(bmr.toFixed(0)) * goal);
     } else {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
-      setBmrValue(parseInt(bmr.toFixed(0)));
+      setBmrValue(parseInt(bmr.toFixed(0)) * goal);
     }
 
-    let goalMultiplier;
 
-    switch (goal) {
-      case "lose":
-        goalMultiplier = 0.8; // aim for 20% calorie deficit
-        break;
-      case "maintain":
-        goalMultiplier = 1.0; // aim to maintain current weight
-        break;
-      case "gain":
-        goalMultiplier = 1.2; // aim for 20% calorie surplus
-        break;
-      default:
-        goalMultiplier = 1.0;
-    }
-
-    const calorieIntake = Math.round(bmr * goalMultiplier);
-    setCalorieIntake(calorieIntake);
-    setBmrValue(bmr.toFixed(0));
   };
 
   const handleSex = (event: any) => {
