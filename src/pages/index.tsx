@@ -24,6 +24,7 @@ export default function Home() {
   const [sex, setSex] = useState<string>("");
   const [weight, setWeight] = useState<number>(0);
   const [age, setAge] = useState<number>(0);
+  const [goal, setGoal] = useState<number>(0);
 
   const handleAge = (value: number | [number, number]) => {
     if (typeof value === "number") {
@@ -43,6 +44,12 @@ export default function Home() {
     }
   };
 
+  const handleGoal = (value: number | [number, number]) => {
+    if (typeof value === "number") {
+      setWeight(value);
+    }
+  };
+
   const handleBmrComputation = () => {
     let bmr;
     if (sex === "male") {
@@ -52,6 +59,26 @@ export default function Home() {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
       setBmrValue(parseInt(bmr.toFixed(0)));
     }
+
+    let goalMultiplier;
+
+    switch (goal) {
+      case "lose":
+        goalMultiplier = 0.8; // aim for 20% calorie deficit
+        break;
+      case "maintain":
+        goalMultiplier = 1.0; // aim to maintain current weight
+        break;
+      case "gain":
+        goalMultiplier = 1.2; // aim for 20% calorie surplus
+        break;
+      default:
+        goalMultiplier = 1.0;
+    }
+
+    const calorieIntake = Math.round(bmr * goalMultiplier);
+    setCalorieIntake(calorieIntake);
+    setBmrValue(bmr.toFixed(0));
   };
 
   const handleSex = (event: any) => {
@@ -122,7 +149,7 @@ export default function Home() {
               </div>
               <div>
                 <p>What is your main weight goal?</p>
-                <Radio.Group>
+                <Radio.Group onChange={handleGoal}>
                   <Radio.Button value="lose">Lose</Radio.Button>
                   <Radio.Button value="maintain">Maintain</Radio.Button>
                   <Radio.Button value="gain">Gain</Radio.Button>
