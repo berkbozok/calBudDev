@@ -16,15 +16,13 @@ import Carbs from "../../shared/carbs";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [sliderValue1, setSliderValue1] = useState<number>(25);
-  const [sliderValue2, setSliderValue2] = useState<number>(170);
-  const [sliderValue3, setSliderValue3] = useState<number>(75);
   const [BmrValue, setBmrValue] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
   const [sex, setSex] = useState<string>("");
   const [weight, setWeight] = useState<number>(0);
   const [age, setAge] = useState<number>(0);
   const [goal, setGoal] = useState<number>(1.0);
+  const [activityLevel, setActivityLevel] = useState<number>(1.0);
 
   const handleAge = (value: number | [number, number]) => {
     if (typeof value === "number") {
@@ -46,11 +44,9 @@ export default function Home() {
 
   const handleGoal = (event: any) => {
     const value = event.target.value
-    console.log('value', value)
     if (!value) {
       setGoal(value);
     }
-    let goalMultiplier;
 
     switch (value) {
       case "lose":
@@ -68,23 +64,41 @@ export default function Home() {
   };
 
   const handleBmrComputation = () => {
-    
     let bmr;
     if (sex === "male") {
       bmr = 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
-      setBmrValue(parseInt(bmr.toFixed(0)) * goal);
+      setBmrValue(parseInt(bmr.toFixed(0)) * activityLevel * goal);
     } else {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
-      setBmrValue(parseInt(bmr.toFixed(0)) * goal);
+      setBmrValue(parseInt(bmr.toFixed(0)) * activityLevel * goal);
     }
-
-
   };
 
   const handleSex = (event: any) => {
     setSex(event.target.value);
   };
 
+  const handleActivityLevel =(event: any) => {
+    const value = event.target.value
+    if (!value) {
+      setGoal(value);
+    }
+
+    switch (value) {
+      case "sedentary":
+        setActivityLevel(1.2);
+        break;
+      case "moderate":
+        setActivityLevel(1.55);
+
+        break;
+      case "active":
+        setActivityLevel(1.9);
+        break;
+      default:
+        setActivityLevel(1.0);
+    }
+  }
   return (
     <>
       <div className="navigation-side">
@@ -185,7 +199,7 @@ export default function Home() {
               </div>
               <div>
                 <p>Activity Level</p>
-                <Radio.Group>
+                <Radio.Group onChange={handleActivityLevel}>
                   <Radio.Button value="sedentary">Sedentary</Radio.Button>
                   <Radio.Button value="moderate">Moderate</Radio.Button>
                   <Radio.Button value="active">Active</Radio.Button>
