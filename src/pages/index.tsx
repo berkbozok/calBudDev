@@ -132,7 +132,7 @@ export default function Home() {
                 <p>
                   I am <b>{age}</b> years old
                 </p>
-                <Slider defaultValue={25} onAfterChange={handleAge} />
+                <Slider defaultValue={age} onAfterChange={handleAge} />
               </div>
               <div>
                 <p>
@@ -141,7 +141,7 @@ export default function Home() {
                 <Slider
                   min={0}
                   max={250}
-                  defaultValue={170}
+                  defaultValue={height}
                   onAfterChange={handleHeight}
                 />
               </div>
@@ -152,7 +152,7 @@ export default function Home() {
                 <Slider
                   min={0}
                   max={200}
-                  defaultValue={75}
+                  defaultValue={weight}
                   onAfterChange={handleWeight}
                 />
               </div>
