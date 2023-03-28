@@ -123,7 +123,7 @@ export default function Home() {
     }
     setFieldsFilled(!!activityLevel && !!goal && !!sex);
   };
-
+  //test disability
   // const fieldsFilled = activityLevel > 0 && goal > 0 && sex !== "";
 
   return (
