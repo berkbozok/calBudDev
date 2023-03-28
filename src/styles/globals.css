@@ -115,13 +115,24 @@ a {
   display: flex;
   flex-direction: row;
   background-color: #f1ead9;
+  color: #b2b4ba;
+}
+
+p {
+  margin-bottom: 5px !important;
+  margin-top: 16px !important;
+}
+
+.title-macros {
+  color: #001858;
+  font-weight: 700;
 }
 
 .daily-macro-title {
-  /* display: flex;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 50%; */
+  margin-top: 50px;
 }
 
 .right-side-title {
@@ -130,22 +141,29 @@ a {
 
 .daily-macro-value {
   display: flex;
-  flex-direction: row !important;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .macro-value-div {
   background-color: #fef6e4;
   margin: 10px;
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   border-radius: 10px;
   text-align: center;
+}
+
+.value-box-alignment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-bar {
   background-color: #f1ead9;
   height: 100vh;
-  width: 230px;
+  width: 15vw !important;
   position: relative;
 }
 
@@ -154,6 +172,7 @@ a {
   font-size: 30px;
   padding: 10px 0 50px 0;
   font-weight: bold;
+  color: #152a63;
 }
 
 .items {
@@ -214,7 +233,7 @@ a {
 
 .main-title {
   background-color: #fef6e4;
-  width: 100%;
+  width: 85vw;
   padding: 20px;
   font-size: 20px;
   font-weight: 600;
@@ -235,4 +254,33 @@ a {
   background-color: #fef6e4;
   height: 100vh;
   padding: 10px 30px 10px 30px;
+}
+
+.ant-radio-button-wrapper-checked {
+  background-color: #8bd3dd !important;
+  color: #24487a !important;
+  border-color: none;
+}
+
+.ant-radio-button-wrapper {
+  color: #07225f !important;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  z-index: 1;
+  color: #1677ff;
+  background: #ffffff;
+  border-color: transparent !important;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  )::before {
+  background-color: transparent !important;
 }
