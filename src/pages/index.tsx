@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-// import styles from "@/styles/Home.module.css";
 import { Button, Radio, Slider, Space } from "antd";
 import {
   CalculatorFilled,
@@ -13,7 +12,6 @@ import React, { useState } from "react";
 import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [BmrValue, setBmrValue] = useState<number>(0);
