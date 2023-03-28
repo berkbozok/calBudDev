@@ -73,11 +73,11 @@ export default function Home() {
       bmr = 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
       BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel * goal;
 
-      setBmrValue(BmrValueComputation);
+      setBmrValue(Math.floor(BmrValueComputation));
     } else {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
       BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel * goal;
-      setBmrValue(BmrValueComputation);
+      setBmrValue(Math.floor(BmrValueComputation));
     }
 
     const proteinIntake = Number(
@@ -174,7 +174,7 @@ export default function Home() {
               </p>
               <div>
                 <p>System</p>
-                <Radio.Group onChange={(e) => {}}>
+                <Radio.Group defaultValue="metric" onChange={(e) => {}}>
                   <Radio.Button value="imperial">Imperial</Radio.Button>
                   <Radio.Button value="metric">Metric</Radio.Button>
                 </Radio.Group>
@@ -242,7 +242,12 @@ export default function Home() {
             </div>
             <div className="daily-macro-title">
               <h2 className="right-side-title">Your Daily Macro Goals</h2>
-              <h3>Total {BmrValue} kcal</h3>
+              <div className="circle">
+                <h3>Total </h3>
+                <h3 className="bmr"> {BmrValue} </h3>
+                <h3> kcal</h3>
+              </div>
+
               <h4>Daily Macros</h4>
               <div className="daily-macro-value">
                 <div className="macro-value-div">

@@ -137,6 +137,7 @@ p {
 
 .right-side-title {
   color: #001858;
+  font-weight: 740;
 }
 
 .daily-macro-value {
@@ -163,7 +164,7 @@ p {
 .nav-bar {
   background-color: #f1ead9;
   height: 100vh;
-  width: 15vw !important;
+  width: 20vw !important;
   position: relative;
 }
 
@@ -254,6 +255,7 @@ p {
   background-color: #fef6e4;
   height: 100vh;
   padding: 10px 30px 10px 30px;
+  width: 50vw;
 }
 
 .ant-radio-button-wrapper-checked {
@@ -275,6 +277,9 @@ p {
   color: #1677ff;
   background: #ffffff;
   border-color: transparent !important;
+
+  width: 100px;
+  text-align: center;
 }
 
 :where(
@@ -283,4 +288,49 @@ p {
     .ant-radio-button-wrapper-disabled
   )::before {
   background-color: transparent !important;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper:last-child {
+  border-start-end-radius: 6px;
+  border-end-end-radius: 6px;
+  width: 100px;
+  text-align: center;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper:first-child {
+  border-inline-start: 1px solid #d9d9d9;
+  border-start-start-radius: 6px;
+  border-end-start-radius: 6px;
+  width: 100px;
+  text-align: center;
+}
+
+.circle {
+  width: 200px; /* change to your preferred width */
+  height: 200px; /* change to your preferred height */
+  border: 10px solid pink; /* change to your preferred color and thickness */
+  border-radius: 50%; /* make the element a circle */
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 200px; /* set to the height of the circle div */
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.circle h3 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.bmr {
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 38px !important;
 }
