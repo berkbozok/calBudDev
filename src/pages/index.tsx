@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { Button, Radio, Slider, Space } from "antd";
+import { Button, Radio, Slider, Space, Progress, Tooltip } from "antd";
 import {
   CalculatorFilled,
   HeartFilled,
@@ -12,6 +12,32 @@ import React, { useState } from "react";
 import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
+
+interface PieChartProps {
+  protein: number;
+  fat: number;
+  carbs: number;
+}
+
+const PieChart = ({ protein, fat, carbs }: PieChartProps) => {
+  const proteinPercent = (5 * 60) / 100;
+  const fatPercent = (10 * 20) / 100;
+  const carbsPercent = (15 * 20) / 100;
+
+  return (
+    <Progress
+      type="circle"
+      percent={100}
+      success={{
+        percent: proteinPercent,
+        strokeColor: "#87d068",
+      }}
+      strokeColor={["#108ee9", "#f50", "#f8c82e", "#87d068"]}
+      strokeWidth={10}
+      format={() => "Macro Breakdown"}
+    />
+  );
+};
 
 export default function Home() {
   const [BmrValue, setBmrValue] = useState<number>(0);
@@ -80,19 +106,18 @@ export default function Home() {
       setBmrValue(Math.floor(BmrValueComputation));
     }
 
-    const proteinIntake = Number(
-      (0.825 * weight * activityLevel * goal).toFixed(2)
-    );
-    setProteinIntake(proteinIntake); // for protein only
-    const carbIntake = Number(
-      (((BmrValueComputation * 0.5) / 4) * activityLevel * goal).toFixed(2)
-    );
+    const proteinIntake = Math.floor(1.4 * weight);
+    setProteinIntake(proteinIntake);
+
+    const carbIntake = Math.floor((BmrValueComputation * 0.5) / 4);
     setCarbIntake(carbIntake);
-    const fatIntake = Number(
-      (((BmrValueComputation * 0.3) / 9) * activityLevel * goal).toFixed(2)
-    );
+
+    const fatIntake = Math.floor((BmrValueComputation * 0.3) / 9);
     setFatIntake(fatIntake);
   };
+  //protein = 1gr ---> 4cal
+  //carb = 1gr --->4cal
+  //fat =1gr --->9cal
 
   const handleSex = (event: any) => {
     setSex(event.target.value);
@@ -121,8 +146,12 @@ export default function Home() {
     }
     setFieldsFilled(!!activityLevel && !!goal && !!sex);
   };
+
   //test disability
   // const fieldsFilled = activityLevel > 0 && goal > 0 && sex !== "";
+  // const proteinPercent = (proteinIntake * 60) / 100;
+  // const fatPercent = (fatIntake * 20) / 100;
+  // const carbsPercent = (carbIntake * 20) / 100;
 
   return (
     <>
@@ -242,7 +271,7 @@ export default function Home() {
             </div>
             <div className="daily-macro-title">
               <h2 className="right-side-title">Your Daily Macro Goals</h2>
-              <div className="circle">
+              <div className="ring">
                 <h3>Total </h3>
                 <h3 className="bmr"> {BmrValue} </h3>
                 <h3> kcal</h3>
@@ -253,22 +282,28 @@ export default function Home() {
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Protein />
-                    <span>{proteinIntake}gr protein</span>
+
+                    <span className="value-title">{proteinIntake}g</span>
+                    <span> Protein</span>
                   </div>
                 </div>
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Carbs />
-                    <span>{carbIntake}gr carbs</span>
+                    <span className="value-title">{carbIntake}g</span>
+                    <span> Carbs</span>
                   </div>
                 </div>
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Fat />
-                    <span>{fatIntake}gr fat</span>
+
+                    <span className="value-title">{fatIntake}g</span>
+                    <span> Fat</span>
                   </div>
                 </div>
               </div>
+              <PieChart protein={60} fat={20} carbs={20} />
             </div>
           </div>
         </div>

@@ -138,6 +138,8 @@ p {
 .right-side-title {
   color: #001858;
   font-weight: 740;
+  margin-bottom: 40px;
+  margin-top: -20px;
 }
 
 .daily-macro-value {
@@ -149,16 +151,20 @@ p {
 .macro-value-div {
   background-color: #fef6e4;
   margin: 10px;
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   border-radius: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .value-box-alignment {
   display: flex;
   flex-direction: column;
   align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-bar {
@@ -309,21 +315,21 @@ p {
   text-align: center;
 }
 
-.circle {
-  width: 200px; /* change to your preferred width */
-  height: 200px; /* change to your preferred height */
-  border: 10px solid pink; /* change to your preferred color and thickness */
-  border-radius: 50%; /* make the element a circle */
+.ring {
+  width: 200px;
+  height: 200px;
+  border: 20px solid pink;
+  border-radius: 50%;
   box-sizing: border-box;
   text-align: center;
-  line-height: 200px; /* set to the height of the circle div */
+  line-height: 200px;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.circle h3 {
+.ring h3 {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
@@ -333,4 +339,10 @@ p {
   font-weight: 700;
   color: rgb(0, 24, 88);
   font-size: 38px !important;
+}
+
+.value-title {
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 25px !important;
 }
