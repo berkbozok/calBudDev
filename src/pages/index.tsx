@@ -24,7 +24,7 @@ export default function Home() {
   const [proteinIntake, setProteinIntake] = useState<number>(0);
   const [carbIntake, setCarbIntake] = useState<number>(0);
   const [fatIntake, setFatIntake] = useState<number>(0);
-  const [fieldsFilled, setFieldsFilled] = useState(false);
+  const [fieldsFilled, setFieldsFilled] = useState([false,false, false]);
 
   const handleAge = (value: number | [number, number]) => {
     if (typeof value === "number") {
@@ -63,7 +63,7 @@ export default function Home() {
       default:
         setGoal(1.0);
     }
-    setFieldsFilled(!!activityLevel && !!goal && !!sex);
+    setFieldsFilled([false, true, false]);
   };
 
   const handleBmrComputation = () => {
@@ -95,7 +95,8 @@ export default function Home() {
 
   const handleSex = (event: any) => {
     setSex(event.target.value);
-    setFieldsFilled(!!activityLevel && !!goal && !!sex);
+    setFieldsFilled([true, true, false]);
+
   };
 
   const handleActivityLevel = (event: any) => {
@@ -118,7 +119,8 @@ export default function Home() {
       default:
         setActivityLevel(1.0);
     }
-    setFieldsFilled(!!activityLevel && !!goal && !!sex);
+    setFieldsFilled([true, true, true]);
+
   };
 
   //test disability
@@ -237,7 +239,7 @@ export default function Home() {
                 <Button
                   className="calculate-macros-button"
                   onClick={() => handleBmrComputation()}
-                  disabled={!fieldsFilled}
+                  disabled={fieldsFilled.some(value => value === false)}
                 >
                   Calculate Macros
                 </Button>
