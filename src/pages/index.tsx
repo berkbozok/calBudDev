@@ -8,36 +8,10 @@ import {
   PercentageOutlined,
   PieChartFilled,
 } from "@ant-design/icons";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
-
-interface PieChartProps {
-  protein: number;
-  fat: number;
-  carbs: number;
-}
-
-const PieChart = ({ protein, fat, carbs }: PieChartProps) => {
-  const proteinPercent = (5 * 60) / 100;
-  const fatPercent = (10 * 20) / 100;
-  const carbsPercent = (15 * 20) / 100;
-
-  return (
-    <Progress
-      type="circle"
-      percent={100}
-      success={{
-        percent: proteinPercent,
-        strokeColor: "#87d068",
-      }}
-      strokeColor={["#108ee9", "#f50", "#f8c82e", "#87d068"]}
-      strokeWidth={10}
-      format={() => "Macro Breakdown"}
-    />
-  );
-};
 
 export default function Home() {
   const [BmrValue, setBmrValue] = useState<number>(0);
@@ -303,7 +277,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <PieChart protein={60} fat={20} carbs={20} />
+              {/* <PieChart protein={60} fat={20} carbs={20} /> */}
             </div>
           </div>
         </div>
