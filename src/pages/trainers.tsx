@@ -16,7 +16,7 @@ import DemoPie from "../../components/Charts/PieChart";
 
 import Link from "next/link";
 
-export default function Home() {
+export default function Trainers() {
   const [BmrValue, setBmrValue] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
   const [sex, setSex] = useState<string>("");
@@ -174,128 +174,6 @@ export default function Home() {
           <div className="main-page-layout">
             <div className="main-page">
               <h2 className="title-macros">Calculate Your Macros</h2>
-              <p>
-                Craft your ideal macronutrient ratio now using our macros
-                calculator
-              </p>
-              <div>
-                <p>System</p>
-                <Radio.Group defaultValue="metric" onChange={(e) => {}}>
-                  <Radio.Button value="imperial">Imperial</Radio.Button>
-                  <Radio.Button value="metric">Metric</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div>
-                <p>I am a</p>
-                <Radio.Group onChange={handleSex}>
-                  <Radio.Button value="male">Male</Radio.Button>
-                  <Radio.Button value="female">Female</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div>
-                <p>What is your main weight goal?</p>
-                <Radio.Group onChange={handleGoal}>
-                  <Radio.Button value="lose">Lose</Radio.Button>
-                  <Radio.Button value="maintain">Maintain</Radio.Button>
-                  <Radio.Button value="gain">Gain</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div>
-                <p>
-                  I am <b>{age}</b> years old
-                </p>
-                <Slider defaultValue={age} onAfterChange={handleAge} />
-              </div>
-              <div>
-                <p>
-                  My Height: <b>{height}</b> cm
-                </p>
-                <Slider
-                  min={0}
-                  max={250}
-                  defaultValue={height}
-                  onAfterChange={handleHeight}
-                />
-              </div>
-              <div>
-                <p>
-                  Current Weight: <b>{weight}</b> kg
-                </p>
-                <Slider
-                  min={0}
-                  max={200}
-                  defaultValue={weight}
-                  onAfterChange={handleWeight}
-                />
-              </div>
-              <div>
-                <p>Activity Level</p>
-                <Radio.Group onChange={handleActivityLevel}>
-                  <Radio.Button value="sedentary">Sedentary</Radio.Button>
-                  <Radio.Button value="moderate">Moderate</Radio.Button>
-                  <Radio.Button value="active">Active</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div className="calculate-macros-div">
-                <Button
-                  className="calculate-macros-button"
-                  onClick={() => handleBmrComputation()}
-                  disabled={fieldsFilled.some((value) => value === false)}
-                >
-                  Calculate Macros
-                </Button>
-              </div>
-            </div>
-            <div className="daily-macro-title">
-              <h2 className="right-side-title">Your Daily Macro Goals</h2>
-              <div className="ring">
-                <h3>Total </h3>
-                <h3 className="bmr"> {BmrValue} </h3>
-                <h3> kcal</h3>
-              </div>
-
-              <h4 className="daily-macro">Daily Macros</h4>
-              <div className="daily-macro-value">
-                <div className="macro-value-div">
-                  <div className="value-box-alignment">
-                    <Protein />
-
-                    <span className="value-title">{proteinIntake}g</span>
-                    <span> Protein</span>
-                  </div>
-                </div>
-                <div className="macro-value-div">
-                  <div className="value-box-alignment">
-                    <Carbs />
-                    <span className="value-title">{carbIntake}g</span>
-                    <span> Carbs</span>
-                  </div>
-                </div>
-                <div className="macro-value-div">
-                  <div className="value-box-alignment">
-                    <Fat />
-                    <span className="value-title">{fatIntake}g</span>
-                    <span> Fat</span>
-                  </div>
-                </div>
-              </div>
-              <div className="formula-title">Our formula for you</div>
-
-              {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
-                <>
-                  <DemoPie
-                    proteinIntake={proteinIntake}
-                    carbIntake={carbIntake}
-                    fatIntake={fatIntake}
-                  />
-                </>
-              ) : (
-                <>Calculate Macros to see detailed review</>
-              )}
-
-              <Link href="/trainers">
-                <Button className="find-trainer">Consult with a Trainer</Button>
-              </Link>
             </div>
           </div>
         </div>

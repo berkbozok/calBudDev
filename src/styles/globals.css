@@ -204,6 +204,21 @@ p {
   width: 80%;
 }
 
+.find-trainer {
+  background-color: transparent;
+  border-color: #f582ae;
+  border-width: 2px;
+  color: #f582ae;
+  width: 100%;
+}
+
+.formula-title {
+  color: #001858;
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
 .button-div {
   position: absolute;
   bottom: 0;
@@ -346,4 +361,8 @@ p {
   font-weight: 700;
   color: rgb(0, 24, 88);
   font-size: 25px !important;
+}
+
+.g2-html-annotation {
+  display: none !important;
 }
