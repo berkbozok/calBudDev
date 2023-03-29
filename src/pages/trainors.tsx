@@ -16,7 +16,7 @@ import DemoPie from '../../components/Charts/PieChart'
 
 import Link from 'next/link'
 
-export default function Home() {
+export default function Trainors() {
   const [BmrValue, setBmrValue] = useState<number>(0)
   const [height, setHeight] = useState<number>(0)
   const [sex, setSex] = useState<string>('')
@@ -165,7 +165,7 @@ export default function Home() {
             <Button className='upgrade-button'>Upgrade</Button>
           </div>
         </div>
-        <div className='page-layout'>
+        {/* <div className='page-layout'>
           <div className='main-title'>
             <PieChartFilled className='icon-title' />
             Macros Calculator
@@ -285,12 +285,12 @@ export default function Home() {
                 carbIntake={carbIntake}
                 fatIntake={fatIntake}
               />
-              <Link href='/trainors'>
+              <Link href='/path/to/page'>
                 <Button type='primary'>Consult with a Trainors</Button>
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )
