@@ -2,32 +2,21 @@ import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic'
 const Pie = dynamic(() => import('@ant-design/plots').then(({ Pie }) => Pie), { ssr: false, });
 
-export default function DemoPie () {
+export default function DemoPie({ proteinIntake, carbIntake, fatIntake }: { proteinIntake: number, carbIntake: number, fatIntake: number }) {
+ 
   const data = [
     {
-      type: '分类一',
-      value: 27,
+      type: 'Protein',
+      value: proteinIntake,
     },
     {
-      type: '分类二',
-      value: 25,
+      type: 'Carb',
+      value: carbIntake,
     },
     {
-      type: '分类三',
-      value: 18,
-    },
-    {
-      type: '分类四',
-      value: 15,
-    },
-    {
-      type: '分类五',
-      value: 10,
-    },
-    {
-      type: '其他',
-      value: 5,
-    },
+      type: 'Fat',
+      value: fatIntake,
+    }
   ];
   const config = {
     appendPadding: 10,

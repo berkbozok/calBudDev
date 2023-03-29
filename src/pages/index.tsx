@@ -280,7 +280,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <DemoPie />
+              <DemoPie proteinIntake={proteinIntake} carbIntake={carbIntake} fatIntake={fatIntake} />
             </div>
           </div>
         </div>
