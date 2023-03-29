@@ -12,6 +12,7 @@ import React, { useState, useEffect } from "react";
 import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
+import DemoPie from '../../components/Charts/PieChart';
 
 export default function Home() {
   const [BmrValue, setBmrValue] = useState<number>(0);
@@ -279,7 +280,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* <PieChart protein={60} fat={20} carbs={20} /> */}
+              <DemoPie />
             </div>
           </div>
         </div>
