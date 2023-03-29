@@ -20,5 +20,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.2"
+  },
+  "overrides": {
+    "@antv/g2": "4.2.8",
+    "@antv/g-base": "0.5.11",
+    "@antv/path-util": "2.0.15"
   }
 }

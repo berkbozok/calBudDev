@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Pie } from '@ant-design/plots';
+import dynamic from 'next/dynamic'
+const Pie = dynamic(() => import('@ant-design/plots').then(({ Pie }) => Pie), { ssr: false, });
 
 export default function DemoPie () {
   const data = [
