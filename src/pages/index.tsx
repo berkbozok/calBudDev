@@ -125,9 +125,9 @@ export default function Home() {
     setFieldsFilled([true, true, true]);
   };
   let totalCal = proteinIntake + carbIntake + fatIntake;
-  let proteinPercentage = ((proteinIntake / totalCal) * 100).toFixed(0);
-  let carbsPercentage = ((carbIntake / totalCal) * 100).toFixed(0);
-  let fatPercentage = ((fatIntake / totalCal) * 100).toFixed(0);
+  let proteinPercentage = Math.ceil((proteinIntake / totalCal) * 100);
+  let carbsPercentage = Math.ceil((carbIntake / totalCal) * 100);
+  let fatPercentage = Math.ceil((fatIntake / totalCal) * 100);
 
   return (
     <>
@@ -251,7 +251,7 @@ export default function Home() {
                   <div className="pie-chart-alignment">
                     <div className="info-panel">
                       If you are counting macros for bodybuilding and muscle
-                      gain, you'll want to add overall calories to put on
+                      gain, you&apos;ll want to add overall calories to put on
                       weight. Try this range of macro ratio:
                       <b>{proteinPercentage}</b>% protein, &nbsp;
                       <b>{carbsPercentage}%</b> carbs, and

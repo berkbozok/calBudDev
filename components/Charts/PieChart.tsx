@@ -13,20 +13,21 @@ export default function DemoPie({
   carbIntake: number;
   fatIntake: number;
 }) {
+  const totalIntake = proteinIntake + carbIntake + fatIntake;
   const data = [
     {
       type: "Protein",
-      value: proteinIntake,
+      value: Math.ceil((proteinIntake / totalIntake) * 100),
       color: "#8BD3DD",
     },
     {
       type: "Carb",
-      value: carbIntake,
+      value: Math.ceil((carbIntake / totalIntake) * 100),
       color: "#172C66",
     },
     {
       type: "Fat",
-      value: fatIntake,
+      value: Math.ceil((fatIntake / totalIntake) * 100),
       color: "#F582AE",
     },
   ];
@@ -42,8 +43,7 @@ export default function DemoPie({
     label: {
       type: "inner",
       offset: "-50%",
-      content: ({ percent }: { percent: number }) =>
-        `${(percent * 100).toFixed(0)}%`,
+      content: "{value}",
       style: {
         textAlign: "center",
         fontSize: 18,
