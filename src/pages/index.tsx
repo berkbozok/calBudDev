@@ -124,6 +124,10 @@ export default function Home() {
     }
     setFieldsFilled([true, true, true]);
   };
+  let totalCal = proteinIntake + carbIntake + fatIntake;
+  let proteinPercentage = ((proteinIntake / totalCal) * 100).toFixed(0);
+  let carbsPercentage = ((carbIntake / totalCal) * 100).toFixed(0);
+  let fatPercentage = ((fatIntake / totalCal) * 100).toFixed(0);
 
   return (
     <>
@@ -249,6 +253,12 @@ export default function Home() {
                     carbIntake={carbIntake}
                     fatIntake={fatIntake}
                   />
+                  <div className="info-panel">
+                    If you are counting macros for bodybuilding and muscle gain,
+                    you'll want to add overall calories to put on weight. Try
+                    this range of macro ratio: {proteinPercentage}% protein,
+                    {carbsPercentage}% carbs, and {fatPercentage}% fat.
+                  </div>
                 </>
               ) : (
                 <>Calculate Macros to see detailed review</>

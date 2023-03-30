@@ -381,3 +381,10 @@ p {
   width: 240px;
   margin: 15px;
 }
+.info-panel {
+  width: 60%;
+  line-height: 1.5;
+  color: #697491;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}

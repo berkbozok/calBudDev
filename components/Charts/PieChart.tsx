@@ -37,7 +37,7 @@ export default function DemoPie({
     angleField: "value",
     colorField: "type",
     color: ["#8BD3DD", "#172C66", "#F582AE"],
-    radius: 0.6,
+    radius: 1,
     innerRadius: 0.3,
     label: {
       type: "inner",
@@ -69,5 +69,5 @@ export default function DemoPie({
     },
     autoFit: true,
   };
-  return <Pie {...config} style={{ marginTop: "-60px" }} />;
+  return <Pie {...config} style={{ width: "200px", height: "200px" }} />;
 }
