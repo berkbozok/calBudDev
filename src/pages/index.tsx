@@ -251,7 +251,7 @@ export default function Home() {
                   <div className="pie-chart-alignment">
                     <div className="info-panel">
                       If you are counting macros for bodybuilding and muscle
-                      gain, you&apos;ll want to add overall calories to put on
+                      gain, you will want to add overall calories to put on
                       weight. Try this range of macro ratio:
                       <b>{proteinPercentage}</b>% protein, &nbsp;
                       <b>{carbsPercentage}%</b> carbs, and
