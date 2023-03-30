@@ -252,10 +252,12 @@ export default function Home() {
                     <div className="info-panel">
                       If you are counting macros for bodybuilding and muscle
                       gain, you will want to add overall calories to put on
-                      weight. Try this range of macro ratio:
-                      <b>{proteinPercentage}</b>% protein, &nbsp;
-                      <b>{carbsPercentage}%</b> carbs, and
-                      <b>{fatPercentage}%</b> fat.
+                      weight. Try this range of macro ratio:&nbsp;
+                      <div>
+                        <b>{proteinPercentage}</b>% protein, &nbsp;
+                        <b>{carbsPercentage}%</b> carbs, and&nbsp;
+                        <b>{fatPercentage}%</b> fat.
+                      </div>
                     </div>
                     <DemoPie
                       proteinIntake={proteinIntake}
