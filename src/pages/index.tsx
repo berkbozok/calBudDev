@@ -134,7 +134,14 @@ export default function Home() {
     <>
       <div className="navigation-side">
         <div className="nav-bar">
-          <div className="title">CalBud</div>
+          {/* <Link href="/">
+            <div className="title">CalBud</div>
+          </Link> */}
+
+          <Link href="/">
+            <div className="title">CalBud</div>
+          </Link>
+
           <div className="nav-item-list">
             <a>
               <div className="items">
@@ -253,8 +260,7 @@ export default function Home() {
                 <h3 className="bmr"> {BmrValue} </h3>
                 <h3> kcal</h3>
               </div>
-
-              <h4 className="daily-macro">Daily Macros</h4>
+              {/* <h4 className="daily-macro">Daily Macros</h4> */}
               <div className="daily-macro-value">
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
@@ -279,10 +285,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="formula-title">Our formula for you</div>
 
               {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
                 <>
+                  <div className="formula-title">Our formula for you</div>
                   <DemoPie
                     proteinIntake={proteinIntake}
                     carbIntake={carbIntake}

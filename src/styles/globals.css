@@ -366,3 +366,18 @@ p {
 .g2-html-annotation {
   display: none !important;
 }
+
+.daily-macro {
+  text-align: left !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: row;
+}
+.card {
+  width: 240px;
+  margin: 15px;
+}
