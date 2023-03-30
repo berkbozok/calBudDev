@@ -339,7 +339,7 @@ p {
   box-sizing: border-box;
   text-align: center;
   line-height: 200px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -386,5 +386,19 @@ p {
   line-height: 1.5;
   color: #697491;
   margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.pie-chart-alignment {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+.replacement-title {
+  margin: 10px;
+  color: #001858;
+  font-size: 20px;
+  font-weight: 600;
   margin-top: 10px;
 }

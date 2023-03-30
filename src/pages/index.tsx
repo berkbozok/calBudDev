@@ -248,20 +248,28 @@ export default function Home() {
               {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
                 <>
                   <div className="formula-title">Our formula for you</div>
-                  <DemoPie
-                    proteinIntake={proteinIntake}
-                    carbIntake={carbIntake}
-                    fatIntake={fatIntake}
-                  />
-                  <div className="info-panel">
-                    If you are counting macros for bodybuilding and muscle gain,
-                    you'll want to add overall calories to put on weight. Try
-                    this range of macro ratio: {proteinPercentage}% protein,
-                    {carbsPercentage}% carbs, and {fatPercentage}% fat.
+                  <div className="pie-chart-alignment">
+                    <div className="info-panel">
+                      If you are counting macros for bodybuilding and muscle
+                      gain, you'll want to add overall calories to put on
+                      weight. Try this range of macro ratio:
+                      <b>{proteinPercentage}</b>% protein, &nbsp;
+                      <b>{carbsPercentage}%</b> carbs, and
+                      <b>{fatPercentage}%</b> fat.
+                    </div>
+                    <DemoPie
+                      proteinIntake={proteinIntake}
+                      carbIntake={carbIntake}
+                      fatIntake={fatIntake}
+                    />
                   </div>
                 </>
               ) : (
-                <>Calculate Macros to see detailed review</>
+                <>
+                  <div className="replacement-title">
+                    Calculate Macros to see a detailed review
+                  </div>
+                </>
               )}
 
               <Link href="/trainers">
