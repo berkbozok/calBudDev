@@ -1,17 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { Button, Radio, Slider, Space } from "antd";
+import { Button, Radio, Slider, Space, Progress, Tooltip } from "antd";
 import {
   CalculatorFilled,
   HeartFilled,
   PercentageOutlined,
   PieChartFilled,
 } from "@ant-design/icons";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
+import DemoPie from "../../components/Charts/PieChart";
+
+import Link from "next/link";
+import Navigation from "../../components/Navigation";
 
 export default function Home() {
   const [BmrValue, setBmrValue] = useState<number>(0);
@@ -24,7 +28,7 @@ export default function Home() {
   const [proteinIntake, setProteinIntake] = useState<number>(0);
   const [carbIntake, setCarbIntake] = useState<number>(0);
   const [fatIntake, setFatIntake] = useState<number>(0);
-  const [fieldsFilled, setFieldsFilled] = useState(false);
+  const [fieldsFilled, setFieldsFilled] = useState([false, false, false]);
 
   const handleAge = (value: number | [number, number]) => {
     if (typeof value === "number") {
@@ -63,7 +67,7 @@ export default function Home() {
       default:
         setGoal(1.0);
     }
-    setFieldsFilled(!!activityLevel && !!goal && !!sex);
+    setFieldsFilled([false, true, false]);
   };
 
   const handleBmrComputation = () => {
@@ -73,30 +77,29 @@ export default function Home() {
       bmr = 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
       BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel * goal;
 
-      setBmrValue(BmrValueComputation);
+      setBmrValue(Math.floor(BmrValueComputation));
     } else {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
       BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel * goal;
-      setBmrValue(BmrValueComputation);
+      setBmrValue(Math.floor(BmrValueComputation));
     }
 
-    const proteinIntake = Number(
-      (0.825 * weight * activityLevel * goal).toFixed(2)
-    );
-    setProteinIntake(proteinIntake); // for protein only
-    const carbIntake = Number(
-      (((BmrValueComputation * 0.5) / 4) * activityLevel * goal).toFixed(2)
-    );
+    const proteinIntake = Math.floor(1.4 * weight);
+    setProteinIntake(proteinIntake);
+
+    const carbIntake = Math.floor((BmrValueComputation * 0.5) / 4);
     setCarbIntake(carbIntake);
-    const fatIntake = Number(
-      (((BmrValueComputation * 0.3) / 9) * activityLevel * goal).toFixed(2)
-    );
+
+    const fatIntake = Math.floor((BmrValueComputation * 0.3) / 9);
     setFatIntake(fatIntake);
   };
+  //protein = 1gr ---> 4cal
+  //carb = 1gr --->4cal
+  //fat =1gr --->9cal
 
   const handleSex = (event: any) => {
     setSex(event.target.value);
-    setFieldsFilled(!!activityLevel && !!goal && !!sex);
+    setFieldsFilled([true, true, false]);
   };
 
   const handleActivityLevel = (event: any) => {
@@ -119,46 +122,17 @@ export default function Home() {
       default:
         setActivityLevel(1.0);
     }
-    setFieldsFilled(!!activityLevel && !!goal && !!sex);
+    setFieldsFilled([true, true, true]);
   };
-  //test disability
-  // const fieldsFilled = activityLevel > 0 && goal > 0 && sex !== "";
+  let totalCal = proteinIntake + carbIntake + fatIntake;
+  let proteinPercentage = ((proteinIntake / totalCal) * 100).toFixed(0);
+  let carbsPercentage = ((carbIntake / totalCal) * 100).toFixed(0);
+  let fatPercentage = ((fatIntake / totalCal) * 100).toFixed(0);
 
   return (
     <>
       <div className="navigation-side">
-        <div className="nav-bar">
-          <div className="title">CalBud</div>
-          <div className="nav-item-list">
-            <a>
-              <div className="items">
-                <PieChartFilled className="icon" />
-                Macros Cals
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <CalculatorFilled className="icon" />
-                BMI Calc
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <PercentageOutlined className="icon" />
-                Body Fat Calc
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <HeartFilled className="icon" />
-                Ideal Weight
-              </div>
-            </a>
-          </div>
-          <div className="button-div">
-            <Button className="upgrade-button">Upgrade</Button>
-          </div>
-        </div>
+        <Navigation />
         <div className="page-layout">
           <div className="main-title">
             <PieChartFilled className="icon-title" />
@@ -174,7 +148,7 @@ export default function Home() {
               </p>
               <div>
                 <p>System</p>
-                <Radio.Group onChange={(e) => {}}>
+                <Radio.Group defaultValue="metric" onChange={(e) => {}}>
                   <Radio.Button value="imperial">Imperial</Radio.Button>
                   <Radio.Button value="metric">Metric</Radio.Button>
                 </Radio.Group>
@@ -234,7 +208,7 @@ export default function Home() {
                 <Button
                   className="calculate-macros-button"
                   onClick={() => handleBmrComputation()}
-                  disabled={!fieldsFilled}
+                  disabled={fieldsFilled.some((value) => value === false)}
                 >
                   Calculate Macros
                 </Button>
@@ -242,28 +216,65 @@ export default function Home() {
             </div>
             <div className="daily-macro-title">
               <h2 className="right-side-title">Your Daily Macro Goals</h2>
-              <h3>Total {BmrValue} kcal</h3>
-              <h4>Daily Macros</h4>
+              <div className="ring">
+                <h3>Total </h3>
+                <h3 className="bmr"> {BmrValue} </h3>
+                <h3> kcal</h3>
+              </div>
               <div className="daily-macro-value">
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Protein />
-                    <span>{proteinIntake}gr protein</span>
+                    <span className="value-title">{proteinIntake}g</span>
+                    <span> Protein</span>
                   </div>
                 </div>
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Carbs />
-                    <span>{carbIntake}gr carbs</span>
+                    <span className="value-title">{carbIntake}g</span>
+                    <span> Carbs</span>
                   </div>
                 </div>
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Fat />
-                    <span>{fatIntake}gr fat</span>
+                    <span className="value-title">{fatIntake}g</span>
+                    <span> Fat</span>
                   </div>
                 </div>
               </div>
+
+              {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
+                <>
+                  <div className="formula-title">Our formula for you</div>
+                  <div className="pie-chart-alignment">
+                    <div className="info-panel">
+                      If you are counting macros for bodybuilding and muscle
+                      gain, you'll want to add overall calories to put on
+                      weight. Try this range of macro ratio:
+                      <b>{proteinPercentage}</b>% protein, &nbsp;
+                      <b>{carbsPercentage}%</b> carbs, and
+                      <b>{fatPercentage}%</b> fat.
+                    </div>
+                    <DemoPie
+                      proteinIntake={proteinIntake}
+                      carbIntake={carbIntake}
+                      fatIntake={fatIntake}
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="replacement-title">
+                    Calculate Macros to see a detailed review
+                  </div>
+                </>
+              )}
+
+              <Link href="/trainers">
+                <Button className="find-trainer">Consult with a Trainer</Button>
+              </Link>
             </div>
           </div>
         </div>

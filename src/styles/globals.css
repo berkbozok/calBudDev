@@ -133,10 +133,14 @@ p {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  width: 35vw;
 }
 
 .right-side-title {
   color: #001858;
+  font-weight: 740;
+  margin-bottom: 40px;
+  margin-top: -20px;
 }
 
 .daily-macro-value {
@@ -148,22 +152,26 @@ p {
 .macro-value-div {
   background-color: #fef6e4;
   margin: 10px;
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   border-radius: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .value-box-alignment {
   display: flex;
   flex-direction: column;
   align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-bar {
   background-color: #f1ead9;
   height: 100vh;
-  width: 15vw !important;
+  width: 20vw !important;
   position: relative;
 }
 
@@ -194,6 +202,21 @@ p {
   border-width: 2px;
   color: #f582ae;
   width: 80%;
+}
+
+.find-trainer {
+  background-color: transparent;
+  border-color: #f582ae;
+  border-width: 2px;
+  color: #f582ae;
+  width: 100%;
+}
+
+.formula-title {
+  color: #001858;
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
 .button-div {
@@ -254,6 +277,7 @@ p {
   background-color: #fef6e4;
   height: 100vh;
   padding: 10px 30px 10px 30px;
+  width: 50vw;
 }
 
 .ant-radio-button-wrapper-checked {
@@ -275,6 +299,9 @@ p {
   color: #1677ff;
   background: #ffffff;
   border-color: transparent !important;
+
+  width: 100px;
+  text-align: center;
 }
 
 :where(
@@ -283,4 +310,95 @@ p {
     .ant-radio-button-wrapper-disabled
   )::before {
   background-color: transparent !important;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper:last-child {
+  border-start-end-radius: 6px;
+  border-end-end-radius: 6px;
+  width: 100px;
+  text-align: center;
+}
+
+:where(
+    .css-dev-only-do-not-override-mxhywb
+  ).ant-radio-button-wrapper:first-child {
+  border-inline-start: 1px solid #d9d9d9;
+  border-start-start-radius: 6px;
+  border-end-start-radius: 6px;
+  width: 100px;
+  text-align: center;
+}
+
+.ring {
+  width: 200px;
+  height: 200px;
+  border: 20px solid pink;
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 200px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ring h3 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.bmr {
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 38px !important;
+}
+
+.value-title {
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 25px !important;
+}
+
+.g2-html-annotation {
+  display: none !important;
+}
+
+.daily-macro {
+  text-align: left !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: row;
+}
+.card {
+  width: 240px;
+  margin: 15px;
+}
+.info-panel {
+  width: 60%;
+  line-height: 1.5;
+  color: #697491;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.pie-chart-alignment {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+.replacement-title {
+  margin: 10px;
+  color: #001858;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
 }

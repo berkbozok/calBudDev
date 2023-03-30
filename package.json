@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/plots": "^1.2.5",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -19,5 +20,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.2"
+  },
+  "overrides": {
+    "@antv/g2": "4.2.8",
+    "@antv/g-base": "0.5.11",
+    "@antv/path-util": "2.0.15"
   }
 }
