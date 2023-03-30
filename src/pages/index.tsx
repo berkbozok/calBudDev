@@ -124,20 +124,10 @@ export default function Home() {
     setFieldsFilled([true, true, true]);
   };
 
-  //test disability
-  // const fieldsFilled = activityLevel > 0 && goal > 0 && sex !== "";
-  // const proteinPercent = (proteinIntake * 60) / 100;
-  // const fatPercent = (fatIntake * 20) / 100;
-  // const carbsPercent = (carbIntake * 20) / 100;
-
   return (
     <>
       <div className="navigation-side">
         <div className="nav-bar">
-          {/* <Link href="/">
-            <div className="title">CalBud</div>
-          </Link> */}
-
           <Link href="/">
             <div className="title">CalBud</div>
           </Link>
