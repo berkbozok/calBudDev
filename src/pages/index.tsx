@@ -15,6 +15,7 @@ import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
 
 import Link from "next/link";
+import Navigation from "../../components/Navigation";
 
 export default function Home() {
   const [BmrValue, setBmrValue] = useState<number>(0);
@@ -127,41 +128,7 @@ export default function Home() {
   return (
     <>
       <div className="navigation-side">
-        <div className="nav-bar">
-          <Link href="/">
-            <div className="title">CalBud</div>
-          </Link>
-
-          <div className="nav-item-list">
-            <a>
-              <div className="items">
-                <PieChartFilled className="icon" />
-                Macros Cals
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <CalculatorFilled className="icon" />
-                BMI Calc
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <PercentageOutlined className="icon" />
-                Body Fat Calc
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <HeartFilled className="icon" />
-                Ideal Weight
-              </div>
-            </a>
-          </div>
-          <div className="button-div">
-            <Button className="upgrade-button">Upgrade</Button>
-          </div>
-        </div>
+        <Navigation />
         <div className="page-layout">
           <div className="main-title">
             <PieChartFilled className="icon-title" />
@@ -250,12 +217,10 @@ export default function Home() {
                 <h3 className="bmr"> {BmrValue} </h3>
                 <h3> kcal</h3>
               </div>
-              {/* <h4 className="daily-macro">Daily Macros</h4> */}
               <div className="daily-macro-value">
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
                     <Protein />
-
                     <span className="value-title">{proteinIntake}g</span>
                     <span> Protein</span>
                   </div>

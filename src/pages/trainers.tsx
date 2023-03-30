@@ -19,6 +19,7 @@ import React, { useState, useEffect } from "react";
 import { Card } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "next/link";
+import Navigation from "../../components/Navigation";
 const { Meta } = Card;
 
 export default function Trainers() {
@@ -56,40 +57,7 @@ export default function Trainers() {
   return (
     <>
       <div className="navigation-side">
-        <div className="nav-bar">
-          <Link href="/">
-            <div className="title">CalBud</div>
-          </Link>
-          <div className="nav-item-list">
-            <a>
-              <div className="items">
-                <PieChartFilled className="icon" />
-                Macros Cals
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <CalculatorFilled className="icon" />
-                BMI Calc
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <PercentageOutlined className="icon" />
-                Body Fat Calc
-              </div>
-            </a>
-            <a>
-              <div className="items">
-                <HeartFilled className="icon" />
-                Ideal Weight
-              </div>
-            </a>
-          </div>
-          <div className="button-div">
-            <Button className="upgrade-button">Upgrade</Button>
-          </div>
-        </div>
+        <Navigation />
         <div className="page-layout">
           <div className="main-title">
             <PieChartFilled className="icon-title" />
