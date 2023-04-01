@@ -300,7 +300,7 @@ p {
   color: #1677ff;
   background: #ffffff;
   border-color: transparent !important;
-
+  height: 50px;
   width: 100px;
   text-align: center;
 }
@@ -310,6 +310,7 @@ p {
   ).ant-radio-button-wrapper-checked:not(
     .ant-radio-button-wrapper-disabled
   )::before {
+  height: 50px;
   background-color: transparent !important;
 }
 
@@ -320,6 +321,7 @@ p {
   border-end-end-radius: 6px;
   width: 100px;
   text-align: center;
+  height: 50px;
 }
 
 :where(
@@ -330,6 +332,18 @@ p {
   border-end-start-radius: 6px;
   width: 100px;
   text-align: center;
+  height: 50px;
+}
+:where(.css-dev-only-do-not-override-mxhywb)[class^="ant-radio"]
+  [class^="ant-radio"],
+:where(.css-dev-only-do-not-override-mxhywb)[class*=" ant-radio"]
+  [class^="ant-radio"],
+:where(.css-dev-only-do-not-override-mxhywb)[class^="ant-radio"]
+  [class*=" ant-radio"],
+:where(.css-dev-only-do-not-override-mxhywb)[class*=" ant-radio"]
+  [class*=" ant-radio"] {
+  box-sizing: border-box;
+  height: 50px;
 }
 
 .ring {
@@ -402,4 +416,16 @@ p {
   font-size: 20px;
   font-weight: 600;
   margin-top: 10px;
+}
+
+.modal-alignment {
+  display: flex;
+  flex-direction: row;
+}
+
+.ant-modal-content {
+  width: 700px;
+}
+.calendy {
+  /* background: red; */
 }

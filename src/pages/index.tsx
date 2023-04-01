@@ -200,8 +200,11 @@ export default function Home() {
                 <p>Activity Level</p>
                 <Radio.Group onChange={handleActivityLevel}>
                   <Radio.Button value="sedentary">Sedentary</Radio.Button>
+                  <Radio.Button value="light">Light</Radio.Button>
                   <Radio.Button value="moderate">Moderate</Radio.Button>
                   <Radio.Button value="active">Active</Radio.Button>
+                  <Radio.Button value="very-active">Very Active</Radio.Button>
+                  <Radio.Button value="extra-active">Extra Active</Radio.Button>
                 </Radio.Group>
               </div>
               <div className="calculate-macros-div">
