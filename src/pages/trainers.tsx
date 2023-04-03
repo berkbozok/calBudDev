@@ -85,38 +85,57 @@ export default function Trainers() {
                     title={cards[selectedCardIndex].title}
                     visible={isModalVisible}
                     onCancel={handleCancel}
-                    okButtonProps={{ style: { display: "none" } }}
+                    className="trainer-modal"
+                    okButtonProps={{
+                      style: { display: "none", width: "500px" },
+                    }}
                   >
-                    <p>
-                      Write personal information for{" "}
-                      {cards[selectedCardIndex].title}
-                    </p>
-                    {cards[selectedCardIndex].info}
+                    <div className="modal-alignment">
+                      <div>
+                        <p>
+                          Write personal information for{" "}
+                          {cards[selectedCardIndex].title}
+                        </p>
+                        {cards[selectedCardIndex].info}
 
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Name:</span> John Doe
-                    </p>
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Age:</span> 30
-                    </p>
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>
-                        Years of Experience:
-                      </span>{" "}
-                      5
-                    </p>
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Phone:</span>{" "}
-                      555-1234
-                    </p>
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Email:</span>{" "}
-                      johndoe@example.com
-                    </p>
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Social Media:</span>{" "}
-                      @johndoe
-                    </p>
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>Name:</span> John
+                          Doe
+                        </p>
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>Age:</span> 30
+                        </p>
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Years of Experience:
+                          </span>{" "}
+                          5
+                        </p>
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>Phone:</span>{" "}
+                          555-1234
+                        </p>
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>Email:</span>{" "}
+                          johndoe@example.com
+                        </p>
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Social Media:
+                          </span>{" "}
+                          @johndoe
+                        </p>
+                      </div>
+                      <div style={{ width: "70%" }}>
+                        <iframe
+                          className="calendly"
+                          src="https://calendly.com/find-trainer/berk"
+                          width="100%"
+                          height="800px"
+                          frameBorder="0"
+                        ></iframe>
+                      </div>
+                    </div>
                   </Modal>
                 )}
               </div>

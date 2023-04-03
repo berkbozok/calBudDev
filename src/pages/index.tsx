@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { Button, Radio, Slider, Space, Progress, Tooltip } from "antd";
+import { Button, Radio, Slider, Space, Progress, Tooltip, Select } from "antd";
 import {
   CalculatorFilled,
   HeartFilled,
@@ -13,7 +13,6 @@ import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
-
 import Link from "next/link";
 import Navigation from "../../components/Navigation";
 
@@ -75,12 +74,12 @@ export default function Home() {
     let BmrValueComputation;
     if (sex === "male") {
       bmr = 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
-      BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel * goal;
+      BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel;
 
       setBmrValue(Math.floor(BmrValueComputation));
     } else {
       bmr = 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age;
-      BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel * goal;
+      BmrValueComputation = parseInt(bmr.toFixed(0)) * activityLevel;
       setBmrValue(Math.floor(BmrValueComputation));
     }
 
@@ -103,24 +102,32 @@ export default function Home() {
   };
 
   const handleActivityLevel = (event: any) => {
-    const value = event.target.value;
+    const value = event.target?.value;
     if (!value) {
       setGoal(value);
     }
 
     switch (value) {
       case "sedentary":
-        setActivityLevel(1.2);
+        setActivityLevel(1.18);
+        break;
+      case "light":
+        setActivityLevel(1.35);
         break;
       case "moderate":
-        setActivityLevel(1.55);
-
+        setActivityLevel(1.44);
         break;
       case "active":
-        setActivityLevel(1.9);
+        setActivityLevel(1.52);
+        break;
+      case "very-active":
+        setActivityLevel(1.69);
+        break;
+      case "extra-active":
+        setActivityLevel(1.865);
         break;
       default:
-        setActivityLevel(1.0);
+        setActivityLevel(1.44);
     }
     setFieldsFilled([true, true, true]);
   };
@@ -128,7 +135,7 @@ export default function Home() {
   let proteinPercentage = Math.ceil((proteinIntake / totalCal) * 100);
   let carbsPercentage = Math.ceil((carbIntake / totalCal) * 100);
   let fatPercentage = Math.ceil((fatIntake / totalCal) * 100);
-
+  const { Option } = Select;
   return (
     <>
       <div className="navigation-side">
@@ -160,14 +167,14 @@ export default function Home() {
                   <Radio.Button value="female">Female</Radio.Button>
                 </Radio.Group>
               </div>
-              <div>
+              {/* <div>
                 <p>What is your main weight goal?</p>
                 <Radio.Group onChange={handleGoal}>
                   <Radio.Button value="lose">Lose</Radio.Button>
                   <Radio.Button value="maintain">Maintain</Radio.Button>
                   <Radio.Button value="gain">Gain</Radio.Button>
                 </Radio.Group>
-              </div>
+              </div> */}
               <div>
                 <p>
                   I am <b>{age}</b> years old
@@ -200,15 +207,40 @@ export default function Home() {
                 <p>Activity Level</p>
                 <Radio.Group onChange={handleActivityLevel}>
                   <Radio.Button value="sedentary">Sedentary</Radio.Button>
+                  <Radio.Button value="light">Light</Radio.Button>
                   <Radio.Button value="moderate">Moderate</Radio.Button>
                   <Radio.Button value="active">Active</Radio.Button>
+                  <Radio.Button value="very-active">Very Active</Radio.Button>
+                  <Radio.Button value="extra-active">Extra Active</Radio.Button>
                 </Radio.Group>
+                {/* <Select
+                  className="dropdown"
+                  defaultValue="moderate"
+                  onChange={handleActivityLevel}
+                >
+                  <Option value="sedentary">
+                    Sedentary: little or no exercise
+                  </Option>
+                  <Option value="light">Light: exercise 1-3 times/week</Option>
+                  <Option value="moderate">
+                    Moderate: exercise 4-5 times/week
+                  </Option>
+                  <Option value="active">
+                    Active: daily exercise or intense exercise 3-4 times/week
+                  </Option>
+                  <Option value="very-active">
+                    Very Active: intense exercise 6-7 times/week
+                  </Option>
+                  <Option value="extra-active">
+                    Extra Active: very intense exercise daily, or physical job
+                  </Option>
+                </Select> */}
               </div>
               <div className="calculate-macros-div">
                 <Button
                   className="calculate-macros-button"
                   onClick={() => handleBmrComputation()}
-                  disabled={fieldsFilled.some((value) => value === false)}
+                  // disabled={fieldsFilled.some((value) => value === false)}
                 >
                   Calculate Macros
                 </Button>
@@ -217,9 +249,40 @@ export default function Home() {
             <div className="daily-macro-title">
               <h2 className="right-side-title">Your Daily Macro Goals</h2>
               <div className="ring">
-                <h3>Total </h3>
+                <h3>Total Maintain</h3>
                 <h3 className="bmr"> {BmrValue} </h3>
                 <h3> kcal</h3>
+              </div>
+              <div className="table">
+                <div className="row"></div>
+
+                <div className="row">
+                  <div className="cell">
+                    Mild weight loss <div>(0.25 kg/week)</div>
+                  </div>
+                  <div className="cell">
+                    <b>{Math.ceil(BmrValue * 0.92)}</b> <span>(92%)</span>
+                    <div>Calories/day</div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="cell">
+                    Weight loss <div>(0.5 kg/week)</div>
+                  </div>
+                  <div className="cell">
+                    <b> {Math.ceil(BmrValue * 0.83)}</b> <span>(83%)</span>
+                    <div>Calories/day</div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="cell">
+                    Extreme weight loss <div>(1 kg/week)</div>
+                  </div>
+                  <div className="cell">
+                    <b> {Math.ceil(BmrValue * 0.66)}</b> <span>(66%)</span>
+                    <div>Calories/day</div>
+                  </div>
+                </div>
               </div>
               <div className="daily-macro-value">
                 <div className="macro-value-div">
@@ -244,7 +307,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
               {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
                 <>
                   <div className="formula-title">Our formula for you</div>
@@ -273,7 +335,6 @@ export default function Home() {
                   </div>
                 </>
               )}
-
               <Link href="/trainers">
                 <Button className="find-trainer">Consult with a Trainer</Button>
               </Link>
