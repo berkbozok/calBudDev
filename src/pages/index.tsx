@@ -253,37 +253,44 @@ export default function Home() {
                 <h3 className="bmr"> {BmrValue} </h3>
                 <h3> kcal</h3>
               </div>
-              <div className="table">
-                <div className="row"></div>
 
-                <div className="row">
-                  <div className="cell">
-                    Mild weight loss <div>(0.25 kg/week)</div>
+              {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
+                <>
+                  <div className="table">
+                    <div className="row"></div>
+
+                    <div className="row">
+                      <div className="cell">
+                        Mild weight loss <div>(0.25 kg/week)</div>
+                      </div>
+                      <div className="cell">
+                        <b>{Math.ceil(BmrValue * 0.92)}</b> <span>(92%)</span>
+                        <div>Calories/day</div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="cell">
+                        Weight loss <div>(0.5 kg/week)</div>
+                      </div>
+                      <div className="cell">
+                        <b> {Math.ceil(BmrValue * 0.83)}</b> <span>(83%)</span>
+                        <div>Calories/day</div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="cell">
+                        Extreme weight loss <div>(1 kg/week)</div>
+                      </div>
+                      <div className="cell">
+                        <b> {Math.ceil(BmrValue * 0.66)}</b> <span>(66%)</span>
+                        <div>Calories/day</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="cell">
-                    <b>{Math.ceil(BmrValue * 0.92)}</b> <span>(92%)</span>
-                    <div>Calories/day</div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="cell">
-                    Weight loss <div>(0.5 kg/week)</div>
-                  </div>
-                  <div className="cell">
-                    <b> {Math.ceil(BmrValue * 0.83)}</b> <span>(83%)</span>
-                    <div>Calories/day</div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="cell">
-                    Extreme weight loss <div>(1 kg/week)</div>
-                  </div>
-                  <div className="cell">
-                    <b> {Math.ceil(BmrValue * 0.66)}</b> <span>(66%)</span>
-                    <div>Calories/day</div>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
               <div className="daily-macro-value">
                 <div className="macro-value-div">
                   <div className="value-box-alignment">
