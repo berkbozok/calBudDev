@@ -13,7 +13,6 @@ import Protein from "../../shared/protein";
 import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
-
 import Link from "next/link";
 import Navigation from "../../components/Navigation";
 
