@@ -209,10 +209,14 @@ export default function Home() {
                 <p>Activity Level</p>
 
                 <Select
-                  defaultValue="moderate"
+                  defaultValue="choose"
                   style={{ width: 420 }}
                   onChange={handleActivityLevel}
                   options={[
+                    {
+                      value: "choose",
+                      label: "Select activity level",
+                    },
                     {
                       value: "sedentary",
                       label: "Sedentary: little or no exercise",
