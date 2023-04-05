@@ -1,7 +1,5 @@
 import React, { useState, createContext } from 'react'
-
 import { PieChartFilled } from '@ant-design/icons'
-
 import Navigation from '../../components/Navigation'
 import CalculateMacros from '../../components/Index/CalculateMacros'
 import DailyMacro from '../../components/Index/DailyMacro'

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
-
+import React, { useState, useContext } from 'react'
 import { Button, Radio, Select, Slider } from 'antd'
 import { GlobalContext, globalContextTypes} from '@/pages'
 
