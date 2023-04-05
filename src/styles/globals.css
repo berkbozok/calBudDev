@@ -332,7 +332,7 @@ p {
   border-end-start-radius: 6px;
   width: 100px;
   text-align: center;
-  height: 50px;
+  height: 35px;
 }
 :where(.css-dev-only-do-not-override-mxhywb)[class^="ant-radio"]
   [class^="ant-radio"],
@@ -343,7 +343,7 @@ p {
 :where(.css-dev-only-do-not-override-mxhywb)[class*=" ant-radio"]
   [class*=" ant-radio"] {
   box-sizing: border-box;
-  height: 50px;
+  height: 35px;
 }
 
 .ring {
