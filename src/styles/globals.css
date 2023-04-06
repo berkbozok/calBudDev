@@ -117,6 +117,12 @@ a {
   background-color: #f1ead9;
   color: #b2b4ba;
 }
+@media only screen and (max-width: 767px) {
+  .main-page-layout {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 p {
   margin-bottom: 5px !important;
@@ -181,6 +187,10 @@ p {
   padding: 10px 0 50px 0;
   font-weight: bold;
   color: #152a63;
+}
+
+.hidden {
+  display: none;
 }
 
 .items {
@@ -370,6 +380,13 @@ p {
   font-weight: 700;
   color: rgb(0, 24, 88);
   font-size: 38px !important;
+}
+
+.bmr-calculate {
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 35px !important;
+  margin: 3px;
 }
 
 .value-title {
