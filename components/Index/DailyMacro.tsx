@@ -19,7 +19,6 @@ function DailyMacro() {
       <h2 className="right-side-title">Your Daily Macro Goals</h2>
       <div className="ring">
         <h3>Total Maintain</h3>
-
         {bmrValue !== 0 ? (
           <h3 className="bmr"> {bmrValue} </h3>
         ) : (
@@ -27,12 +26,10 @@ function DailyMacro() {
         )}
         <h3> kcal</h3>
       </div>
-
       {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
         <>
           <div className="table">
             <div className="row"></div>
-
             <div className="row">
               <div className="cell">
                 Mild weight loss <div>(0.25 kg/week)</div>
