@@ -54,9 +54,9 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem("Macros Calc", "1", <PieChartOutlined />),
-  getItem("BMI Calc", "2", <CalculatorOutlined className="icon" />),
-  getItem("Body Fat Calc", "3", <PercentageOutlined className="icon" />),
-  getItem("Ideal Weight", "4", <HeartOutlined className="icon" />),
+  getItem("BMI Calc", "2", <CalculatorOutlined />),
+  getItem("Body Fat Calc", "3", <PercentageOutlined />),
+  getItem("Ideal Weight", "4", <HeartOutlined />),
   getItem("Option 2", "5", <DesktopOutlined />),
   getItem("User", "sub1", <UserOutlined />, [
     getItem("Tom", "6"),
