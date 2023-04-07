@@ -23,6 +23,9 @@ import {
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
+  ToolOutlined,
+  CalculatorOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 import React, { useState, useEffect } from "react";
 import { Card } from "antd";
@@ -50,18 +53,18 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem("Macros Calc", "1", <PieChartOutlined />),
+  getItem("BMI Calc", "2", <CalculatorOutlined />),
+  getItem("Body Fat Calc", "3", <PercentageOutlined />),
+  getItem("Ideal Weight", "4", <HeartOutlined />),
+  // getItem("Option 2", "5", <DesktopOutlined />),
+  // getItem("User", "sub1", <UserOutlined />, [
+  //   getItem("Tom", "6"),
+  //   getItem("Bill", "7"),
+  //   getItem("Alex", "8"),
+  // ]),
+  getItem("Trainers", "5", <TeamOutlined />),
+  getItem("Settings", "6", <ToolOutlined />),
 ];
 
 export default function Navigation() {
@@ -79,16 +82,6 @@ export default function Navigation() {
           onCollapse={(value) => setCollapsed(value)}
           theme="light"
         >
-          {/* <div
-            style={{
-              height: 32,
-              margin: 16,
-              background: "rgba(255, 255, 255, 0.2)",
-            }}
-          >
-            CalBud
-          </div> */}
-
           <Link href="/">
             <div className="title">
               <div>
@@ -96,7 +89,7 @@ export default function Navigation() {
                   <Logo />
                 </div>
                 <div>
-                  <span className={collapsed ? "hidden" : ""}>CalBud</span>
+                  <span className={collapsed ? "hidden" : ""}>FITracker</span>
                 </div>
               </div>
             </div>
@@ -109,40 +102,6 @@ export default function Navigation() {
           />
         </Sider>
       </Layout>
-      {/* <div className="nav-bar">
-        <Link href="/">
-          <div className="title">CalBud</div>
-        </Link>
-        <div className="nav-item-list">
-          <a>
-            <div className="items">
-              <PieChartFilled className="icon" />
-              Macros Cals
-            </div>
-          </a>
-          <a>
-            <div className="items">
-              <CalculatorFilled className="icon" />
-              BMI Calc
-            </div>
-          </a>
-          <a>
-            <div className="items">
-              <PercentageOutlined className="icon" />
-              Body Fat Calc
-            </div>
-          </a>
-          <a>
-            <div className="items">
-              <HeartFilled className="icon" />
-              Ideal Weight
-            </div>
-          </a>
-        </div>
-        <div className="button-div">
-          <Button className="upgrade-button">Upgrade</Button>
-        </div>
-      </div> */}
     </>
   );
 }
