@@ -5,6 +5,7 @@ import CalculateMacros from "../../components/Index/CalculateMacros";
 import DailyMacro from "../../components/Index/DailyMacro";
 import { Layout } from "antd";
 import { Header } from "antd/es/layout/layout";
+import styled from "styled-components";
 
 export const GlobalContext = createContext<any>(null);
 export type globalContextTypes = {
@@ -17,6 +18,36 @@ export type globalContextTypes = {
   fatIntake: number;
   setFatIntake: React.Dispatch<React.SetStateAction<number>>;
 };
+
+const NavigationSide = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const PageLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const LineDivider = styled.div`
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(18, 18, 18, 0.125);
+`;
+
+const MainPageLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: #f1ead9;
+  color: #b2b4ba;
+
+  @media only screen and (max-width: 767px) {
+    .main-page-layout {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+`;
 
 export default function Home() {
   const [proteinIntake, setProteinIntake] = useState<number>(0);
@@ -43,17 +74,17 @@ export default function Home() {
           <div className="navigation-side">
             <Navigation />
             <Layout>
-              <div className="page-layout">
+              <PageLayout>
                 <Header className="main-title">
                   <PieChartFilled className="icon-title" />
                   Macros Calculator
                 </Header>
-                <div className="line"></div>
-                <div className="main-page-layout">
+                <LineDivider></LineDivider>
+                <MainPageLayout>
                   <CalculateMacros />
                   <DailyMacro />
-                </div>
-              </div>
+                </MainPageLayout>
+              </PageLayout>
             </Layout>
           </div>
         </Layout>

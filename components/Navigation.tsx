@@ -32,6 +32,7 @@ import { Card } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "next/link";
 import Logo from "../shared/logo";
+import styled from "styled-components";
 
 const { Meta } = Card;
 
@@ -67,6 +68,14 @@ const items: MenuItem[] = [
   getItem("Settings", "6", <ToolOutlined />),
 ];
 
+const Title = styled.div`
+  text-align: center;
+  font-size: 30px;
+  padding: 10px 0 50px 0;
+  font-weight: bold;
+  color: #152a63;
+`;
+
 export default function Navigation() {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -83,7 +92,7 @@ export default function Navigation() {
           theme="light"
         >
           <Link href="/">
-            <div className="title">
+            <Title>
               <div>
                 <div>
                   <Logo />
@@ -92,7 +101,7 @@ export default function Navigation() {
                   <span className={collapsed ? "hidden" : ""}>FITracker</span>
                 </div>
               </div>
-            </div>
+            </Title>
           </Link>
           <Menu
             theme="light"

@@ -20,8 +20,14 @@ import { Card } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "next/link";
 import Navigation from "../../components/Navigation";
-import PersonalTrainerList from '../../components/Trainer/PersonalTrainerList';
+import PersonalTrainerList from "../../components/Trainer/PersonalTrainerList";
+import styled from "styled-components";
 const { Meta } = Card;
+
+const NavigationSide = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 export default function Trainers() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -40,13 +46,12 @@ export default function Trainers() {
     setIsModalVisible(false);
   };
 
-
   return (
     <>
-      <div className="navigation-side">
+      <NavigationSide>
         <Navigation />
-      <PersonalTrainerList />
-      </div>
+        <PersonalTrainerList />
+      </NavigationSide>
     </>
   );
 }
