@@ -57,17 +57,14 @@ const items: MenuItem[] = [
   getItem("BMI Calc", "2", <CalculatorOutlined />),
   getItem("Body Fat Calc", "3", <PercentageOutlined />),
   getItem("Ideal Weight", "4", <HeartOutlined />),
-  getItem("Option 2", "5", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "6"),
-    getItem("Bill", "7"),
-    getItem("Alex", "8"),
-  ]),
-  getItem("Trainers", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "9"),
-    getItem("Team 2", "10"),
-  ]),
-  getItem("Settings", "11", <ToolOutlined />),
+  // getItem("Option 2", "5", <DesktopOutlined />),
+  // getItem("User", "sub1", <UserOutlined />, [
+  //   getItem("Tom", "6"),
+  //   getItem("Bill", "7"),
+  //   getItem("Alex", "8"),
+  // ]),
+  getItem("Trainers", "5", <TeamOutlined />),
+  getItem("Settings", "6", <ToolOutlined />),
 ];
 
 export default function Navigation() {
