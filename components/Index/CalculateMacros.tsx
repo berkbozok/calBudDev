@@ -1,11 +1,14 @@
 import React, { useState, useContext } from 'react'
-import { Button, Radio, Select, Slider } from 'antd'
-import { GlobalContext, globalContextTypes} from '@/pages'
+import { Button, InputNumber, Radio, Select, Slider } from 'antd'
+import { GlobalContext, globalContextTypes } from '@/pages'
 
 function CalculateMacros() {
-
-    const {setBmrValue, setProteinIntake, setCarbIntake
-    , setFatIntake} : globalContextTypes= useContext(GlobalContext)
+  const {
+    setBmrValue,
+    setProteinIntake,
+    setCarbIntake,
+    setFatIntake,
+  }: globalContextTypes = useContext(GlobalContext)
 
   const [sex, setSex] = useState<string>('')
   const [fieldsFilled, setFieldsFilled] = useState([false, false, false])
@@ -13,20 +16,20 @@ function CalculateMacros() {
   const [age, setAge] = useState<number>(0)
   const [height, setHeight] = useState<number>(0)
   const [weight, setWeight] = useState<number>(0)
-
+  const [unitMeasure, setUnitMeaure] = useState<string>('metric')
 
   const handleSex = (event: any) => {
     setSex(event.target.value)
     setFieldsFilled([true, true, false])
   }
-  
-  const handleHeight = (value: number | [number, number]) => {
+
+  const handleHeight = (value: number | null) => {
     if (typeof value === 'number') {
       setHeight(value)
     }
   }
 
-  const handleWeight = (value: number | [number, number]) => {
+  const handleWeight = (value: number | null) => {
     if (typeof value === 'number') {
       setWeight(value)
     }
@@ -87,9 +90,21 @@ function CalculateMacros() {
       setBmrValue(totalCalDirectComputation)
     }
   }
-  const handleAge = (value: number | [number, number]) => {
+  const handleAge = (value: number | null) => {
     if (typeof value === 'number') {
       setAge(value)
+    }
+  }
+
+  const handleUnitMeasure = (event: any) => {
+    setWeight(0)
+    setHeight(0)
+    console.log('event', event.target.value)
+    const unitMeasure = event.target.value
+    if (unitMeasure === 'imperial') {
+      setUnitMeaure('imperial')
+    } else {
+      setUnitMeaure('metric')
     }
   }
   return (
@@ -100,7 +115,7 @@ function CalculateMacros() {
       </p>
       <div>
         <p>System</p>
-        <Radio.Group defaultValue='metric' onChange={(e) => {}}>
+        <Radio.Group defaultValue='metric' onChange={handleUnitMeasure}>
           <Radio.Button value='imperial'>Imperial</Radio.Button>
           <Radio.Button value='metric'>Metric</Radio.Button>
         </Radio.Group>
@@ -116,33 +131,24 @@ function CalculateMacros() {
         <p>
           I am <b>{age}</b> years old
         </p>
-        <Slider defaultValue={age} onAfterChange={handleAge} />
+        <InputNumber min={1} max={100} onChange={handleAge} style={{ width: 100 }} />
       </div>
       <div>
         <p>
-          My Height: <b>{height}</b> cm
+          My Height:{' '}
+          <b>{ height}</b>{' '}
+          {unitMeasure === 'metric' ? 'cm' : 'inch'}
         </p>
-        <Slider
-          min={0}
-          max={250}
-          defaultValue={height}
-          onAfterChange={handleHeight}
-        />
+        <InputNumber min={1} max={400} value={height} onChange={handleHeight} style={{ width: 100 }} />
       </div>
       <div>
         <p>
-          Current Weight: <b>{weight}</b> kg
+          Current Weight: <b>{weight}</b> {unitMeasure === 'metric' ? 'kg' : 'pounds'}
         </p>
-        <Slider
-          min={0}
-          max={200}
-          defaultValue={weight}
-          onAfterChange={handleWeight}
-        />
+        <InputNumber min={1} max={400} value={weight} onChange={handleWeight} style={{ width: 100 }} />
       </div>
       <div>
         <p>Activity Level</p>
-
         <Select
           defaultValue='choose'
           style={{ width: 420 }}
