@@ -92,7 +92,7 @@ export default function Navigation() {
                   <Logo />
                 </div>
                 <div>
-                  <span className={collapsed ? "hidden" : ""}>CalBud</span>
+                  <span className={collapsed ? "hidden" : ""}>FITracker</span>
                 </div>
               </div>
             </div>
