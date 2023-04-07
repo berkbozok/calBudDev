@@ -38,8 +38,9 @@ const LineDivider = styled.div`
 const MainPageLayout = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #f1ead9;
+  background-color: #fef6e4;
   color: #b2b4ba;
+  padding: 15px;
 
   @media only screen and (max-width: 767px) {
     .main-page-layout {

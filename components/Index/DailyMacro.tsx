@@ -14,6 +14,7 @@ const DailyMacroTitle = styled.div`
   align-items: center;
   padding-top: 50px;
   margin: 0 auto;
+  background: #f1ead9;
 `;
 
 const RightSideTitle = styled.div`
