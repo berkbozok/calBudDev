@@ -8,6 +8,7 @@ import { Header } from "antd/es/layout/layout";
 import styled from "styled-components";
 
 export const GlobalContext = createContext<any>(null);
+
 export type globalContextTypes = {
   bmrValue: number;
   setBmrValue: React.Dispatch<React.SetStateAction<number>>;
