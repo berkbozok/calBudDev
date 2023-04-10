@@ -79,6 +79,7 @@ const PersonalTrainerList = () => {
       info: "good trainer 2",
     },
   ];
+
   return (
     <PageLayout>
       <MainTitle>Trainers</MainTitle>
