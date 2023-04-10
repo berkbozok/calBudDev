@@ -41,7 +41,6 @@ const MainPageLayout = styled.div`
   flex-direction: row;
   background-color: #fef6e4;
   color: #b2b4ba;
-  padding: 15px;
 
   @media only screen and (max-width: 767px) {
     .main-page-layout {

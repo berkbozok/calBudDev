@@ -125,6 +125,19 @@ const ReplacementTitle = styled.div`
   text-align: center;
 `;
 
+const Bmr = styled.h3`
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 38px !important;
+`;
+
+const BmrCalculate = styled.h3`
+  font-weight: 700;
+  color: rgb(0, 24, 88);
+  font-size: 35px !important;
+  margin: 3px;
+`;
+
 function DailyMacro() {
   const { fatIntake, carbIntake, proteinIntake, bmrValue }: globalContextTypes =
     useContext(GlobalContext);
@@ -139,9 +152,9 @@ function DailyMacro() {
       <Ring>
         <h3>Total Maintain</h3>
         {bmrValue !== 0 ? (
-          <h3 className="bmr"> {bmrValue} </h3>
+          <Bmr> {bmrValue} </Bmr>
         ) : (
-          <h3 className="bmr-calculate"> Calculate </h3>
+          <BmrCalculate> Calculate </BmrCalculate>
         )}
         <h3> kcal</h3>
       </Ring>

@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
@@ -38,9 +38,9 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-}
+} */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -71,7 +71,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -131,10 +131,10 @@ p {
   margin-top: 16px !important;
 }
 
-.title-macros {
+/* .title-macros {
   color: #001858;
   font-weight: 700;
-}
+} */
 
 /* .daily-macro-title {
   display: flex;
@@ -242,14 +242,14 @@ p {
   padding: 0 0 30px 0;
 }
 
-.calculate-macros-div {
+/* .calculate-macros-div {
   margin-top: 40px;
   width: 100%;
   display: flex;
   justify-content: left;
   align-items: center;
   padding: 0 0 30px 0;
-}
+} */
 
 .calculate-macros-button {
   background-color: #f582ae;
@@ -375,7 +375,7 @@ p {
   line-height: normal;
 } */
 
-.bmr {
+/* .bmr {
   font-weight: 700;
   color: rgb(0, 24, 88);
   font-size: 38px !important;
@@ -386,7 +386,7 @@ p {
   color: rgb(0, 24, 88);
   font-size: 35px !important;
   margin: 3px;
-}
+} */
 
 /* .value-title {
   font-weight: 700;
