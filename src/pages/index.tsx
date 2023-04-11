@@ -20,11 +20,6 @@ export type globalContextTypes = {
   setFatIntake: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const NavigationSide = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 const PageLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,6 +43,11 @@ const MainPageLayout = styled.div`
       flex-direction: column;
     }
   }
+`;
+
+const NavigationSide = styled.div`
+  // display: flex;
+  // flex-direction: row;
 `;
 
 export default function Home() {
