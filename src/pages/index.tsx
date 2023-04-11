@@ -71,7 +71,6 @@ export default function Home() {
       <>
         <Layout>
           <Navigation />
-
           <Layout>
             <Header className="main-title">
               <PieChartFilled className="icon-title" />
