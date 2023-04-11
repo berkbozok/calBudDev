@@ -84,7 +84,6 @@ export default function Navigation() {
 
   return (
     <>
-      <Layout style={{ minHeight: "100vh" }}>
         <Sider
           collapsible
           collapsed={collapsed}
@@ -110,7 +109,6 @@ export default function Navigation() {
             items={items}
           />
         </Sider>
-      </Layout>
     </>
   );
 }
