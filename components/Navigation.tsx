@@ -53,17 +53,29 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Macros Calc", "1", <PieChartOutlined />),
-  getItem("BMI Calc", "2", <CalculatorOutlined />),
+  getItem(
+    "Macros Calc",
+    "1",
+    <Link href="/">
+      <PieChartOutlined />
+    </Link>
+  ),
+  getItem(
+    "BMI Calc",
+    "2",
+    <Link href="/bmi">
+      <CalculatorOutlined />
+    </Link>
+  ),
   getItem("Body Fat Calc", "3", <PercentageOutlined />),
   getItem("Ideal Weight", "4", <HeartOutlined />),
-  // getItem("Option 2", "5", <DesktopOutlined />),
-  // getItem("User", "sub1", <UserOutlined />, [
-  //   getItem("Tom", "6"),
-  //   getItem("Bill", "7"),
-  //   getItem("Alex", "8"),
-  // ]),
-  getItem("Trainers", "5", <TeamOutlined />),
+  getItem(
+    "Trainers",
+    "5",
+    <Link href="/trainers">
+      <TeamOutlined />
+    </Link>
+  ),
   getItem("Settings", "6", <ToolOutlined />),
 ];
 
@@ -75,31 +87,31 @@ export default function Navigation() {
 
   return (
     <>
-        <Sider
-          collapsible
-          collapsed={collapsed}
-          onCollapse={(value) => setCollapsed(value)}
-          theme="light"
-        >
-          <Link href="/">
-            <div className="title">
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+        theme="light"
+      >
+        <Link href="/">
+          <div className="title">
+            <div>
               <div>
-                <div>
-                  <Logo />
-                </div>
-                <div>
-                  <span className={collapsed ? "hidden" : ""}>FITracker</span>
-                </div>
+                <Logo />
+              </div>
+              <div>
+                <span className={collapsed ? "hidden" : ""}>FITracker</span>
               </div>
             </div>
-          </Link>
-          <Menu
-            theme="light"
-            defaultSelectedKeys={["1"]}
-            mode="inline"
-            items={items}
-          />
-        </Sider>
+          </div>
+        </Link>
+        <Menu
+          theme="light"
+          defaultSelectedKeys={["1"]}
+          mode="inline"
+          items={items}
+        />
+      </Sider>
     </>
   );
 }
