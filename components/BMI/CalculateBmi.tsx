@@ -1,9 +1,37 @@
 import React, { useState } from "react";
+import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
+import styled from "styled-components";
 
 interface BmiCalculatorProps {
   gender: "male" | "female";
   age: number;
 }
+const { Option } = Select;
+
+const Title = styled(Typography.Title)`
+  text-align: center;
+`;
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+
+const Label = styled(Form.Item)`
+  margin-bottom: 8px;
+`;
+
+const ButtonContainer = styled(Form.Item)`
+  margin-top: 24px;
+  text-align: center;
+`;
+
+const ResultContainer = styled.div`
+  margin-top: 24px;
+  text-align: center;
+`;
 
 const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
   const [height, setHeight] = useState(0);
@@ -69,65 +97,55 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
 
   return (
     <div>
-      <h2>BMI Calculator</h2>
-      <div>
-        <label>
-          Height (cm):
-          <input
-            type="number"
+      <Typography.Title level={2}>BMI Calculator</Typography.Title>
+      <Form>
+        <Form.Item label="Height (cm)">
+          <InputNumber
             value={height}
-            onChange={(e) => setHeight(parseInt(e.target.value))}
+            onChange={(value) => setHeight(value ? +value : 0)}
           />
-        </label>
-      </div>
-      <div>
-        <label>
-          Weight (kg):
-          <input
-            type="number"
+        </Form.Item>
+        <Form.Item label="Weight (kg)">
+          <InputNumber
             value={weight}
-            onChange={(e) => setWeight(parseInt(e.target.value))}
+            onChange={(value) => setWeight(value ? +value : 0)}
           />
-        </label>
-      </div>
-      <div>
-        <label>
-          Gender:
-          <select
-            value={gender}
-            onChange={(e) => setGender(e.target.value as "male" | "female")}
-          >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          Age:
-          <input
-            type="number"
-            value={age}
-            onChange={(e) => setAge(parseInt(e.target.value))}
+        </Form.Item>
+        <Form.Item label="Gender">
+          <Select value={selectedGender} onChange={setGender}>
+            <Select.Option value="male">Male</Select.Option>
+            <Select.Option value="female">Female</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="Age">
+          <InputNumber
+            value={selectedAge}
+            onChange={(value) => setAge(value ? +value : 0)}
           />
-        </label>
-      </div>
-      <div>
-        <button onClick={calculateBmi}>Calculate BMI</button>
-      </div>
-      <div>
-        {bmi > 0 && (
-          <div>
-            <p>Your BMI is: {bmi.toFixed(1)}</p>
-            <p>Your BMI status is: {getBmiStatus()}</p>
-            <p>
-              Normal BMI range for your age and gender is:{" "}
-              {getBmiStatusByAgeAndGender()}
-            </p>
-            <p>Normal BMI range for your height is: {getBmiRange()}</p>
-          </div>
-        )}
-      </div>
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" onClick={calculateBmi}>
+            Calculate BMI
+          </Button>
+        </Form.Item>
+      </Form>
+      {bmi > 0 && (
+        <div>
+          <Typography.Paragraph>
+            Your BMI is: {bmi.toFixed(1)}
+          </Typography.Paragraph>
+          <Typography.Paragraph>
+            Your BMI status is: {getBmiStatus()}
+          </Typography.Paragraph>
+          <Typography.Paragraph>
+            Normal BMI range for your age and gender is:{" "}
+            {getBmiStatusByAgeAndGender()}
+          </Typography.Paragraph>
+          <Typography.Paragraph>
+            Normal BMI range for your height is: {getBmiRange()}
+          </Typography.Paragraph>
+        </div>
+      )}
     </div>
   );
 };
