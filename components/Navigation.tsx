@@ -67,7 +67,13 @@ const items: MenuItem[] = [
       <CalculatorOutlined />
     </Link>
   ),
-  getItem("Body Fat Calc", "3", <PercentageOutlined />),
+  getItem(
+    "Body Fat Calc",
+    "3",
+    <Link href="/bodyfat">
+      <PercentageOutlined />
+    </Link>
+  ),
   getItem("Ideal Weight", "4", <HeartOutlined />),
   getItem(
     "Trainers",
