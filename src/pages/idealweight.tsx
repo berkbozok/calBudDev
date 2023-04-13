@@ -3,14 +3,15 @@ import React from "react";
 import Navigation from "../../components/Navigation";
 import PersonalTrainerList from "../../components/Trainer/PersonalTrainerList";
 import CalculateBmi from "../../components/BMI/CalculateBmi";
+import CalculateIdealWeight from "../../components/Weight/CalculateIdealWeight";
 
-function Bmi() {
+function IdealWeight() {
   return (
     <div className="navigation-side">
       <Navigation />
-      <CalculateBmi gender={"male"} age={0} />
+      <CalculateIdealWeight gender={"male"} age={0} height={0} />
     </div>
   );
 }
 
-export default Bmi;
+export default IdealWeight;

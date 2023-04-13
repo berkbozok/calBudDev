@@ -74,7 +74,13 @@ const items: MenuItem[] = [
       <PercentageOutlined />
     </Link>
   ),
-  getItem("Ideal Weight", "4", <HeartOutlined />),
+  getItem(
+    "Ideal Weight",
+    "4",
+    <Link href="/idealweight">
+      <HeartOutlined />
+    </Link>
+  ),
   getItem(
     "Trainers",
     "5",
