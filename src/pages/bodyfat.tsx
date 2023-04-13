@@ -9,7 +9,7 @@ export default function BodyFat() {
     <>
       <div className="navigation-side">
         <Navigation />
-        <CalculateBodyFat />
+        <CalculateBodyFat gender={"male"} age={0} />
       </div>
     </>
   );
