@@ -7,10 +7,7 @@ import CalculateIdealWeight from "../../components/Weight/CalculateIdealWeight";
 
 function IdealWeight() {
   return (
-    <div className="navigation-side">
-      <Navigation />
       <CalculateIdealWeight gender={"male"} age={0} height={0} />
-    </div>
   );
 }
 
