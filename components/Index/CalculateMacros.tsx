@@ -1,6 +1,26 @@
 import React, { useState, useContext } from "react";
 import { Button, InputNumber, Radio, Select, Slider } from "antd";
 import { GlobalContext, globalContextTypes } from "@/pages";
+import styled from "styled-components";
+
+const MainPage = styled.div`
+  background-color: #fef6e4;
+  height: 100vh;
+  padding: 10px 30px 10px 30px;
+`;
+const TitleMacros = styled.h2`
+  color: #001858;
+  font-weight: 700;
+`;
+
+const CalculateMacrosDiv = styled.div`
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 0 30px 0;
+`;
 
 function CalculateMacros() {
   const {
@@ -108,8 +128,8 @@ function CalculateMacros() {
     }
   };
   return (
-    <div className="main-page">
-      <h2 className="title-macros">Calculate Your Macros</h2>
+    <MainPage>
+      <TitleMacros>Calculate Your Macros</TitleMacros>
       <p>
         Craft your ideal macronutrient ratio now using our macros calculator
       </p>
@@ -201,7 +221,7 @@ function CalculateMacros() {
           ]}
         />
       </div>
-      <div className="calculate-macros-div">
+      <CalculateMacrosDiv>
         <Button
           className="calculate-macros-button"
           onClick={() => handleBmrComputation()}
@@ -209,8 +229,8 @@ function CalculateMacros() {
         >
           Calculate Macros
         </Button>
-      </div>
-    </div>
+      </CalculateMacrosDiv>
+    </MainPage>
   );
 }
 

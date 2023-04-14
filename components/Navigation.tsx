@@ -32,6 +32,7 @@ import { Card } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "next/link";
 import Logo from "../shared/logo";
+import styled from "styled-components";
 
 const { Meta } = Card;
 
@@ -91,6 +92,14 @@ const items: MenuItem[] = [
   getItem("Settings", "6", <ToolOutlined />),
 ];
 
+const Title = styled.div`
+  text-align: center;
+  font-size: 30px;
+  padding: 10px 0 50px 0;
+  font-weight: bold;
+  color: #152a63;
+`;
+
 export default function Navigation() {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -99,31 +108,26 @@ export default function Navigation() {
 
   return (
     <>
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-        theme="light"
-      >
-        <Link href="/">
-          <div className="title">
-            <div>
-              <div>
-                <Logo />
-              </div>
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
+          theme="light"
+        >
+          <Link href="/">
+            <Title>
               <div>
                 <span className={collapsed ? "hidden" : ""}>FITracker</span>
               </div>
-            </div>
-          </div>
-        </Link>
-        <Menu
-          theme="light"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={items}
-        />
-      </Sider>
+            </Title>
+          </Link>
+          <Menu
+            theme="light"
+            defaultSelectedKeys={["1"]}
+            mode="inline"
+            items={items}
+          />
+        </Sider>
     </>
   );
 }

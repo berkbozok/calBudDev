@@ -19,11 +19,15 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-components": "^5.3.9",
     "typescript": "5.0.2"
   },
   "overrides": {
     "@antv/g2": "4.2.8",
     "@antv/g-base": "0.5.11",
     "@antv/path-util": "2.0.15"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
   }
 }
