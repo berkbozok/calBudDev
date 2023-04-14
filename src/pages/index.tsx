@@ -71,12 +71,6 @@ export default function Home() {
     <GlobalContext.Provider value={globalContextValues}>
       <>
         <Layout>
-          <Navigation />
-          <Layout>
-            <Header className="main-title">
-              <PieChartFilled className="icon-title" />
-              Macros Calculator
-            </Header>
             <Content>
               <div className="line"></div>
               <div className="main-page-layout">
@@ -84,7 +78,6 @@ export default function Home() {
                 <DailyMacro />
               </div>
             </Content>
-          </Layout>
         </Layout>
       </>
     </GlobalContext.Provider>

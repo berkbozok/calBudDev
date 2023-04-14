@@ -34,7 +34,8 @@ const ResultContainer = styled.div`
   text-align: center;
 `;
 
-const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
+
+function CalculateBodyFat({gender,age}:CalculateBodyFatProps){
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [neckSize, setNeckSize] = useState(0);
