@@ -54,17 +54,41 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Macros Calc", "1", <PieChartOutlined />),
-  getItem("BMI Calc", "2", <CalculatorOutlined />),
-  getItem("Body Fat Calc", "3", <PercentageOutlined />),
-  getItem("Ideal Weight", "4", <HeartOutlined />),
-  // getItem("Option 2", "5", <DesktopOutlined />),
-  // getItem("User", "sub1", <UserOutlined />, [
-  //   getItem("Tom", "6"),
-  //   getItem("Bill", "7"),
-  //   getItem("Alex", "8"),
-  // ]),
-  getItem("Trainers", "5", <TeamOutlined />),
+  getItem(
+    "Macros Calc",
+    "1",
+    <Link href="/">
+      <PieChartOutlined />
+    </Link>
+  ),
+  getItem(
+    "BMI Calc",
+    "2",
+    <Link href="/bmi">
+      <CalculatorOutlined />
+    </Link>
+  ),
+  getItem(
+    "Body Fat Calc",
+    "3",
+    <Link href="/bodyfat">
+      <PercentageOutlined />
+    </Link>
+  ),
+  getItem(
+    "Ideal Weight",
+    "4",
+    <Link href="/idealweight">
+      <HeartOutlined />
+    </Link>
+  ),
+  getItem(
+    "Trainers",
+    "5",
+    <Link href="/trainers">
+      <TeamOutlined />
+    </Link>
+  ),
   getItem("Settings", "6", <ToolOutlined />),
 ];
 
@@ -93,12 +117,7 @@ export default function Navigation() {
           <Link href="/">
             <Title>
               <div>
-                <div>
-                  <Logo />
-                </div>
-                <div>
-                  <span className={collapsed ? "hidden" : ""}>FITracker</span>
-                </div>
+                <span className={collapsed ? "hidden" : ""}>FITracker</span>
               </div>
             </Title>
           </Link>

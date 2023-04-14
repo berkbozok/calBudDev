@@ -154,6 +154,7 @@ function CalculateMacros() {
         <InputNumber
           min={1}
           max={100}
+          value={age}
           onChange={handleAge}
           style={{ width: 100 }}
         />
