@@ -8,6 +8,7 @@ const MainPage = styled.div`
   height: 100vh;
   padding: 10px 30px 10px 30px;
 `;
+
 const TitleMacros = styled.h2`
   color: #001858;
   font-weight: 700;
