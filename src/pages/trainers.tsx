@@ -15,7 +15,6 @@ export default function Trainers() {
   return (
     <>
       <NavigationSide>
-        <Navigation />
         <PersonalTrainerList />
       </NavigationSide>
     </>

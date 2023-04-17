@@ -1,4 +1,3 @@
-
 import React, { useState, createContext } from "react";
 import { PieChartFilled } from "@ant-design/icons";
 import Navigation from "../../components/Navigation";
@@ -71,12 +70,12 @@ export default function Home() {
     <GlobalContext.Provider value={globalContextValues}>
       <>
         <Layout>
-          <Navigation />
+          {/* <Navigation /> */}
           <Layout>
-            <Header className="main-title">
+            {/* <Header className="main-title">
               <PieChartFilled className="icon-title" />
               Macros Calculator
-            </Header>
+            </Header> */}
             <Content>
               <div className="line"></div>
               <div className="main-page-layout">
