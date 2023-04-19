@@ -45,10 +45,20 @@ const Ring = styled.div`
   }
 `;
 
+const RingText = styled.h3`
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  color: rgb(127, 135, 157);
+  font-weight: 600;
+  font-size: 17px;
+`;
+
 const Table = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  color: black;
 `;
 
 const TableRow = styled.div`
@@ -150,13 +160,13 @@ function DailyMacro() {
     <DailyMacroTitle>
       <RightSideTitle>Your Daily Macro Goals</RightSideTitle>
       <Ring>
-        <h3>Total Maintain</h3>
+        <RingText>Total Maintain</RingText>
         {bmrValue !== 0 ? (
           <Bmr> {bmrValue} </Bmr>
         ) : (
           <BmrCalculate> Calculate </BmrCalculate>
         )}
-        <h3> kcal</h3>
+        <RingText> kcal</RingText>
       </Ring>
       {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
         <>
