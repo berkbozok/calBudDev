@@ -1,25 +1,6 @@
+import { Menu, MenuProps, theme, Layout } from "antd";
 import {
-  Button,
-  Radio,
-  Slider,
-  Space,
-  Progress,
-  Tooltip,
-  Modal,
-  Input,
-  Form,
-  Menu,
-  MenuProps,
-  theme,
-  Layout,
-} from "antd";
-import {
-  CalculatorFilled,
-  HeartFilled,
   PercentageOutlined,
-  PieChartFilled,
-  DesktopOutlined,
-  FileOutlined,
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
@@ -28,15 +9,11 @@ import {
   HeartOutlined,
 } from "@ant-design/icons";
 import React, { useState, useEffect } from "react";
-import { Card } from "antd";
-import Paragraph from "antd/es/typography/Paragraph";
 import Link from "next/link";
 import Logo from "../shared/logo";
 import styled from "styled-components";
 
-const { Meta } = Card;
-
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 function getItem(
