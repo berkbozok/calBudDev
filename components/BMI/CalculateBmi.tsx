@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
+import {
+  Input,
+  Select,
+  Button,
+  Typography,
+  Form,
+  InputNumber,
+  Row,
+  Col,
+} from "antd";
 import styled from "styled-components";
 
 interface BmiCalculatorProps {
@@ -8,29 +17,25 @@ interface BmiCalculatorProps {
 }
 const { Option } = Select;
 
-const Title = styled(Typography.Title)`
-  text-align: center;
-`;
-
-const MainBmi = styled.div`
+const BmiInputs = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
+  background: #fef6e4;
+  padding: 15px;
+  width: 50%;
+`;
+const MainPage = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
-const Label = styled(Form.Item)`
-  margin-bottom: 8px;
-`;
-
-const ButtonContainer = styled(Form.Item)`
-  margin-top: 24px;
-  text-align: center;
-`;
-
-const ResultContainer = styled.div`
-  margin-top: 24px;
-  text-align: center;
+const Results = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #f1ead9;
 `;
 
 const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
@@ -96,57 +101,67 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
   };
 
   return (
-    <MainBmi>
-      <Typography.Title level={2}>BMI Calculator</Typography.Title>
-      <Form>
-        <Form.Item label="Height (cm)">
-          <InputNumber
-            value={height}
-            onChange={(value) => setHeight(value ? +value : 0)}
-          />
-        </Form.Item>
-        <Form.Item label="Weight (kg)">
-          <InputNumber
-            value={weight}
-            onChange={(value) => setWeight(value ? +value : 0)}
-          />
-        </Form.Item>
-        <Form.Item label="Gender">
-          <Select value={selectedGender} onChange={setGender}>
-            <Select.Option value="male">Male</Select.Option>
-            <Select.Option value="female">Female</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label="Age">
-          <InputNumber
-            value={selectedAge}
-            onChange={(value) => setAge(value ? +value : 0)}
-          />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" onClick={calculateBmi}>
-            Calculate BMI
-          </Button>
-        </Form.Item>
-      </Form>
-      {bmi > 0 && (
-        <div>
-          <Typography.Paragraph>
-            Your BMI is: {bmi.toFixed(1)}
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Your BMI status is: {getBmiStatus()}
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Normal BMI range for your age and gender is:{" "}
-            {getBmiStatusByAgeAndGender()}
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Normal BMI range for your height is: {getBmiRange()}
-          </Typography.Paragraph>
-        </div>
-      )}
-    </MainBmi>
+    <>
+      <MainPage>
+        <BmiInputs>
+          <Typography.Title level={2}>BMI Calculator</Typography.Title>
+          <Typography.Title level={5}>Calculate your BMI</Typography.Title>
+          <Form style={{ display: "flex", flexDirection: "column" }}>
+            <Form.Item>
+              <Typography>Height (cm): </Typography>
+              <InputNumber
+                value={height}
+                onChange={(value) => setHeight(value ? +value : 0)}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Typography>Weight (kg): </Typography>
+              <InputNumber
+                value={weight}
+                onChange={(value) => setWeight(value ? +value : 0)}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Typography>Gender: </Typography>
+              <Select value={selectedGender} onChange={setGender}>
+                <Select.Option value="male">Male</Select.Option>
+                <Select.Option value="female">Female</Select.Option>
+              </Select>
+            </Form.Item>
+            <Form.Item>
+              <Typography>Age: </Typography>
+              <InputNumber
+                value={selectedAge}
+                onChange={(value) => setAge(value ? +value : 0)}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" onClick={calculateBmi}>
+                Calculate BMI
+              </Button>
+            </Form.Item>
+          </Form>
+        </BmiInputs>
+
+        {bmi > 0 && (
+          <Results>
+            <Typography.Paragraph>
+              Your BMI is: <b>{bmi.toFixed(1)}</b>
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              Your BMI status is: <b>{getBmiStatus()}</b>
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              Normal BMI range for your age and gender is:
+              <b> {getBmiStatusByAgeAndGender()}</b>
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              Normal BMI range for your height is: <b>{getBmiRange()}</b>
+            </Typography.Paragraph>
+          </Results>
+        )}
+      </MainPage>
+    </>
   );
 };
 
