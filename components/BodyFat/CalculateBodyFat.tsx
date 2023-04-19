@@ -52,6 +52,7 @@ const BodyFatInput = styled.div`
   padding: 15px;
   width: 50%;
 `;
+
 const Results = styled.div`
   display: flex;
   flex-direction: column;

@@ -34,6 +34,32 @@ const ResultContainer = styled.div`
   text-align: center;
 `;
 
+const MainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column !important;
+  }
+`;
+
+const IdealWeightInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  background: #fef6e4;
+  padding: 15px;
+  width: 50%;
+`;
+
+const Results = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #f1ead9;
+`;
+
 const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
   gender,
   age,
@@ -62,45 +88,51 @@ const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
 
   return (
     <>
-      <Title level={2}>Ideal Weight Calculator</Title>
-      <FormContainer>
-        <Form layout="vertical">
-          <Label label="Gender">
-            <Select
-              defaultValue={selectedGender}
-              onChange={(value: "male" | "female") => setGender(value)}
-            >
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
-            </Select>
-          </Label>
-          <Label label="Age">
-            <InputNumber
-              value={selectedAge}
-              onChange={(value) => setAge(value ?? 0)}
-            />
-          </Label>
-          <Label label="Height (cm)">
-            <InputNumber
-              value={selectedHeight}
-              onChange={(value) => setHeight(value ?? 0)}
-            />
-          </Label>
-          <ButtonContainer>
-            <Button type="primary" onClick={calculateIdealWeight}>
-              Calculate Ideal Weight
-            </Button>
-          </ButtonContainer>
-        </Form>
-      </FormContainer>
-      {idealWeight !== 0 && (
-        <ResultContainer>
-          <Title level={4}>Your Ideal Weight:</Title>
-          <Typography.Paragraph>
-            {idealWeight.toFixed(2)} kg
-          </Typography.Paragraph>
-        </ResultContainer>
-      )}
+      <MainPage>
+        <IdealWeightInput>
+          <Title level={2}>Ideal Weight Calculator</Title>
+          <FormContainer>
+            <Form layout="vertical">
+              <Label label="Gender">
+                <Select
+                  defaultValue={selectedGender}
+                  onChange={(value: "male" | "female") => setGender(value)}
+                >
+                  <Option value="male">Male</Option>
+                  <Option value="female">Female</Option>
+                </Select>
+              </Label>
+              <Label label="Age">
+                <InputNumber
+                  value={selectedAge}
+                  onChange={(value) => setAge(value ?? 0)}
+                />
+              </Label>
+              <Label label="Height (cm)">
+                <InputNumber
+                  value={selectedHeight}
+                  onChange={(value) => setHeight(value ?? 0)}
+                />
+              </Label>
+              <ButtonContainer>
+                <Button type="primary" onClick={calculateIdealWeight}>
+                  Calculate Ideal Weight
+                </Button>
+              </ButtonContainer>
+            </Form>
+          </FormContainer>
+        </IdealWeightInput>
+        {idealWeight !== 0 && (
+          <Results>
+            <ResultContainer>
+              <Title level={4}>Your Ideal Weight:</Title>
+              <Typography.Paragraph>
+                {idealWeight.toFixed(2)} kg
+              </Typography.Paragraph>
+            </ResultContainer>
+          </Results>
+        )}
+      </MainPage>
     </>
   );
 };
