@@ -124,7 +124,7 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
     };
     axis: {
       label: {
-        formatter(v: any): string;
+        formatter(v: number): number;
       };
       subTickLine: {
         count: number;
@@ -215,10 +215,10 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
               }}
               axis={{
                 label: {
-                  formatter: (v) => `${v}%`,
+                  formatter: (v) => `${+v * 100}`,
                 },
                 subTickLine: {
-                  count: 4,
+                  count: 5,
                 },
               }}
               statistic={{
