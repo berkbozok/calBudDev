@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import {
-  Input,
-  Select,
-  Button,
-  Typography,
-  Form,
-  InputNumber,
-  Row,
-  Col,
-} from "antd";
+import React, { useState, useEffect } from "react";
+import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
+import ReactDOM from "react-dom";
+import { Gauge } from "@ant-design/plots";
 
 interface BmiCalculatorProps {
   gender: "male" | "female";
@@ -112,6 +105,38 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
     }
   };
 
+  interface GaugeConfig {
+    percent: number;
+    range: {
+      color: string;
+    };
+    indicator: {
+      pointer: {
+        style: {
+          stroke: string;
+        };
+      };
+      pin: {
+        style: {
+          stroke: string;
+        };
+      };
+    };
+    axis: {
+      label: {
+        formatter(v: any): string;
+      };
+      subTickLine: {
+        count: number;
+      };
+    };
+    statistic?: {
+      title?: "hello" | false | undefined;
+      content?: "hi" | undefined;
+      style?: "red" | undefined;
+    };
+  }
+
   return (
     <>
       <MainPage>
@@ -171,6 +196,35 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
             <Typography.Paragraph>
               Normal BMI range for your height is: <b>{getBmiRange()}</b>
             </Typography.Paragraph>
+            <Gauge
+              percent={bmi / 100}
+              range={{
+                color: "#30bf78",
+              }}
+              indicator={{
+                pointer: {
+                  style: {
+                    stroke: "#30bf78",
+                  },
+                },
+                pin: {
+                  style: {
+                    stroke: "#30bf78",
+                  },
+                },
+              }}
+              axis={{
+                label: {
+                  formatter: (v) => `${v}%`,
+                },
+                subTickLine: {
+                  count: 4,
+                },
+              }}
+              statistic={{
+                title: false,
+              }}
+            />
           </Results>
         )}
       </MainPage>
