@@ -17,6 +17,15 @@ interface BmiCalculatorProps {
 }
 const { Option } = Select;
 
+const MainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column !important;
+  }
+`;
+
 const BmiInputs = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,10 +34,6 @@ const BmiInputs = styled.div`
   background: #fef6e4;
   padding: 15px;
   width: 50%;
-`;
-const MainPage = styled.div`
-  display: flex;
-  flex-direction: row;
 `;
 
 const Results = styled.div`
