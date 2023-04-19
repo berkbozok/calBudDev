@@ -43,6 +43,13 @@ const Results = styled.div`
   background: #f1ead9;
 `;
 
+const CalculateBmiButton = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 30px 0;
+`;
+
 const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -127,13 +134,6 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
               />
             </Form.Item>
             <Form.Item>
-              <Typography>Gender: </Typography>
-              <Select value={selectedGender} onChange={setGender}>
-                <Select.Option value="male">Male</Select.Option>
-                <Select.Option value="female">Female</Select.Option>
-              </Select>
-            </Form.Item>
-            <Form.Item>
               <Typography>Age: </Typography>
               <InputNumber
                 value={selectedAge}
@@ -141,13 +141,21 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
               />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" onClick={calculateBmi}>
-                Calculate BMI
-              </Button>
+              <Typography>Gender: </Typography>
+              <Select value={selectedGender} onChange={setGender}>
+                <Select.Option value="male">Male</Select.Option>
+                <Select.Option value="female">Female</Select.Option>
+              </Select>
+            </Form.Item>
+            <Form.Item>
+              <CalculateBmiButton>
+                <Button className="calculate-bmi-button" onClick={calculateBmi}>
+                  Calculate BMI
+                </Button>
+              </CalculateBmiButton>
             </Form.Item>
           </Form>
         </BmiInputs>
-
         {bmi > 0 && (
           <Results>
             <Typography.Paragraph>

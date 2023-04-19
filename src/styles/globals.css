@@ -264,6 +264,17 @@ p {
   color: white !important;
 }
 
+.calculate-bmi-button {
+  background-color: #f582ae;
+  font-weight: 700;
+  font-size: 20px;
+  height: 70px;
+}
+
+.calculate-bmi-button:hover {
+  color: white !important;
+}
+
 .icon {
   padding: 5px 0 0 0;
 }

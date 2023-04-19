@@ -60,6 +60,13 @@ const Results = styled.div`
   background: #f1ead9;
 `;
 
+const CalculateBodyFatButton = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 30px 0;
+`;
+
 const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -164,9 +171,14 @@ const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
                 />
               </Label>
               <ButtonContainer>
-                <Button type="primary" onClick={calculateBodyFat}>
-                  Calculate Body Fat
-                </Button>
+                <CalculateBodyFatButton>
+                  <Button
+                    className="calculate-bmi-button"
+                    onClick={calculateBodyFat}
+                  >
+                    Calculate Body Fat
+                  </Button>
+                </CalculateBodyFatButton>
               </ButtonContainer>
             </Form>
           </FormContainer>
