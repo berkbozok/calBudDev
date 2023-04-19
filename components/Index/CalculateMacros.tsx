@@ -128,7 +128,7 @@ function CalculateMacros() {
       setUnitMeaure("metric");
     }
   };
-  
+
   return (
     <MainPage>
       <TitleMacros>Calculate Your Macros</TitleMacros>

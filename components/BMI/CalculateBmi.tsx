@@ -12,7 +12,7 @@ const Title = styled(Typography.Title)`
   text-align: center;
 `;
 
-const FormContainer = styled.div`
+const MainBmi = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,7 +96,7 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
   };
 
   return (
-    <div>
+    <MainBmi>
       <Typography.Title level={2}>BMI Calculator</Typography.Title>
       <Form>
         <Form.Item label="Height (cm)">
@@ -146,7 +146,7 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
           </Typography.Paragraph>
         </div>
       )}
-    </div>
+    </MainBmi>
   );
 };
 

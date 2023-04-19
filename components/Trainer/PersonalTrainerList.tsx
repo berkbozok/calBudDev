@@ -81,8 +81,7 @@ const PersonalTrainerList = () => {
   ];
   return (
     <PageLayout>
-      <MainTitle>Trainers</MainTitle>
-      <DividerLine />
+      {/* <DividerLine /> */}
       <MainPageLayout>
         <MainPage>
           <TitleTrainer>Find Your Personal Trainer Today</TitleTrainer>
