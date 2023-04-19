@@ -34,6 +34,31 @@ const ResultContainer = styled.div`
   text-align: center;
 `;
 
+const MainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column !important;
+  }
+`;
+
+const BodyFatInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  background: #fef6e4;
+  padding: 15px;
+  width: 50%;
+`;
+const Results = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #f1ead9;
+`;
+
 const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -93,63 +118,69 @@ const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
 
   return (
     <>
-      <Title level={2}>Body Fat Calculator</Title>
-      <FormContainer>
-        <Form layout="vertical">
-          <Label label="Gender">
-            <Select
-              defaultValue={selectedGender}
-              onChange={(value: "male" | "female") => setGender(value)}
-            >
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
-            </Select>
-          </Label>
-          <Label label="Age">
-            <InputNumber
-              value={selectedAge}
-              onChange={(value) => setAge(value ?? 0)}
-            />
-          </Label>
-          <Label label="Height (cm)">
-            <InputNumber
-              value={height}
-              onChange={(value) => setHeight(value ?? 0)}
-            />
-          </Label>
-          <Label label="Weight (kg)">
-            <InputNumber
-              value={weight}
-              onChange={(value) => setWeight(value ?? 0)}
-            />
-          </Label>
-          <Label label="Neck Size (cm)">
-            <InputNumber
-              value={neckSize}
-              onChange={(value) => setNeckSize(value ?? 0)}
-            />
-          </Label>
-          <Label label="Waist Size (cm)">
-            <InputNumber
-              value={waistSize}
-              onChange={(value) => setWaistSize(value ?? 0)}
-            />
-          </Label>
-          <ButtonContainer>
-            <Button type="primary" onClick={calculateBodyFat}>
-              Calculate Body Fat
-            </Button>
-          </ButtonContainer>
-        </Form>
-      </FormContainer>
-      {bodyFat !== 0 && (
-        <ResultContainer>
-          <Title level={4}>Your Body Fat Percentage:</Title>
-          <Typography.Paragraph>{bodyFat.toFixed(2)}%</Typography.Paragraph>
-          <Title level={4}>Body Fat Status:</Title>
-          <Typography.Paragraph>{getBodyFatStatus()}</Typography.Paragraph>
-        </ResultContainer>
-      )}
+      <MainPage>
+        <BodyFatInput>
+          <Title level={2}>Body Fat Calculator</Title>
+          <FormContainer>
+            <Form layout="vertical">
+              <Label label="Gender">
+                <Select
+                  defaultValue={selectedGender}
+                  onChange={(value: "male" | "female") => setGender(value)}
+                >
+                  <Option value="male">Male</Option>
+                  <Option value="female">Female</Option>
+                </Select>
+              </Label>
+              <Label label="Age">
+                <InputNumber
+                  value={selectedAge}
+                  onChange={(value) => setAge(value ?? 0)}
+                />
+              </Label>
+              <Label label="Height (cm)">
+                <InputNumber
+                  value={height}
+                  onChange={(value) => setHeight(value ?? 0)}
+                />
+              </Label>
+              <Label label="Weight (kg)">
+                <InputNumber
+                  value={weight}
+                  onChange={(value) => setWeight(value ?? 0)}
+                />
+              </Label>
+              <Label label="Neck Size (cm)">
+                <InputNumber
+                  value={neckSize}
+                  onChange={(value) => setNeckSize(value ?? 0)}
+                />
+              </Label>
+              <Label label="Waist Size (cm)">
+                <InputNumber
+                  value={waistSize}
+                  onChange={(value) => setWaistSize(value ?? 0)}
+                />
+              </Label>
+              <ButtonContainer>
+                <Button type="primary" onClick={calculateBodyFat}>
+                  Calculate Body Fat
+                </Button>
+              </ButtonContainer>
+            </Form>
+          </FormContainer>
+        </BodyFatInput>
+        {bodyFat !== 0 && (
+          <Results>
+            <ResultContainer>
+              <Title level={4}>Your Body Fat Percentage:</Title>
+              <Typography.Paragraph>{bodyFat.toFixed(2)}%</Typography.Paragraph>
+              <Title level={4}>Body Fat Status:</Title>
+              <Typography.Paragraph>{getBodyFatStatus()}</Typography.Paragraph>
+            </ResultContainer>
+          </Results>
+        )}
+      </MainPage>
     </>
   );
 };
