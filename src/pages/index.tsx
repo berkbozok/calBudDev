@@ -26,36 +26,6 @@ export type globalContextTypes = {
   setFatIntake: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const PageLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const LineDivider = styled.div`
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(18, 18, 18, 0.125);
-`;
-
-const MainPageLayout = styled.div`
-  display: flex;
-  flex-direction: row;
-  background-color: #fef6e4;
-  color: #b2b4ba;
-
-  @media only screen and (max-width: 767px) {
-    .main-page-layout {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-`;
-
-const NavigationSide = styled.div`
-  // display: flex;
-  // flex-direction: row;
-`;
-
 export default function Home() {
   const [proteinIntake, setProteinIntake] = useState<number>(0);
   const [carbIntake, setCarbIntake] = useState<number>(0);
@@ -104,10 +74,6 @@ export default function Home() {
             renderPage(window.location.pathname)} */}
           {/* <Navigation /> */}
           <Layout>
-            {/* <Header className="main-title">
-              <PieChartFilled className="icon-title" />
-              Macros Calculator
-            </Header> */}
             <Content>
               <div className="line"></div>
               <div className="main-page-layout">
