@@ -108,26 +108,29 @@ export default function Navigation() {
 
   return (
     <>
-        <Sider
-          collapsible
-          collapsed={collapsed}
-          onCollapse={(value) => setCollapsed(value)}
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+        theme="light"
+      >
+        <Link href="/">
+          <Title>
+            <div>
+              <span className={collapsed ? "hidden" : ""}>
+                <Logo />
+                FITracker
+              </span>
+            </div>
+          </Title>
+        </Link>
+        <Menu
           theme="light"
-        >
-          <Link href="/">
-            <Title>
-              <div>
-                <span className={collapsed ? "hidden" : ""}>FITracker</span>
-              </div>
-            </Title>
-          </Link>
-          <Menu
-            theme="light"
-            defaultSelectedKeys={["1"]}
-            mode="inline"
-            items={items}
-          />
-        </Sider>
+          defaultSelectedKeys={["1"]}
+          mode="inline"
+          items={items}
+        />
+      </Sider>
     </>
   );
 }
