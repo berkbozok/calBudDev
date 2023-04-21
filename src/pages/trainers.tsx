@@ -7,6 +7,7 @@ const { Meta } = Card;
 const NavigationSide = styled.div`
   display: flex;
   flex-direction: row;
+  height:100%;
 `;
 
 export default function Trainers() {

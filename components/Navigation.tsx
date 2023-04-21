@@ -3,12 +3,11 @@ import {
   PercentageOutlined,
   PieChartOutlined,
   TeamOutlined,
-  UserOutlined,
   ToolOutlined,
   CalculatorOutlined,
   HeartOutlined,
 } from "@ant-design/icons";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Link from "next/link";
 import Logo from "../shared/logo";
 import styled from "styled-components";

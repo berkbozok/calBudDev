@@ -5,8 +5,8 @@ import styled from "styled-components";
 
 const MainPage = styled.div`
   background-color: #fef6e4;
-  height: 100vh;
-  padding: 10px 30px 10px 30px;
+  height: 100%;
+  padding: 5%;
 `;
 
 const TitleMacros = styled.h2`
@@ -20,7 +20,6 @@ const CalculateMacrosDiv = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 0 0 30px 0;
 `;
 
 function CalculateMacros() {

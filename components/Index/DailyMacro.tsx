@@ -5,8 +5,15 @@ import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
 import Link from "next/link";
 import { GlobalContext, globalContextTypes } from "@/pages";
-import { Button, Row } from "antd";
+import { Button} from "antd";
 import styled from "styled-components";
+
+
+const DailyMacroRoot = styled.div`
+  display:flex;
+  height: 100%;
+  background: #f1ead9;
+`
 
 const DailyMacroTitle = styled.div`
   display: flex;
@@ -14,7 +21,6 @@ const DailyMacroTitle = styled.div`
   align-items: center;
   padding-top: 50px;
   margin: 0 auto;
-  background: #f1ead9;
 `;
 
 const RightSideTitle = styled.div`
@@ -157,6 +163,7 @@ function DailyMacro() {
   let carbsPercentage = Math.ceil((carbIntake / totalCal) * 100);
   let fatPercentage = Math.ceil((fatIntake / totalCal) * 100);
   return (
+    <DailyMacroRoot>
     <DailyMacroTitle>
       <RightSideTitle>Your Daily Macro Goals</RightSideTitle>
       <Ring>
@@ -259,6 +266,7 @@ function DailyMacro() {
         <Button className="find-trainer">Consult with a Trainer</Button>
       </Link>
     </DailyMacroTitle>
+    </DailyMacroRoot>
   );
 }
 
