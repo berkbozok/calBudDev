@@ -72,10 +72,9 @@ export default function Home() {
         <Layout>
           {/* {typeof window !== "undefined" &&
             renderPage(window.location.pathname)} */}
-          {/* <Navigation /> */}
           <Layout>
             <Content>
-              <div className="line"></div>
+              <div className="line" />
               <div className="main-page-layout">
                 <CalculateMacros />
                 <DailyMacro />

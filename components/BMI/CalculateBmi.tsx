@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
-import ReactDOM from "react-dom";
 import { Gauge } from "@ant-design/plots";
 
 interface BmiCalculatorProps {

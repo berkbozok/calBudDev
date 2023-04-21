@@ -10,13 +10,6 @@ const PageLayout = styled.div`
   flex-direction: column;
 `;
 
-const MainTitle = styled.div`
-  background-color: #fef6e4;
-  font-size: 20px;
-  font-weight: 600;
-  color: #596996;
-`;
-
 const DividerLine = styled.div`
   border-style: solid;
   border-width: 1px;

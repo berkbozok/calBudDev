@@ -227,7 +227,6 @@ function CalculateMacros() {
         <Button
           className="calculate-macros-button"
           onClick={() => handleBmrComputation()}
-          // disabled={fieldsFilled.some((value) => value === false)}
         >
           Calculate Macros
         </Button>
