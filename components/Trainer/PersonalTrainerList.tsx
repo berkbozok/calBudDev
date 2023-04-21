@@ -5,9 +5,10 @@ import { Card } from "antd";
 import styled from "styled-components";
 const { Meta } = Card;
 
-const PageLayout = styled.div`
+const PersonalTrainerRoot = styled.div`
   display: flex;
   flex-direction: column;
+  background-color:red;
 `;
 
 const DividerLine = styled.div`
@@ -31,7 +32,7 @@ const MainPageLayout = styled.div`
 
 const MainPage = styled.div`
   background-color: #fef6e4;
-  height: 100vh;
+  height: 100%;
   padding: 10px 30px 10px 30px;
 `;
 
@@ -73,7 +74,7 @@ const PersonalTrainerList = () => {
     },
   ];
   return (
-    <PageLayout>
+    <PersonalTrainerRoot>
       {/* <DividerLine /> */}
       <MainPageLayout>
         <MainPage>
@@ -149,7 +150,7 @@ const PersonalTrainerList = () => {
           </div>
         </MainPage>
       </MainPageLayout>
-    </PageLayout>
+    </PersonalTrainerRoot>
   );
 };
 

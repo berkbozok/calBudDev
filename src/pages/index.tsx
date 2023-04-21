@@ -1,10 +1,6 @@
-import React, { useState, createContext, useEffect } from "react";
-import { PieChartFilled } from "@ant-design/icons";
-import Navigation from "../../components/Navigation";
-import CalculateMacros from "../../components/Index/CalculateMacros";
-import DailyMacro from "../../components/Index/DailyMacro";
+import React, { useState, createContext } from "react";
 import { Layout } from "antd";
-import styled from "styled-components";
+import Macros from "../../components/Index/Macros";
 
 enum PageName {
   Home = "/",
@@ -75,10 +71,7 @@ export default function Home() {
           <Layout>
             <Content>
               <div className="line" />
-              <div className="main-page-layout">
-                <CalculateMacros />
-                <DailyMacro />
-              </div>
+              <Macros />
             </Content>
           </Layout>
         </Layout>

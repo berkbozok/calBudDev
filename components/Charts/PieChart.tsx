@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 const Pie = dynamic(() => import("@ant-design/plots").then(({ Pie }) => Pie), {
   ssr: false,
