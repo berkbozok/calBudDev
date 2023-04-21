@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal } from "antd";
-import { PieChartFilled } from "@ant-design/icons";
 import { Card } from "antd";
 import styled from "styled-components";
 const { Meta } = Card;
@@ -8,12 +7,6 @@ const { Meta } = Card;
 const PageLayout = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const DividerLine = styled.div`
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(18, 18, 18, 0.125);
 `;
 
 const MainPageLayout = styled.div`
@@ -74,7 +67,6 @@ const PersonalTrainerList = () => {
   ];
   return (
     <PageLayout>
-      {/* <DividerLine /> */}
       <MainPageLayout>
         <MainPage>
           <TitleTrainer>Find Your Personal Trainer Today</TitleTrainer>

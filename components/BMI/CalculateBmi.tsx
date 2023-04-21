@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
 import { Gauge } from "@ant-design/plots";
