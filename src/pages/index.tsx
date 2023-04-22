@@ -2,14 +2,6 @@ import React, { useState, createContext } from "react";
 import { Layout } from "antd";
 import Macros from "../../components/Index/Macros";
 
-enum PageName {
-  Home = "/",
-  BmiCalculator = "/bmi",
-  BodyFatCalculator = "/bodyfa",
-  IdealWeight = "/idealweight",
-  Trainers = "/trainers",
-}
-
 export const GlobalContext = createContext<any>(null);
 export type globalContextTypes = {
   bmrValue: number;
@@ -39,35 +31,12 @@ export default function Home() {
     setFatIntake,
   };
 
-  const { Header, Content } = Layout;
+  const { Content } = Layout;
 
-  function renderPage(pathname: string) {
-    let pageTitle: string;
-    switch (pathname) {
-      case PageName.BmiCalculator:
-        pageTitle = "BMI Calculator";
-        break;
-      case PageName.BodyFatCalculator:
-        pageTitle = "Body Fat Calculator";
-        break;
-      case PageName.IdealWeight:
-        pageTitle = "Ideal Weight Calculator";
-        break;
-      case PageName.Trainers:
-        pageTitle = "Our Trainers";
-        break;
-      default:
-        pageTitle = "Macro Calculator";
-        break;
-    }
-    return <h1>{pageTitle}</h1>;
-  }
   return (
     <GlobalContext.Provider value={globalContextValues}>
       <>
         <Layout>
-          {/* {typeof window !== "undefined" &&
-            renderPage(window.location.pathname)} */}
           <Layout>
             <Content>
               <div className="line" />
