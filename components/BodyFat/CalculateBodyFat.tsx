@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
-
+import { PercentageOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 interface CalculateBodyFatProps {
   gender: "male" | "female";
   age: number;
@@ -124,11 +125,16 @@ const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
     }
   };
 
+  const { Header } = Layout;
+
   return (
     <>
+      <Header className="main-title">
+        <PercentageOutlined className="icon-title" />
+        Body Fat Calculator
+      </Header>
       <MainPage>
         <BodyFatInput>
-          <Title level={2}>Body Fat Calculator</Title>
           <FormContainer>
             <Form layout="vertical">
               <Label label="Gender">

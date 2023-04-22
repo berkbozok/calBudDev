@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { Button, InputNumber, Radio, Select, Slider } from "antd";
 import { GlobalContext, globalContextTypes } from "@/pages";
 import styled from "styled-components";
+import { PieChartOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 
 const MainPage = styled.div`
   background-color: #fef6e4;
@@ -128,109 +130,118 @@ function CalculateMacros() {
     }
   };
 
+  const { Header } = Layout;
+
   return (
-    <MainPage>
-      <TitleMacros>Calculate Your Macros</TitleMacros>
-      <p>
-        Craft your ideal macronutrient ratio now using our macros calculator
-      </p>
-      <div>
-        <p>System</p>
-        <Radio.Group defaultValue="metric" onChange={handleUnitMeasure}>
-          <Radio.Button value="imperial">Imperial</Radio.Button>
-          <Radio.Button value="metric">Metric</Radio.Button>
-        </Radio.Group>
-      </div>
-      <div>
-        <p>I am a</p>
-        <Radio.Group onChange={handleSex}>
-          <Radio.Button value="male">Male</Radio.Button>
-          <Radio.Button value="female">Female</Radio.Button>
-        </Radio.Group>
-      </div>
-      <div>
+    <>
+      <Header className="main-title">
+        <PieChartOutlined className="icon-title" />
+        Macros Calculator
+      </Header>
+      <MainPage>
+        <TitleMacros>Calculate Your Macros</TitleMacros>
         <p>
-          I am <b>{age}</b> years old
+          Craft your ideal macronutrient ratio now using our macros calculator
         </p>
-        <InputNumber
-          min={1}
-          max={100}
-          value={age}
-          onChange={handleAge}
-          style={{ width: 100 }}
-        />
-      </div>
-      <div>
-        <p>
-          My Height: <b>{height}</b> {unitMeasure === "metric" ? "cm" : "inch"}
-        </p>
-        <InputNumber
-          min={1}
-          max={400}
-          value={height}
-          onChange={handleHeight}
-          style={{ width: 100 }}
-        />
-      </div>
-      <div>
-        <p>
-          Current Weight: <b>{weight}</b>{" "}
-          {unitMeasure === "metric" ? "kg" : "pounds"}
-        </p>
-        <InputNumber
-          min={1}
-          max={400}
-          value={weight}
-          onChange={handleWeight}
-          style={{ width: 100 }}
-        />
-      </div>
-      <div>
-        <p>Activity Level</p>
-        <Select
-          defaultValue="choose"
-          style={{ width: 420 }}
-          onChange={handleActivityLevel}
-          options={[
-            {
-              value: "choose",
-              label: "Select activity level",
-            },
-            {
-              value: "sedentary",
-              label: "Sedentary: little or no exercise",
-            },
-            { value: "light", label: "Light: exercise 1-3 times/week" },
-            {
-              value: "moderate",
-              label: "Moderate: exercise 4-5 times/week",
-            },
-            {
-              value: "active",
-              label:
-                "Active: daily exercise or intense exercise 3-4 times/week",
-            },
-            {
-              value: "very-active",
-              label: "Very Active: intense exercise 6-7 times/week",
-            },
-            {
-              value: "extra-active",
-              label:
-                "Extra Active: very intense exercise daily, or physical jobk",
-            },
-          ]}
-        />
-      </div>
-      <CalculateMacrosDiv>
-        <Button
-          className="calculate-macros-button"
-          onClick={() => handleBmrComputation()}
-        >
-          Calculate Macros
-        </Button>
-      </CalculateMacrosDiv>
-    </MainPage>
+        <div>
+          <p>System</p>
+          <Radio.Group defaultValue="metric" onChange={handleUnitMeasure}>
+            <Radio.Button value="imperial">Imperial</Radio.Button>
+            <Radio.Button value="metric">Metric</Radio.Button>
+          </Radio.Group>
+        </div>
+        <div>
+          <p>I am a</p>
+          <Radio.Group onChange={handleSex}>
+            <Radio.Button value="male">Male</Radio.Button>
+            <Radio.Button value="female">Female</Radio.Button>
+          </Radio.Group>
+        </div>
+        <div>
+          <p>
+            I am <b>{age}</b> years old
+          </p>
+          <InputNumber
+            min={1}
+            max={100}
+            value={age}
+            onChange={handleAge}
+            style={{ width: 100 }}
+          />
+        </div>
+        <div>
+          <p>
+            My Height: <b>{height}</b>{" "}
+            {unitMeasure === "metric" ? "cm" : "inch"}
+          </p>
+          <InputNumber
+            min={1}
+            max={400}
+            value={height}
+            onChange={handleHeight}
+            style={{ width: 100 }}
+          />
+        </div>
+        <div>
+          <p>
+            Current Weight: <b>{weight}</b>{" "}
+            {unitMeasure === "metric" ? "kg" : "pounds"}
+          </p>
+          <InputNumber
+            min={1}
+            max={400}
+            value={weight}
+            onChange={handleWeight}
+            style={{ width: 100 }}
+          />
+        </div>
+        <div>
+          <p>Activity Level</p>
+          <Select
+            defaultValue="choose"
+            style={{ width: 420 }}
+            onChange={handleActivityLevel}
+            options={[
+              {
+                value: "choose",
+                label: "Select activity level",
+              },
+              {
+                value: "sedentary",
+                label: "Sedentary: little or no exercise",
+              },
+              { value: "light", label: "Light: exercise 1-3 times/week" },
+              {
+                value: "moderate",
+                label: "Moderate: exercise 4-5 times/week",
+              },
+              {
+                value: "active",
+                label:
+                  "Active: daily exercise or intense exercise 3-4 times/week",
+              },
+              {
+                value: "very-active",
+                label: "Very Active: intense exercise 6-7 times/week",
+              },
+              {
+                value: "extra-active",
+                label:
+                  "Extra Active: very intense exercise daily, or physical jobk",
+              },
+            ]}
+          />
+        </div>
+        <CalculateMacrosDiv>
+          <Button
+            className="calculate-macros-button"
+            onClick={() => handleBmrComputation()}
+          >
+            Calculate Macros
+          </Button>
+        </CalculateMacrosDiv>
+      </MainPage>
+    </>
   );
 }
 

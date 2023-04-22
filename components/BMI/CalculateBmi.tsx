@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
 import { Gauge } from "@ant-design/plots";
-
+import { CalculatorOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 interface BmiCalculatorProps {
   gender: "male" | "female";
   age: number;
@@ -136,11 +137,16 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
     };
   }
 
+  const { Header, Content } = Layout;
+
   return (
     <>
+      <Header className="main-title">
+        <CalculatorOutlined className="icon-title" />
+        BMI Calculator
+      </Header>
       <MainPage>
         <BmiInputs>
-          <Typography.Title level={2}>BMI Calculator</Typography.Title>
           <Typography.Title level={5}>Calculate your BMI</Typography.Title>
           <Form style={{ display: "flex", flexDirection: "column" }}>
             <Form.Item>

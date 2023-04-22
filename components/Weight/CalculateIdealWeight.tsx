@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
-
+import { HeartOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 interface CalculateIdealWeightProps {
   gender: "male" | "female";
   age: number;
@@ -93,11 +94,16 @@ const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
     setIdealWeight(idealWeightValue);
   };
 
+  const { Header } = Layout;
+
   return (
     <>
+      <Header className="main-title">
+        <HeartOutlined className="icon-title" />
+        Macros Calculator
+      </Header>
       <MainPage>
         <IdealWeightInput>
-          <Title level={2}>Ideal Weight Calculator</Title>
           <FormContainer>
             <Form layout="vertical">
               <Label label="Gender">
