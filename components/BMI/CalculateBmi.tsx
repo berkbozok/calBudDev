@@ -137,7 +137,7 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
     };
   }
 
-  const { Header, Content } = Layout;
+  const { Header } = Layout;
 
   return (
     <>
