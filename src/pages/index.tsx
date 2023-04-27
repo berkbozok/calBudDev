@@ -18,7 +18,6 @@ export default function Home() {
   const [proteinIntake, setProteinIntake] = useState<number>(0);
   const [carbIntake, setCarbIntake] = useState<number>(0);
   const [fatIntake, setFatIntake] = useState<number>(0);
-
   const [bmrValue, setBmrValue] = useState<number>(0);
   const globalContextValues: globalContextTypes = {
     bmrValue,
