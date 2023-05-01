@@ -17,7 +17,7 @@ export default function LayoutPage({ children }: any) {
         <Navigation />
         <Layout>
           <Content>
-            <div className="line"></div>
+            <div className="line" />
             <div className="main-page-layout">{children}</div>
           </Content>
         </Layout>
