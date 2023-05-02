@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
+import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
-
+import { HeartOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 interface CalculateIdealWeightProps {
   gender: "male" | "female";
   age: number;
@@ -34,6 +35,39 @@ const ResultContainer = styled.div`
   text-align: center;
 `;
 
+const MainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column !important;
+  }
+`;
+
+const IdealWeightInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  background: #fef6e4;
+  padding: 15px;
+  width: 50%;
+`;
+
+const Results = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #f1ead9;
+`;
+
+const CalculateBodyFatButton = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 30px 0;
+`;
+
 const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
   gender,
   age,
@@ -60,47 +94,63 @@ const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
     setIdealWeight(idealWeightValue);
   };
 
+  const { Header } = Layout;
+
   return (
     <>
-      <Title level={2}>Ideal Weight Calculator</Title>
-      <FormContainer>
-        <Form layout="vertical">
-          <Label label="Gender">
-            <Select
-              defaultValue={selectedGender}
-              onChange={(value: "male" | "female") => setGender(value)}
-            >
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
-            </Select>
-          </Label>
-          <Label label="Age">
-            <InputNumber
-              value={selectedAge}
-              onChange={(value) => setAge(value ?? 0)}
-            />
-          </Label>
-          <Label label="Height (cm)">
-            <InputNumber
-              value={selectedHeight}
-              onChange={(value) => setHeight(value ?? 0)}
-            />
-          </Label>
-          <ButtonContainer>
-            <Button type="primary" onClick={calculateIdealWeight}>
-              Calculate Ideal Weight
-            </Button>
-          </ButtonContainer>
-        </Form>
-      </FormContainer>
-      {idealWeight !== 0 && (
-        <ResultContainer>
-          <Title level={4}>Your Ideal Weight:</Title>
-          <Typography.Paragraph>
-            {idealWeight.toFixed(2)} kg
-          </Typography.Paragraph>
-        </ResultContainer>
-      )}
+      <Header className="main-title">
+        <HeartOutlined className="icon-title" />
+        Macros Calculator
+      </Header>
+      <MainPage>
+        <IdealWeightInput>
+          <FormContainer>
+            <Form layout="vertical">
+              <Label label="Gender">
+                <Select
+                  defaultValue={selectedGender}
+                  onChange={(value: "male" | "female") => setGender(value)}
+                >
+                  <Option value="male">Male</Option>
+                  <Option value="female">Female</Option>
+                </Select>
+              </Label>
+              <Label label="Age">
+                <InputNumber
+                  value={selectedAge}
+                  onChange={(value) => setAge(value ?? 0)}
+                />
+              </Label>
+              <Label label="Height (cm)">
+                <InputNumber
+                  value={selectedHeight}
+                  onChange={(value) => setHeight(value ?? 0)}
+                />
+              </Label>
+              <ButtonContainer>
+                <CalculateBodyFatButton>
+                  <Button
+                    className="calculate-bmi-button"
+                    onClick={calculateIdealWeight}
+                  >
+                    Calculate Ideal Weight
+                  </Button>
+                </CalculateBodyFatButton>
+              </ButtonContainer>
+            </Form>
+          </FormContainer>
+        </IdealWeightInput>
+        {idealWeight !== 0 && (
+          <Results>
+            <ResultContainer>
+              <Title level={4}>Your Ideal Weight:</Title>
+              <Typography.Paragraph>
+                {idealWeight.toFixed(2)} kg
+              </Typography.Paragraph>
+            </ResultContainer>
+          </Results>
+        )}
+      </MainPage>
     </>
   );
 };

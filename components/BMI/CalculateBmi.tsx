@@ -1,36 +1,46 @@
 import React, { useState } from "react";
-import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
+import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
-
+import { Gauge } from "@ant-design/plots";
+import { CalculatorOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 interface BmiCalculatorProps {
   gender: "male" | "female";
   age: number;
 }
 const { Option } = Select;
 
-const Title = styled(Typography.Title)`
-  text-align: center;
+const MainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column !important;
+  }
 `;
 
-const FormContainer = styled.div`
+const BmiInputs = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
+  background: #fef6e4;
+  padding: 15px;
+  width: 50%;
 `;
 
-const Label = styled(Form.Item)`
-  margin-bottom: 8px;
+const Results = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #f1ead9;
 `;
 
-const ButtonContainer = styled(Form.Item)`
-  margin-top: 24px;
-  text-align: center;
-`;
-
-const ResultContainer = styled.div`
-  margin-top: 24px;
-  text-align: center;
+const CalculateBmiButton = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 30px 0;
 `;
 
 const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
@@ -95,58 +105,135 @@ const BmiCalculator: React.FC<BmiCalculatorProps> = ({ gender, age }) => {
     }
   };
 
+  interface GaugeConfig {
+    percent: number;
+    range: {
+      color: string;
+    };
+    indicator: {
+      pointer: {
+        style: {
+          stroke: string;
+        };
+      };
+      pin: {
+        style: {
+          stroke: string;
+        };
+      };
+    };
+    axis: {
+      label: {
+        formatter(v: number): number;
+      };
+      subTickLine: {
+        count: number;
+      };
+    };
+    statistic?: {
+      title?: "hello" | false | undefined;
+      content?: "hi" | undefined;
+      style?: "red" | undefined;
+    };
+  }
+
+  const { Header } = Layout;
+
   return (
-    <div>
-      <Typography.Title level={2}>BMI Calculator</Typography.Title>
-      <Form>
-        <Form.Item label="Height (cm)">
-          <InputNumber
-            value={height}
-            onChange={(value) => setHeight(value ? +value : 0)}
-          />
-        </Form.Item>
-        <Form.Item label="Weight (kg)">
-          <InputNumber
-            value={weight}
-            onChange={(value) => setWeight(value ? +value : 0)}
-          />
-        </Form.Item>
-        <Form.Item label="Gender">
-          <Select value={selectedGender} onChange={setGender}>
-            <Select.Option value="male">Male</Select.Option>
-            <Select.Option value="female">Female</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label="Age">
-          <InputNumber
-            value={selectedAge}
-            onChange={(value) => setAge(value ? +value : 0)}
-          />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" onClick={calculateBmi}>
-            Calculate BMI
-          </Button>
-        </Form.Item>
-      </Form>
-      {bmi > 0 && (
-        <div>
-          <Typography.Paragraph>
-            Your BMI is: {bmi.toFixed(1)}
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Your BMI status is: {getBmiStatus()}
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Normal BMI range for your age and gender is:{" "}
-            {getBmiStatusByAgeAndGender()}
-          </Typography.Paragraph>
-          <Typography.Paragraph>
-            Normal BMI range for your height is: {getBmiRange()}
-          </Typography.Paragraph>
-        </div>
-      )}
-    </div>
+    <>
+      <Header className="main-title">
+        <CalculatorOutlined className="icon-title" />
+        BMI Calculator
+      </Header>
+      <MainPage>
+        <BmiInputs>
+          <Typography.Title level={5}>Calculate your BMI</Typography.Title>
+          <Form style={{ display: "flex", flexDirection: "column" }}>
+            <Form.Item>
+              <Typography>Height (cm): </Typography>
+              <InputNumber
+                value={height}
+                onChange={(value) => setHeight(value ? +value : 0)}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Typography>Weight (kg): </Typography>
+              <InputNumber
+                value={weight}
+                onChange={(value) => setWeight(value ? +value : 0)}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Typography>Age: </Typography>
+              <InputNumber
+                value={selectedAge}
+                onChange={(value) => setAge(value ? +value : 0)}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Typography>Gender: </Typography>
+              <Select value={selectedGender} onChange={setGender}>
+                <Select.Option value="male">Male</Select.Option>
+                <Select.Option value="female">Female</Select.Option>
+              </Select>
+            </Form.Item>
+            <Form.Item>
+              <CalculateBmiButton>
+                <Button className="calculate-bmi-button" onClick={calculateBmi}>
+                  Calculate BMI
+                </Button>
+              </CalculateBmiButton>
+            </Form.Item>
+          </Form>
+        </BmiInputs>
+        {bmi > 0 && (
+          <Results>
+            <Typography.Paragraph>
+              Your BMI is: <b>{bmi.toFixed(1)}</b>
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              Your BMI status is: <b>{getBmiStatus()}</b>
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              Normal BMI range for your age and gender is:
+              <b> {getBmiStatusByAgeAndGender()}</b>
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              Normal BMI range for your height is: <b>{getBmiRange()}</b>
+            </Typography.Paragraph>
+            <Gauge
+              percent={bmi / 100}
+              range={{
+                color: "#30bf78",
+              }}
+              indicator={{
+                pointer: {
+                  style: {
+                    stroke: "#30bf78",
+                  },
+                },
+                pin: {
+                  style: {
+                    stroke: "#30bf78",
+                  },
+                },
+              }}
+              axis={{
+                label: {
+                  formatter: (v) => `${+v * 100}`,
+                },
+                subTickLine: {
+                  count: 5,
+                },
+              }}
+              statistic={{
+                title: false,
+              }}
+            />
+          </Results>
+        )}
+      </MainPage>
+    </>
   );
 };
 

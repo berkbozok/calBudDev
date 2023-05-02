@@ -5,8 +5,14 @@ import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
 import Link from "next/link";
 import { GlobalContext, globalContextTypes } from "@/pages";
-import { Button, Row } from "antd";
+import { Button } from "antd";
 import styled from "styled-components";
+
+const DailyMacroRoot = styled.div`
+  display: flex;
+  height: 100%;
+  background: #f1ead9;
+`;
 
 const DailyMacroTitle = styled.div`
   display: flex;
@@ -14,7 +20,6 @@ const DailyMacroTitle = styled.div`
   align-items: center;
   padding-top: 50px;
   margin: 0 auto;
-  background: #f1ead9;
 `;
 
 const RightSideTitle = styled.div`
@@ -45,10 +50,20 @@ const Ring = styled.div`
   }
 `;
 
+const RingText = styled.h3`
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  color: rgb(127, 135, 157);
+  font-weight: 600;
+  font-size: 17px;
+`;
+
 const Table = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  color: black;
 `;
 
 const TableRow = styled.div`
@@ -147,108 +162,110 @@ function DailyMacro() {
   let carbsPercentage = Math.ceil((carbIntake / totalCal) * 100);
   let fatPercentage = Math.ceil((fatIntake / totalCal) * 100);
   return (
-    <DailyMacroTitle>
-      <RightSideTitle>Your Daily Macro Goals</RightSideTitle>
-      <Ring>
-        <h3>Total Maintain</h3>
-        {bmrValue !== 0 ? (
-          <Bmr> {bmrValue} </Bmr>
+    <DailyMacroRoot>
+      <DailyMacroTitle>
+        <RightSideTitle>Your Daily Macro Goals</RightSideTitle>
+        <Ring>
+          <RingText>Total Maintain</RingText>
+          {bmrValue !== 0 ? (
+            <Bmr> {bmrValue} </Bmr>
+          ) : (
+            <BmrCalculate> Calculate </BmrCalculate>
+          )}
+          <RingText> kcal</RingText>
+        </Ring>
+        {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
+          <>
+            <Table>
+              <TableRow></TableRow>
+              <TableRow>
+                <TableCell>
+                  Mild weight loss <div>(0.25 kg/week)</div>
+                </TableCell>
+                <TableCell>
+                  <b>{Math.ceil(bmrValue * 0.92)}</b> <span>(92%)</span>
+                  <div>Calories/day</div>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  Weight loss <div>(0.5 kg/week)</div>
+                </TableCell>
+                <TableCell>
+                  <b> {Math.ceil(bmrValue * 0.83)}</b> <span>(83%)</span>
+                  <div>Calories/day</div>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  Extreme weight loss <div>(1 kg/week)</div>
+                </TableCell>
+                <TableCell>
+                  <b> {Math.ceil(bmrValue * 0.66)}</b> <span>(66%)</span>
+                  <div>Calories/day</div>
+                </TableCell>
+              </TableRow>
+            </Table>
+          </>
         ) : (
-          <BmrCalculate> Calculate </BmrCalculate>
+          <></>
         )}
-        <h3> kcal</h3>
-      </Ring>
-      {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
-        <>
-          <Table>
-            <TableRow></TableRow>
-            <TableRow>
-              <TableCell>
-                Mild weight loss <div>(0.25 kg/week)</div>
-              </TableCell>
-              <TableCell>
-                <b>{Math.ceil(bmrValue * 0.92)}</b> <span>(92%)</span>
-                <div>Calories/day</div>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                Weight loss <div>(0.5 kg/week)</div>
-              </TableCell>
-              <TableCell>
-                <b> {Math.ceil(bmrValue * 0.83)}</b> <span>(83%)</span>
-                <div>Calories/day</div>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                Extreme weight loss <div>(1 kg/week)</div>
-              </TableCell>
-              <TableCell>
-                <b> {Math.ceil(bmrValue * 0.66)}</b> <span>(66%)</span>
-                <div>Calories/day</div>
-              </TableCell>
-            </TableRow>
-          </Table>
-        </>
-      ) : (
-        <></>
-      )}
-      <DailyMacroValue>
-        <MacroValueDiv>
-          <ValueBoxAlignment>
-            <Protein />
-            <ValueTitle>{proteinIntake}g</ValueTitle>
-            <span> Protein</span>
-          </ValueBoxAlignment>
-        </MacroValueDiv>
-        <MacroValueDiv>
-          <ValueBoxAlignment>
-            <Carbs />
-            <ValueTitle>{carbIntake}g</ValueTitle>
-            <span> Carbs</span>
-          </ValueBoxAlignment>
-        </MacroValueDiv>
-        <MacroValueDiv>
-          <ValueBoxAlignment>
-            <Fat />
-            <ValueTitle>{fatIntake}g</ValueTitle>
-            <span> Fat</span>
-          </ValueBoxAlignment>
-        </MacroValueDiv>
-      </DailyMacroValue>
-      {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
-        <>
-          <FormulaTitle>Our formula for you</FormulaTitle>
-          <PieChartAlignment>
-            <InfoPanel>
-              If you are counting macros for bodybuilding and muscle gain, you
-              will want to add overall calories to put on weight. Try this range
-              of macro ratio:&nbsp;
-              <div>
-                <b>{proteinPercentage}</b>% protein, &nbsp;
-                <b>{carbsPercentage}%</b> carbs, and&nbsp;
-                <b>{fatPercentage}%</b> fat.
-              </div>
-            </InfoPanel>
-            <DemoPie
-              proteinIntake={proteinIntake}
-              carbIntake={carbIntake}
-              fatIntake={fatIntake}
-            />
-          </PieChartAlignment>
-        </>
-      ) : (
-        <>
-          <ReplacementTitle>
-            Calculate Macros to see a detailed review
-          </ReplacementTitle>
-        </>
-      )}
-      <Link href="/trainers">
-        <Button className="find-trainer">Consult with a Trainer</Button>
-      </Link>
-    </DailyMacroTitle>
+        <DailyMacroValue>
+          <MacroValueDiv>
+            <ValueBoxAlignment>
+              <Protein />
+              <ValueTitle>{proteinIntake}g</ValueTitle>
+              <span> Protein</span>
+            </ValueBoxAlignment>
+          </MacroValueDiv>
+          <MacroValueDiv>
+            <ValueBoxAlignment>
+              <Carbs />
+              <ValueTitle>{carbIntake}g</ValueTitle>
+              <span> Carbs</span>
+            </ValueBoxAlignment>
+          </MacroValueDiv>
+          <MacroValueDiv>
+            <ValueBoxAlignment>
+              <Fat />
+              <ValueTitle>{fatIntake}g</ValueTitle>
+              <span> Fat</span>
+            </ValueBoxAlignment>
+          </MacroValueDiv>
+        </DailyMacroValue>
+        {proteinIntake !== 0 || carbIntake !== 0 || fatIntake !== 0 ? (
+          <>
+            <FormulaTitle>Our formula for you</FormulaTitle>
+            <PieChartAlignment>
+              <InfoPanel>
+                If you are counting macros for bodybuilding and muscle gain, you
+                will want to add overall calories to put on weight. Try this
+                range of macro ratio:&nbsp;
+                <div>
+                  <b>{proteinPercentage}</b>% protein, &nbsp;
+                  <b>{carbsPercentage}%</b> carbs, and&nbsp;
+                  <b>{fatPercentage}%</b> fat.
+                </div>
+              </InfoPanel>
+              <DemoPie
+                proteinIntake={proteinIntake}
+                carbIntake={carbIntake}
+                fatIntake={fatIntake}
+              />
+            </PieChartAlignment>
+          </>
+        ) : (
+          <>
+            <ReplacementTitle>
+              Calculate Macros to see a detailed review
+            </ReplacementTitle>
+          </>
+        )}
+        <Link href="/trainers">
+          <Button className="find-trainer">Consult with a Trainer</Button>
+        </Link>
+      </DailyMacroTitle>
+    </DailyMacroRoot>
   );
 }
 
