@@ -7,6 +7,7 @@ const LayoutRoot = styled.div`
   display: flex;
   min-height: 95vh;
 `;
+
 export default function LayoutPage({ children }: any) {
   const { Content } = Layout;
 
