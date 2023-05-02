@@ -36,12 +36,10 @@ export default function Home() {
     <GlobalContext.Provider value={globalContextValues}>
       <>
         <Layout>
-          <Layout>
-            <Content>
-              <div className="line" />
-              <Macros />
-            </Content>
-          </Layout>
+          <Content>
+            <div className="line" />
+            <Macros />
+          </Content>
         </Layout>
       </>
     </GlobalContext.Provider>
