@@ -10,10 +10,12 @@ const MainPage = styled.div`
   height: 100%;
   padding: 5%;
 `;
+
 const TitleMacros = styled.h2`
   color: #001858;
   font-weight: 700;
 `;
+
 const CalculateMacrosDiv = styled.div`
   margin-top: 40px;
   width: 100%;
