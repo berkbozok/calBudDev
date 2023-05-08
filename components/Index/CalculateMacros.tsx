@@ -1,12 +1,34 @@
-import React, { useState, useContext } from "react";
-import { Button, InputNumber, Radio, Select, Slider } from "antd";
-import { GlobalContext, globalContextTypes } from "@/pages";
-import styled from "styled-components";
 import { PieChartOutlined } from "@ant-design/icons";
-import { Layout } from "antd";
+import { Button, InputNumber, Radio, Select, Slider } from "antd";
+import styled from "styled-components";
+import SplitScreen from "../Layout/SplitScreen";
+import { globalContextTypes, GlobalContext } from "@/pages";
+import { useContext, useState } from "react";
+import DailyMacro from "./DailyMacro";
 
-const MainPage = styled.div`
+const CalculateMacrosRoot = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #fef6e4;
+  min-height: 55rem;
+`;
+
+const CalculateMacrosHeader = styled.div`
+  display: flex;
+  background-color: #fef6e4;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #596996;
+  padding: 1rem 1rem 1rem 1rem;
+`;
+
+const CalculateMacrosPage = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const MacrosMainPage = styled.div`
+  background-color: #feece4;
   max-height: 100%;
   padding: 5%; 0 0 0 ;
 `;
@@ -130,16 +152,18 @@ function CalculateMacros() {
     }
   };
 
-  const { Header } = Layout;
-
   return (
-    <>
-      <Header className="main-title">
+    <CalculateMacrosRoot>
+      <CalculateMacrosHeader>
+        {" "}
         <PieChartOutlined className="icon-title" />
         Macros Calculator
-      </Header>
-      <MainPage>
-        <TitleMacros>Calculate Your Macros</TitleMacros>
+      </CalculateMacrosHeader>
+      <CalculateMacrosPage>
+        <SplitScreen leftWeight={1} rightWeight={1}>
+          <MacrosMainPage>
+
+          <TitleMacros>Calculate Your Macros</TitleMacros>
         <p>
           Craft your ideal macronutrient ratio now using our macros calculator
         </p>
@@ -240,8 +264,11 @@ function CalculateMacros() {
             Calculate Macros
           </Button>
         </CalculateMacrosDiv>
-      </MainPage>
-    </>
+          </MacrosMainPage>
+          <DailyMacro />
+        </SplitScreen>
+      </CalculateMacrosPage>
+    </CalculateMacrosRoot>
   );
 }
 
