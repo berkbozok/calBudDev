@@ -10,6 +10,7 @@ const MainPage = styled.div`
   height: 100%;
   padding: 5%;
 `;
+
 const TitleMacros = styled.h2`
   color: #001858;
   font-weight: 700;
