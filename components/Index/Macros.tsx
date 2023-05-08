@@ -5,13 +5,13 @@ import SplitScreen from "../Layout/SplitScreen";
 
 const MacrosRoot = styled.div`
   display: flex;
-  height: 90vh;
+  min-height: 88vh;
 `;
 
 function Macros() {
   return (
     <MacrosRoot>
-      <SplitScreen leftWeight={1} rightWeight={1}>
+      <SplitScreen leftWeight={1} rightWeight={1} backgroundColor="#f1ead9">
         <CalculateMacros />
         <DailyMacro />
       </SplitScreen>

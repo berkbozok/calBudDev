@@ -7,8 +7,8 @@ import { Layout } from "antd";
 
 const MainPage = styled.div`
   background-color: #fef6e4;
-  height: 100%;
-  padding: 5%;
+  max-height: 100%;
+  padding: 5%; 0 0 0 ;
 `;
 
 const TitleMacros = styled.h2`
@@ -17,7 +17,7 @@ const TitleMacros = styled.h2`
 `;
 
 const CalculateMacrosDiv = styled.div`
-  margin-top: 40px;
+  /* margin-top: 40px; */
   width: 100%;
   display: flex;
   justify-content: left;

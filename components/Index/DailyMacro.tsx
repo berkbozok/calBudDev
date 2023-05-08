@@ -38,7 +38,6 @@ const Ring = styled.div`
   box-sizing: border-box;
   text-align: center;
   line-height: 200px;
-  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,7 +126,6 @@ const InfoPanel = styled.div`
   width: 60%;
   line-height: 1.5;
   color: #697491;
-  margin-bottom: 20px;
   margin-top: 10px;
 `;
 
