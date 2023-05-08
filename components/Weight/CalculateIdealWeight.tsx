@@ -1,14 +1,36 @@
-import React, { useState } from "react";
 import { Select, Button, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
 import { HeartOutlined } from "@ant-design/icons";
-import { Layout } from "antd";
+import { useState } from "react";
+import SplitScreen from "../Layout/SplitScreen";
+
 interface CalculateIdealWeightProps {
   gender: "male" | "female";
   age: number;
   height: number;
 }
 const { Option } = Select;
+
+const CalculateBodyFatRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #fef6e4;
+  min-height: 55rem;
+`;
+
+const CalculateBodyFatHeader = styled.div`
+  display: flex;
+  background-color: #fef6e4;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #596996;
+  padding: 1rem 1rem 1rem 1rem;
+`;
+
+const CalculateBodyFatMainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const Title = styled(Typography.Title)`
   text-align: center;
@@ -35,15 +57,6 @@ const ResultContainer = styled.div`
   text-align: center;
 `;
 
-const MainPage = styled.div`
-  display: flex;
-  flex-direction: row;
-  @media only screen and (max-width: 767px) {
-    display: flex;
-    flex-direction: column !important;
-  }
-`;
-
 const IdealWeightInput = styled.div`
   display: flex;
   flex-direction: column;
@@ -59,6 +72,7 @@ const Results = styled.div`
   flex-direction: column;
   padding: 15px;
   background: #f1ead9;
+  min-width:15rem;
 `;
 
 const CalculateBodyFatButton = styled.div`
@@ -68,11 +82,11 @@ const CalculateBodyFatButton = styled.div`
   padding: 0 0 30px 0;
 `;
 
-const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
+function CalculateIdealWeight({
   gender,
   age,
   height,
-}) => {
+}: CalculateIdealWeightProps) {
   const [selectedGender, setGender] = useState<"male" | "female">(gender);
   const [selectedAge, setAge] = useState<number>(age);
   const [selectedHeight, setHeight] = useState<number>(height);
@@ -93,16 +107,15 @@ const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
     }
     setIdealWeight(idealWeightValue);
   };
-
-  const { Header } = Layout;
-
   return (
-    <>
-      <Header className="main-title">
+    <CalculateBodyFatRoot>
+      <CalculateBodyFatHeader>
+        {" "}
         <HeartOutlined className="icon-title" />
-        Macros Calculator
-      </Header>
-      <MainPage>
+        Ideal Weight
+      </CalculateBodyFatHeader>
+      <CalculateBodyFatMainPage>
+        <SplitScreen leftWeight={1} rightWeight={1}>
         <IdealWeightInput>
           <FormContainer>
             <Form layout="vertical">
@@ -150,9 +163,10 @@ const CalculateIdealWeight: React.FC<CalculateIdealWeightProps> = ({
             </ResultContainer>
           </Results>
         )}
-      </MainPage>
-    </>
+        </SplitScreen>
+      </CalculateBodyFatMainPage>
+    </CalculateBodyFatRoot>
   );
-};
+}
 
 export default CalculateIdealWeight;
