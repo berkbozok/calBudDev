@@ -6,6 +6,7 @@ import {
   ToolOutlined,
   CalculatorOutlined,
   HeartOutlined,
+  HomeOutlined
 } from "@ant-design/icons";
 import React, { useState} from "react";
 import Link from "next/link";
@@ -31,36 +32,43 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem(
-    "Macros Calc",
+    "Home",
     "1",
     <Link href="/">
+      <HomeOutlined />
+    </Link>
+  ),
+  getItem(
+    "Macros Calc",
+    "2",
+    <Link href="/macros">
       <PieChartOutlined />
     </Link>
   ),
   getItem(
     "BMI Calc",
-    "2",
+    "3",
     <Link href="/bmi">
       <CalculatorOutlined />
     </Link>
   ),
   getItem(
     "Body Fat Calc",
-    "3",
+    "4",
     <Link href="/bodyfat">
       <PercentageOutlined />
     </Link>
   ),
   getItem(
     "Ideal Weight",
-    "4",
+    "5",
     <Link href="/idealweight">
       <HeartOutlined />
     </Link>
   ),
   getItem(
     "Trainers",
-    "5",
+    "6",
     <Link href="/trainers">
       <TeamOutlined />
     </Link>

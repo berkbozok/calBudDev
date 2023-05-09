@@ -2,9 +2,9 @@ import { PieChartOutlined } from "@ant-design/icons";
 import { Button, InputNumber, Radio, Select, Slider } from "antd";
 import styled from "styled-components";
 import SplitScreen from "../Layout/SplitScreen";
-import { globalContextTypes, GlobalContext } from "@/pages";
 import { useContext, useState } from "react";
 import DailyMacro from "./DailyMacro";
+import { GlobalContext, globalContextTypes } from '@/pages/_app';
 
 const CalculateMacrosRoot = styled.div`
   display: flex;
