@@ -109,6 +109,12 @@ const ValueTitle = styled.div`
   font-size: 25px !important;
 `;
 
+const ValueName = styled.span`
+  color: #001858;
+  font-weight: 700;
+  margin-top: 0.3rem;
+`;
+
 const FormulaTitle = styled.div`
   color: #001858;
   font-size: 35px;
@@ -213,21 +219,21 @@ function DailyMacro() {
             <ValueBoxAlignment>
               <Protein />
               <ValueTitle>{proteinIntake}g</ValueTitle>
-              <span> Protein</span>
+              <ValueName> Protein</ValueName>
             </ValueBoxAlignment>
           </MacroValueDiv>
           <MacroValueDiv>
             <ValueBoxAlignment>
               <Carbs />
               <ValueTitle>{carbIntake}g</ValueTitle>
-              <span> Carbs</span>
+              <ValueName> Carbs</ValueName>
             </ValueBoxAlignment>
           </MacroValueDiv>
           <MacroValueDiv>
             <ValueBoxAlignment>
               <Fat />
               <ValueTitle>{fatIntake}g</ValueTitle>
-              <span> Fat</span>
+              <ValueName> Fat</ValueName>
             </ValueBoxAlignment>
           </MacroValueDiv>
         </DailyMacroValue>
