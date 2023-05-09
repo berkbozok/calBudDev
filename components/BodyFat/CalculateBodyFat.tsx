@@ -1,14 +1,34 @@
-import React, { useState } from "react";
-import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
-import styled from "styled-components";
 import { PercentageOutlined } from "@ant-design/icons";
-import { Layout } from "antd";
+import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
+import { useState } from "react";
+import styled from "styled-components";
+import SplitScreen from "../Layout/SplitScreen";
+
 interface CalculateBodyFatProps {
   gender: "male" | "female";
   age: number;
 }
 
-const { Option } = Select;
+const CalculateBodyFatRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #fef6e4;
+  min-height: 55rem;
+`;
+
+const CalculateBodyFatHeader = styled.div`
+  display: flex;
+  background-color: #fef6e4;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #596996;
+  padding: 1rem 1rem 1rem 1rem;
+`;
+
+const CalculateBodyFatMainPage = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const Title = styled(Typography.Title)`
   text-align: center;
@@ -35,15 +55,6 @@ const ResultContainer = styled.div`
   text-align: center;
 `;
 
-const MainPage = styled.div`
-  display: flex;
-  flex-direction: row;
-  @media only screen and (max-width: 767px) {
-    display: flex;
-    flex-direction: column !important;
-  }
-`;
-
 const BodyFatInput = styled.div`
   display: flex;
   flex-direction: column;
@@ -59,6 +70,7 @@ const Results = styled.div`
   flex-direction: column;
   padding: 15px;
   background: #f1ead9;
+  min-width:10rem;
 `;
 
 const CalculateBodyFatButton = styled.div`
@@ -67,8 +79,9 @@ const CalculateBodyFatButton = styled.div`
   align-items: center;
   padding: 0 0 30px 0;
 `;
+const { Option } = Select;
 
-const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
+function CalculateBodyFat({ gender, age }: CalculateBodyFatProps) {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [neckSize, setNeckSize] = useState(0);
@@ -125,15 +138,14 @@ const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
     }
   };
 
-  const { Header } = Layout;
-
   return (
-    <>
-      <Header className="main-title">
+    <CalculateBodyFatRoot>
+      <CalculateBodyFatHeader>
         <PercentageOutlined className="icon-title" />
         Body Fat Calculator
-      </Header>
-      <MainPage>
+      </CalculateBodyFatHeader>
+      <CalculateBodyFatMainPage>
+        <SplitScreen leftWeight={1} rightWeight={1}>
         <BodyFatInput>
           <FormContainer>
             <Form layout="vertical">
@@ -199,9 +211,10 @@ const CalculateBodyFat: React.FC<CalculateBodyFatProps> = ({ gender, age }) => {
             </ResultContainer>
           </Results>
         )}
-      </MainPage>
-    </>
+        </SplitScreen>
+      </CalculateBodyFatMainPage>
+    </CalculateBodyFatRoot>
   );
-};
+}
 
 export default CalculateBodyFat;

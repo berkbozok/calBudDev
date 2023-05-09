@@ -1,6 +1,6 @@
 import React, { useState, createContext } from "react";
 import { Layout } from "antd";
-import Macros from "../../components/Index/Macros";
+import CalculateMacros from "../../components/Index/CalculateMacros";
 
 export const GlobalContext = createContext<any>(null);
 export type globalContextTypes = {
@@ -38,7 +38,7 @@ export default function Home() {
         <Layout>
           <Content>
             <div className="line" />
-            <Macros />
+            <CalculateMacros />
           </Content>
         </Layout>
       </>

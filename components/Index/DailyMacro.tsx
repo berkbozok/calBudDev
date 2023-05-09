@@ -38,7 +38,6 @@ const Ring = styled.div`
   box-sizing: border-box;
   text-align: center;
   line-height: 200px;
-  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,6 +109,12 @@ const ValueTitle = styled.div`
   font-size: 25px !important;
 `;
 
+const ValueName = styled.span`
+  color: #001858;
+  font-weight: 700;
+  margin-top: 0.3rem;
+`;
+
 const FormulaTitle = styled.div`
   color: #001858;
   font-size: 35px;
@@ -127,7 +132,6 @@ const InfoPanel = styled.div`
   width: 60%;
   line-height: 1.5;
   color: #697491;
-  margin-bottom: 20px;
   margin-top: 10px;
 `;
 
@@ -215,21 +219,21 @@ function DailyMacro() {
             <ValueBoxAlignment>
               <Protein />
               <ValueTitle>{proteinIntake}g</ValueTitle>
-              <span> Protein</span>
+              <ValueName> Protein</ValueName>
             </ValueBoxAlignment>
           </MacroValueDiv>
           <MacroValueDiv>
             <ValueBoxAlignment>
               <Carbs />
               <ValueTitle>{carbIntake}g</ValueTitle>
-              <span> Carbs</span>
+              <ValueName> Carbs</ValueName>
             </ValueBoxAlignment>
           </MacroValueDiv>
           <MacroValueDiv>
             <ValueBoxAlignment>
               <Fat />
               <ValueTitle>{fatIntake}g</ValueTitle>
-              <span> Fat</span>
+              <ValueName> Fat</ValueName>
             </ValueBoxAlignment>
           </MacroValueDiv>
         </DailyMacroValue>

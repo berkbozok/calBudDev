@@ -1,29 +1,30 @@
-import React, { useState } from "react";
+import { TeamOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import styled from "styled-components";
 import { Modal } from "antd";
 import { Card } from "antd";
-import styled from "styled-components";
-import { TeamOutlined } from "@ant-design/icons";
-import { Layout } from "antd";
 
 const { Meta } = Card;
 
-const PersonalTrainerRoot = styled.div`
+const PersonalTrainerListRoot = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: red;
+  background-color: #fef6e4;
+  min-height: 55rem;
 `;
 
-const MainPageLayout = styled.div`
+const PersonalTrainerListHeader = styled.div`
+  display: flex;
+  background-color: #fef6e4;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #596996;
+  padding: 1rem 1rem 1rem 1rem;
+`;
+
+const PersonalTrainerListMainPage = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #f1ead9;
-  color: #b2b4ba;
-  @media only screen and (max-width: 767px) {
-    .main-page-layout {
-      display: flex;
-      flex-direction: column;
-    }
-  }
 `;
 
 const MainPage = styled.div`
@@ -42,7 +43,7 @@ const ModalAlignment = styled.h2`
   flex-direction: row;
 `;
 
-const PersonalTrainerList = () => {
+function PersonalTrainerList() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedCardIndex, setSelectedCardIndex] = useState(-1);
 
@@ -57,108 +58,116 @@ const PersonalTrainerList = () => {
 
   const cards = [
     {
-      title: "Trainer 1",
-      description: "Professional Trainer",
-      image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-      info: "good trainer1",
+      title: "Batu Benzer",
+      description: "Fitness Influencer",
+      image: "https://i.imgur.com/AyM4VGo.jpg",
+      info: "Influencer who is trying to get people to shape ",
+      age: "24",
+      phone: "+90 534 783 3572",
+      yearsExp: "4",
+      email: "batubenzer@hotmail.com",
+      socialMedia: "@batu_benzer",
     },
     {
-      title: "Trainer 2",
+      title: "Oscar Fu",
       description: "Professional Trainer",
-      image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-      info: "good trainer 2",
+      image: "https://i.imgur.com/yuCg6jk.jpg",
+      info: "2016 Montreal's 2nd place on BodyBuilding Competition",
+      age: "25",
+      phone: "+1 514 577 6851",
+      yearsExp: "6",
+      email: "oscarf@gmail.com",
+      socialMedia: "@oscar.fu",
     },
   ];
 
-  const { Header } = Layout;
-
   return (
-    <>
-      <PersonalTrainerRoot>
-        <Header className="main-title">
-          <TeamOutlined className="icon-title" />
-          Trainers
-        </Header>
-        <MainPageLayout>
-          <MainPage>
-            <TitleTrainer>Find Your Personal Trainer Today</TitleTrainer>
-            <div className="trainer-card">
-              {cards.map((card, index) => (
-                <Card
-                  key={index}
-                  hoverable
-                  className="card"
-                  cover={<img alt="example" src={card.image} />}
-                  onClick={() => showModal(index)}
-                >
-                  <Meta title={card.title} description={card.description} />
-                </Card>
-              ))}
+    <PersonalTrainerListRoot>
+      <PersonalTrainerListHeader>
+        <TeamOutlined className="icon-title" />
+        Trainers
+      </PersonalTrainerListHeader>
+      <PersonalTrainerListMainPage>
+        <MainPage>
+          <TitleTrainer>Find Your Personal Trainer Today</TitleTrainer>
+          <div className="trainer-card">
+            {cards.map((card, index) => (
+              <Card
+                key={index}
+                hoverable
+                className="card"
+                cover={
+                  <img
+                    alt="example"
+                    src={card.image}
+                    style={{ height: "22rem" }}
+                  />
+                }
+                onClick={() => showModal(index)}
+              >
+                <Meta title={card.title} description={card.description} />
+              </Card>
+            ))}
 
-              {selectedCardIndex !== -1 && (
-                <Modal
-                  title={cards[selectedCardIndex].title}
-                  visible={isModalVisible}
-                  onCancel={handleCancel}
-                  className="trainer-modal"
-                  okButtonProps={{
-                    style: { display: "none", width: "500px" },
-                  }}
-                >
-                  <ModalAlignment>
-                    <div>
-                      <p>
-                        Write personal information for{" "}
-                        {cards[selectedCardIndex].title}
-                      </p>
-                      {cards[selectedCardIndex].info}
+            {selectedCardIndex !== -1 && (
+              <Modal
+                title={cards[selectedCardIndex].title}
+                visible={isModalVisible}
+                onCancel={handleCancel}
+                className="trainer-modal"
+                okButtonProps={{
+                  style: { display: "none", width: "50rem" },
+                }}
+                style={{ width: "800px" }}
+              >
+                <ModalAlignment>
+                  <div>
+                    {cards[selectedCardIndex].info}
 
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>Name:</span> John
-                        Doe
-                      </p>
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>Age:</span> 30
-                      </p>
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>
-                          Years of Experience:
-                        </span>{" "}
-                        5
-                      </p>
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>Phone:</span>{" "}
-                        555-1234
-                      </p>
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>Email:</span>{" "}
-                        johndoe@example.com
-                      </p>
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>
-                          Social Media:
-                        </span>{" "}
-                        @johndoe
-                      </p>
-                    </div>
-                    <div style={{ width: "70%" }}>
-                      <iframe
-                        className="calendly"
-                        src="https://calendly.com/find-trainer/berk"
-                        width="100%"
-                        height="800px"
-                        frameBorder="0"
-                      ></iframe>
-                    </div>
-                  </ModalAlignment>
-                </Modal>
-              )}
-            </div>
-          </MainPage>
-        </MainPageLayout>
-      </PersonalTrainerRoot>
-    </>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Name:</span>{" "}
+                      {cards[selectedCardIndex].title}
+                    </p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Age:</span>{" "}
+                      {cards[selectedCardIndex].age}
+                    </p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>
+                        Years of Experience:{" "}
+                      </span>
+                      {cards[selectedCardIndex].yearsExp}
+                    </p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Phone:</span>{" "}
+                      {cards[selectedCardIndex].phone}
+                    </p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Email:</span>{" "}
+                      {cards[selectedCardIndex].email}
+                    </p>
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Social Media:</span>{" "}
+                      {cards[selectedCardIndex].socialMedia}
+                    </p>
+                  </div>
+                  <div style={{ width: "70%" }}>
+                    <iframe
+                      className="calendly"
+                      src="https://calendly.com/find-trainer/berk"
+                      width="100%"
+                      height="800px"
+                      frameBorder="0"
+                    ></iframe>
+                  </div>
+                </ModalAlignment>
+              </Modal>
+            )}
+          </div>
+        </MainPage>
+      </PersonalTrainerListMainPage>
+    </PersonalTrainerListRoot>
   );
-};
+}
 
 export default PersonalTrainerList;

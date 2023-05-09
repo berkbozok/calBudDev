@@ -4,12 +4,18 @@ type SplitScreenProps = {
   leftWeight: number;
   rightWeight: number;
   children?: React.ReactNode[];
+  backgroundColor?:string;
 };
 
-const SplitScreenRoot = styled.div`
+type RootProps = {
+  bgColor? : string;
+};
+
+const SplitScreenRoot = styled.div<RootProps>`
   display: flex;
   width: 100%;
   flex-wrap: wrap ;
+   background-color:${(props) => props.bgColor||"none"} ;
 `;
 
 interface PaneProps {
@@ -24,10 +30,17 @@ function SplitScreen({
   children = [],
   leftWeight,
   rightWeight,
+  backgroundColor
 }: SplitScreenProps) {
   const [left, right] = children;
 
   return (
+    backgroundColor? 
+    <SplitScreenRoot bgColor = {backgroundColor}>
+      <Pane weight={leftWeight}>{left}</Pane>
+      <Pane weight={rightWeight}>{right}</Pane>
+    </SplitScreenRoot>
+    :
     <SplitScreenRoot>
       <Pane weight={leftWeight}>{left}</Pane>
       <Pane weight={rightWeight}>{right}</Pane>

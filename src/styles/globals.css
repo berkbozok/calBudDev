@@ -191,6 +191,21 @@ p {
   height: 35px;
 }
 
+:where(.css-dev-only-do-not-override-mxhywb).ant-modal .ant-modal-content {
+  position: relative;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  padding: 20px 24px;
+  width: 50rem;
+  right: 7rem;
+  bottom: 4rem;
+}
+
 .g2-html-annotation {
   display: none !important;
 }
@@ -204,6 +219,7 @@ p {
 .trainer-card {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .card {
   width: 240px;
