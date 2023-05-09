@@ -58,16 +58,26 @@ function PersonalTrainerList() {
 
   const cards = [
     {
-      title: "Trainer 1",
-      description: "Professional Trainer",
-      image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-      info: "good trainer1",
+      title: "Batu Benzer",
+      description: "Fitness Influencer",
+      image: "https://i.imgur.com/AyM4VGo.jpg",
+      info: "Influencer who is trying to get people to shape ",
+      age: "24",
+      phone: "+90 534 783 3572",
+      yearsExp: "4",
+      email: "batubenzer@hotmail.com",
+      socialMedia: "@batu_benzer",
     },
     {
-      title: "Trainer 2",
+      title: "Oscar Fu",
       description: "Professional Trainer",
-      image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-      info: "good trainer 2",
+      image: "https://i.imgur.com/yuCg6jk.jpg",
+      info: "2016 Montreal's 2nd place on BodyBuilding Competition",
+      age: "25",
+      phone: "+1 514 577 6851",
+      yearsExp: "6",
+      email: "oscarf@gmail.com",
+      socialMedia: "@oscar.fu",
     },
   ];
 
@@ -86,7 +96,13 @@ function PersonalTrainerList() {
                 key={index}
                 hoverable
                 className="card"
-                cover={<img alt="example" src={card.image} />}
+                cover={
+                  <img
+                    alt="example"
+                    src={card.image}
+                    style={{ height: "22rem" }}
+                  />
+                }
                 onClick={() => showModal(index)}
               >
                 <Meta title={card.title} description={card.description} />
@@ -100,40 +116,39 @@ function PersonalTrainerList() {
                 onCancel={handleCancel}
                 className="trainer-modal"
                 okButtonProps={{
-                  style: { display: "none", width: "500px" },
+                  style: { display: "none", width: "50rem" },
                 }}
+                style={{ width: "800px" }}
               >
                 <ModalAlignment>
                   <div>
-                    <p>
-                      Write personal information for{" "}
-                      {cards[selectedCardIndex].title}
-                    </p>
                     {cards[selectedCardIndex].info}
 
                     <p>
-                      <span style={{ fontWeight: "bold" }}>Name:</span> John Doe
+                      <span style={{ fontWeight: "bold" }}>Name:</span>{" "}
+                      {cards[selectedCardIndex].title}
                     </p>
                     <p>
-                      <span style={{ fontWeight: "bold" }}>Age:</span> 30
+                      <span style={{ fontWeight: "bold" }}>Age:</span>{" "}
+                      {cards[selectedCardIndex].age}
                     </p>
                     <p>
                       <span style={{ fontWeight: "bold" }}>
-                        Years of Experience:
-                      </span>{" "}
-                      5
+                        Years of Experience:{" "}
+                      </span>
+                      {cards[selectedCardIndex].yearsExp}
                     </p>
                     <p>
                       <span style={{ fontWeight: "bold" }}>Phone:</span>{" "}
-                      555-1234
+                      {cards[selectedCardIndex].phone}
                     </p>
                     <p>
                       <span style={{ fontWeight: "bold" }}>Email:</span>{" "}
-                      johndoe@example.com
+                      {cards[selectedCardIndex].email}
                     </p>
                     <p>
                       <span style={{ fontWeight: "bold" }}>Social Media:</span>{" "}
-                      @johndoe
+                      {cards[selectedCardIndex].socialMedia}
                     </p>
                   </div>
                   <div style={{ width: "70%" }}>
