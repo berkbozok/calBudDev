@@ -1,9 +1,10 @@
 import React from "react";
 import { Layout } from "antd";
+import Home from './home';
 
 
 
-export default function Home() {
+export default function Index() {
 
 
   const { Content } = Layout;
@@ -13,8 +14,7 @@ export default function Home() {
         <Layout>
           <Content>
             <div className="line" />
-            {/* <CalculateMacros /> */}
-             home
+             <Home />
           </Content>
         </Layout>
       </>
