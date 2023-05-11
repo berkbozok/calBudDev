@@ -240,3 +240,15 @@ p {
   color: #888;
   margin-left: 8px;
 }
+
+.basic-card {
+  background: linear-gradient(-45deg, #f403d1, #64b5f6) !important;
+}
+
+.standard-card {
+  background: linear-gradient(-45deg, #ffec61, #f321d7) !important;
+}
+
+.premium-card {
+  background: linear-gradient(-45deg, #24ff72, #9a4eff) !important;
+}
