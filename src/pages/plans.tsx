@@ -14,6 +14,9 @@ const Section = styled.section`
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 140px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.div`
@@ -75,7 +78,6 @@ const Card = styled.div`
   height: auto;
   background: linear-gradient(-45deg, #fe0847, #feae3f);
   border-radius: 15px;
-  margin: 0 auto;
   padding: 60px 20px;
   -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -83,8 +85,8 @@ const Card = styled.div`
   transition: 0.5s;
 
   :hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.07);
+    transform: scale(1.07);
   }
 
   ::before {

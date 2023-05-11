@@ -11,6 +11,7 @@ export default function Logo() {
         xmlSpace="preserve"
         version="1.1"
         viewBox="0 0 50 50"
+        className="home-logo"
       >
         <image
           width="50"
