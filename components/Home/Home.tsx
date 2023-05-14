@@ -19,8 +19,6 @@ const HomeRoot = styled.div`
 const ContentText = styled.div``;
 
 const ContentSpan = styled.div`
-  //   color: #f582ae;
-  //   text-shadow: 3px 3px 4px rgba(62, 62, 62, 0.9);
   text-align: center;
 `;
 
