@@ -16,11 +16,7 @@ const HomeRoot = styled.div`
   background: #rgb(254, 246, 228);
 `;
 
-const ContentText = styled.div`
-  //   font-size: 4em;
-  //   text-shadow: 3px 3px 4px rgba(244, 151, 151, 0.9);
-  //   color: black;
-`;
+const ContentText = styled.div``;
 
 const ContentSpan = styled.div`
   //   color: #f582ae;
@@ -79,7 +75,6 @@ const Check = styled.div`
   font-family: "Work Sans", sans-serif;
   font-weight: 900;
   font-size: 1.5vw;
-  //   text-transform: uppercase;
   line-height: 1;
   flex-direction: column !important;
   margin: 1.25rem;
