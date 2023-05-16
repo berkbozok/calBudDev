@@ -1,6 +1,4 @@
 import React from "react";
-import { TeamOutlined } from "@ant-design/icons";
-import { useState } from "react";
 import styled from "styled-components";
 import { Button, Modal } from "antd";
 import { Card } from "antd";
