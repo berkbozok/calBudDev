@@ -59,7 +59,6 @@ const CompanyName = styled.div`
   p {
     color: #152a63 !important;
   }
-
   .home-logo {
     height: 6rem;
     width: 6rem;
