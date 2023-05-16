@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Button, Modal } from "antd";
-import { Card } from "antd";
 import Link from "next/link";
 import Logo from "../../shared/logo";
 
