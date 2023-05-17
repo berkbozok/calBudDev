@@ -14,7 +14,6 @@ const HomeRoot = styled.div`
 `;
 
 const ContentText = styled.div``;
-
 const ContentSpan = styled.div`
   text-align: center;
 `;
