@@ -4,7 +4,7 @@ import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
 import Link from "next/link";
-import { GlobalContext, globalContextTypes } from '@/pages/_app';
+import { GlobalContext, globalContextTypes } from "@/pages/_app";
 import { Button } from "antd";
 import styled from "styled-components";
 

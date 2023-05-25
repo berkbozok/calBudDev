@@ -6,9 +6,9 @@ import {
   ToolOutlined,
   CalculatorOutlined,
   HeartOutlined,
-  HomeOutlined
+  HomeOutlined,
 } from "@ant-design/icons";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "../shared/logo";
 import styled from "styled-components";
@@ -78,10 +78,13 @@ const items: MenuItem[] = [
 
 const Title = styled.div`
   text-align: center;
-  font-size: 30px;
-  padding: 10px 0 50px 0;
-  font-weight: bold;
-  color: #152a63;
+  font-size: 30px !important;
+  padding: 10px 0 50px 0 !important;
+  font-weight: bold !important;
+  color: #152a63 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 export default function Navigation() {
@@ -103,7 +106,7 @@ export default function Navigation() {
             <div>
               <span className={collapsed ? "hidden" : ""}>
                 <Logo />
-                FITracker
+                <div>FITracker</div>
               </span>
             </div>
           </Title>
