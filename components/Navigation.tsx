@@ -35,45 +35,49 @@ const items: MenuItem[] = [
     "Home",
     "1",
     <Link href="/">
-      <HomeOutlined />
+      <HomeOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Macros Calc",
     "2",
     <Link href="/macros">
-      <PieChartOutlined />
+      <PieChartOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "BMI Calc",
     "3",
     <Link href="/bmi">
-      <CalculatorOutlined />
+      <CalculatorOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Body Fat Calc",
     "4",
     <Link href="/bodyfat">
-      <PercentageOutlined />
+      <PercentageOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Ideal Weight",
     "5",
     <Link href="/idealweight">
-      <HeartOutlined />
+      <HeartOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Trainers",
     "6",
     <Link href="/trainers">
-      <TeamOutlined />
+      <TeamOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
-  getItem("Settings", "6", <ToolOutlined />),
+  getItem(
+    "Settings",
+    "7",
+    <ToolOutlined style={{ color: "white", fontSize: "32px" }} />
+  ),
 ];
 
 const Title = styled.div`
