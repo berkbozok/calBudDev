@@ -13,13 +13,13 @@ interface BmiCalculatorProps {
 const CalculateBmiRoot = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   min-height: 55rem;
 `;
 
 const CalculateBmiHeader = styled.div`
   display: flex;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   font-size: 1.5rem;
   font-weight: 600;
   color: #596996;
@@ -36,7 +36,7 @@ const BmiInputs = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 24px;
-  background: #fef6e4;
+  background: #f5f5f5;
   padding: 1rem;
   min-width: 50%;
 `;

@@ -103,14 +103,16 @@ p {
 }
 
 .calculate-bmi-button {
-  background-color: #f582ae;
+  background-color: #fd3d0d;
   font-weight: 700;
   font-size: 20px;
   height: 70px;
+  color: white;
 }
 
 .calculate-bmi-button:hover {
   color: white !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .icon {
