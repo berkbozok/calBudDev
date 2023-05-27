@@ -89,15 +89,17 @@ p {
 }
 
 .calculate-macros-button {
-  background-color: #f582ae;
+  background-color: #fd3d0d;
   font-weight: 700;
   font-size: 20px;
   width: 50%;
   height: 70px;
+  color: #f5f5f5;
 }
 
 .calculate-macros-button:hover {
   color: white !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .calculate-bmi-button {

@@ -11,7 +11,7 @@ import styled from "styled-components";
 const DailyMacroRoot = styled.div`
   display: flex;
   height: 100%;
-  background: #f1ead9;
+  background: #f5f5f5;
 `;
 
 const DailyMacroTitle = styled.div`

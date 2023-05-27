@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SplitScreen from "../Layout/SplitScreen";
 import { useContext, useState } from "react";
 import DailyMacro from "./DailyMacro";
-import { GlobalContext, globalContextTypes } from '@/pages/_app';
+import { GlobalContext, globalContextTypes } from "@/pages/_app";
 
 const CalculateMacrosRoot = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const CalculateMacrosRoot = styled.div`
 
 const CalculateMacrosHeader = styled.div`
   display: flex;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   font-size: 1.5rem;
   font-weight: 600;
   color: #596996;
@@ -28,7 +28,7 @@ const CalculateMacrosPage = styled.div`
 `;
 
 const MacrosMainPage = styled.div`
-  background-color: #FEF6E4;
+  background-color: #F5F5F5;
   max-height: 100%;
   padding: 5%; 0 0 0 ;
 `;
