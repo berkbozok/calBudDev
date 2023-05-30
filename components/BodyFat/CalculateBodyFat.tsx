@@ -60,7 +60,7 @@ const BodyFatInput = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 24px;
-  background: #fef6e4;
+  background: #f5f5f5;
   padding: 15px;
   width: 50%;
 `;
@@ -69,7 +69,7 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: #f1ead9;
+  background: #f5f5f5;
   min-width: 10rem;
 `;
 
