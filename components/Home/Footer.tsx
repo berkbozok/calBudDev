@@ -124,7 +124,9 @@ function Footer() {
             </ul>
             <ul className="footer-list">
               <li>
-                <p className="footer-list-title has-before">Our Newsletter</p>
+                <p className="footer-list-title has-before">
+                  Our Newsletter (Coming Soon)
+                </p>
               </li>
               <li>
                 <form action="" className="footer-form">
@@ -170,9 +172,9 @@ function Footer() {
         <div className="footer-bottom">
           <div className="container">
             <p className="copyright">
-              &copy; 2022 Fitlife. All Rights Reserved By
+              &copy; 2022 Fitlife. All Rights Reserved By &nbsp;
               <a href="#" className="copyright-link">
-                codewithsadee.
+                FITracker
               </a>
             </p>
             <ul className="footer-bottom-list">
