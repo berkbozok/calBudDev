@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Blog_1 from "../images/blog-1.jpg";
 import Blog_2 from "../images/blog-2.jpg";
 import Blog_3 from "../images/blog-3.jpg";
+import { Modal } from 'antd';
 
 function Blog() {
+  const [modal2Open, setModal2Open] = useState(false);
   return (
     <>
       <section className="section blog" id="blog" aria-label="blog">
@@ -35,7 +37,7 @@ function Blog() {
 
                 <div className="card-content">
                   <h3 className="h3">
-                    <a href="#" className="card-title">
+                    <a href="#" className="card-title"  onClick={() => setModal2Open(true)}>
                       Going to the gym for the first time
                     </a>
                   </h3>
@@ -46,6 +48,16 @@ function Blog() {
                   <a href="#" className="btn-link has-before">
                     Read More
                   </a>
+                  <Modal
+        title="Going to the gym for the first time"
+        centered
+        open={modal2Open}
+        onOk={() => setModal2Open(false)}
+        onCancel={() => setModal2Open(false)}
+      >
+        <p>some contents...</p>
+
+      </Modal>
                 </div>
               </div>
             </li>

@@ -6,6 +6,7 @@ import AboutCircle from "../images/about-circle-one.png";
 import AboutCircleTwo from "../images/about-circle-two.png";
 import Fitness from "../images/fitness.png";
 import AboutCoach from "../images/about-coach.jpg";
+import Link from 'next/link';
 
 function About() {
   return (
@@ -82,10 +83,10 @@ function About() {
                   <p className="coach-title">Our Coach</p>
                 </div>
               </div>
-
-              <a href="#" className="btn btn-primary">
-                Explore More
-              </a>
+      <Link className="btn btn-primary" href="/trainers">
+      Explore More
+      </Link>
+            
             </div>
           </div>
         </div>

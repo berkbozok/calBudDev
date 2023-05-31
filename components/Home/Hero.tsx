@@ -7,6 +7,7 @@ import heroCircle from "../images/hero-circle-one.png";
 import heroCircleTwo from "../images/hero-circle-two.png";
 import HeartRate from "../images/heart-rate.svg";
 import Calories from "../images/calories.svg";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -28,9 +29,11 @@ function Hero() {
               Duis mollis felis quis libero dictum vehicula. Duis dictum lorem
               mi, a faucibus nisi eleifend eu.
             </p>
-            <a href="#" className="btn btn-primary">
-              Get Started
-            </a>
+            <Link className="btn btn-primary" href="/macros">
+            Calculate Macros
+
+            </Link>
+         
           </div>
           <div className="hero-banner">
             <Image

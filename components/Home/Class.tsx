@@ -69,15 +69,15 @@ function Class() {
 
                   <div className="card-progress">
                     <div className="progress-wrapper">
-                      <p className="progress-label">Class Full</p>
+                      <p className="progress-label">Coming  Soon</p>
 
-                      <span className="progress-value">85%</span>
+                      <span className="progress-value">0%</span>
                     </div>
 
                     <div className="progress-bg">
                       <div
                         className="progress-bar"
-                        style={{ width: "85%" }}
+                        style={{ width: "0%" }}
                       ></div>
                     </div>
                   </div>
@@ -126,15 +126,15 @@ function Class() {
 
                   <div className="card-progress">
                     <div className="progress-wrapper">
-                      <p className="progress-label">Class Full</p>
+                      <p className="progress-label">Coming Soon</p>
 
-                      <span className="progress-value">70%</span>
+                      <span className="progress-value">0%</span>
                     </div>
 
                     <div className="progress-bg">
                       <div
                         className="progress-bar"
-                        style={{ width: "70%" }}
+                        style={{ width: "0%" }}
                       ></div>
                     </div>
                   </div>
@@ -183,15 +183,15 @@ function Class() {
 
                   <div className="card-progress">
                     <div className="progress-wrapper">
-                      <p className="progress-label">Class Full</p>
+                      <p className="progress-label">Coming Soon</p>
 
-                      <span className="progress-value">90%</span>
+                      <span className="progress-value">0%</span>
                     </div>
 
                     <div className="progress-bg">
                       <div
                         className="progress-bar"
-                        style={{ width: "90%" }}
+                        style={{ width: "0%" }}
                       ></div>
                     </div>
                   </div>
