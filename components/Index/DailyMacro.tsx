@@ -85,7 +85,7 @@ const DailyMacroValue = styled.div`
 `;
 
 const MacroValueDiv = styled.div`
-  background-color: #fef6e4;
+  background-color: #fd3d0d;
   margin: 10px;
   height: 100px;
   width: 100px;
