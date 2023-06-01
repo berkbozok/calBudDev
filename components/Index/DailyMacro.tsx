@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const DailyMacroRoot = styled.div`
   display: flex;
-  height: 100%;
+  height: 100vh;
   background: #f5f5f5;
 `;
 

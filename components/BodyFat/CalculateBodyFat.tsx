@@ -13,7 +13,8 @@ const CalculateBodyFatRoot = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
-  min-height: 55rem;
+  // min-height: 55rem;
+  height: 100vh;
 `;
 
 const CalculateBodyFatHeader = styled.div`
@@ -32,6 +33,7 @@ const CalculateBodyFatMainPage = styled.div`
 
 const Title = styled(Typography.Title)`
   text-align: center;
+  color: white !important;
 `;
 
 const FormContainer = styled.div`
@@ -53,6 +55,7 @@ const ButtonContainer = styled(Form.Item)`
 const ResultContainer = styled.div`
   margin-top: 24px;
   text-align: center;
+  color: white !important;
 `;
 
 const BodyFatInput = styled.div`
@@ -69,7 +72,8 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: #f5f5f5;
+  background: #fd3d0d;
+  border-radius: 15px;
   min-width: 10rem;
 `;
 
@@ -205,11 +209,11 @@ function CalculateBodyFat({ gender, age }: CalculateBodyFatProps) {
             <Results>
               <ResultContainer>
                 <Title level={4}>Your Body Fat Percentage:</Title>
-                <Typography.Paragraph>
+                <Typography.Paragraph className="results-text">
                   {bodyFat.toFixed(2)}%
                 </Typography.Paragraph>
                 <Title level={4}>Body Fat Status:</Title>
-                <Typography.Paragraph>
+                <Typography.Paragraph className="results-text">
                   {getBodyFatStatus()}
                 </Typography.Paragraph>
               </ResultContainer>

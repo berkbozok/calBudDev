@@ -225,8 +225,11 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
 }
+.results-text {
+  color: white !important;
+}
 .card {
-  width: 240px;
+  width: 30rem;
   margin: 15px;
 }
 

@@ -10,7 +10,8 @@ const PersonalTrainerListRoot = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
-  min-height: 55rem;
+  // min-height: 55rem;
+  height: 100vh;
 `;
 
 const PersonalTrainerListHeader = styled.div`
@@ -100,7 +101,7 @@ function PersonalTrainerList() {
                   <img
                     alt="example"
                     src={card.image}
-                    style={{ height: "22rem" }}
+                    style={{ height: "37rem" }}
                   />
                 }
                 onClick={() => showModal(index)}

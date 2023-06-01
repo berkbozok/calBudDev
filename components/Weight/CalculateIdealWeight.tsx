@@ -15,7 +15,8 @@ const CalculateBodyFatRoot = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
-  min-height: 55rem;
+  // min-height: 55rem;
+  height: 100vh;
 `;
 
 const CalculateBodyFatHeader = styled.div`
@@ -71,7 +72,8 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: #f1ead9;
+  background: #fd3d0d;
+  border-radius: 15px;
   min-width: 15rem;
 `;
 
@@ -156,8 +158,10 @@ function CalculateIdealWeight({
           {idealWeight !== 0 && (
             <Results>
               <ResultContainer>
-                <Title level={4}>Your Ideal Weight:</Title>
-                <Typography.Paragraph>
+                <Title level={4} className="results-text">
+                  Your Ideal Weight:
+                </Title>
+                <Typography.Paragraph className="results-text">
                   {idealWeight.toFixed(2)} kg
                 </Typography.Paragraph>
               </ResultContainer>
