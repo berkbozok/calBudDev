@@ -7,6 +7,9 @@ import Link from "next/link";
 import { GlobalContext, globalContextTypes } from "@/pages/_app";
 import { Button } from "antd";
 import styled from "styled-components";
+import heroCircle from "../images/hero-circle-one.png";
+import heroCircleTwo from "../images/hero-circle-two.png";
+import Image from "next/image";
 
 const DailyMacroRoot = styled.div`
   display: flex;
@@ -105,12 +108,12 @@ const ValueBoxAlignment = styled.div`
 
 const ValueTitle = styled.div`
   font-weight: 700;
-  color: rgb(0, 24, 88);
+  color: white;
   font-size: 25px !important;
 `;
 
 const ValueName = styled.span`
-  color: #001858;
+  color: white;
   font-weight: 700;
   margin-top: 0.3rem;
 `;
@@ -169,7 +172,16 @@ function DailyMacro() {
     <DailyMacroRoot>
       <DailyMacroTitle>
         <RightSideTitle>Your Daily Macro Goals</RightSideTitle>
+
         <Ring>
+          <Image
+            src={heroCircleTwo}
+            width="666"
+            height="666"
+            aria-hidden="true"
+            alt=""
+            className="circle circle-2"
+          />
           <RingText>Total Maintain</RingText>
           {bmrValue !== 0 ? (
             <Bmr> {bmrValue} </Bmr>

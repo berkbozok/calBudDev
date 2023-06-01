@@ -1,5 +1,4 @@
 import React from "react";
-
 import Image from "next/image";
 import heroBg from "../images/hero-bg.png";
 import heroBanner from "../images/hero-banner.png";
