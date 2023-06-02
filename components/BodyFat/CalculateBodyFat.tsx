@@ -64,8 +64,7 @@ const BodyFatInput = styled.div`
   align-items: flex-start;
   margin-bottom: 24px;
   background: #f5f5f5;
-  padding: 15px;
-  width: 50%;
+  padding: 2.41rem;
 `;
 
 const Results = styled.div`
@@ -75,6 +74,7 @@ const Results = styled.div`
   background: #fd3d0d;
   border-radius: 15px;
   min-width: 10rem;
+  margin: 1rem;
 `;
 
 const CalculateBodyFatButton = styled.div`
@@ -194,12 +194,12 @@ function CalculateBodyFat({ gender, age }: CalculateBodyFatProps) {
                 </Label>
                 <ButtonContainer>
                   <CalculateBodyFatButton>
-                    <Button
-                      className="calculate-bmi-button"
+                    <button
+                      className="btn btn-secondary"
                       onClick={calculateBodyFat}
                     >
                       Calculate Body Fat
-                    </Button>
+                    </button>
                   </CalculateBodyFatButton>
                 </ButtonContainer>
               </Form>

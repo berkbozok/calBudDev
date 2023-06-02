@@ -9,7 +9,7 @@ import { GlobalContext, globalContextTypes } from "@/pages/_app";
 const CalculateMacrosRoot = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   min-height: 55rem;
 `;
 
@@ -44,6 +44,10 @@ const CalculateMacrosDiv = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
+`;
+
+const BoxTitle = styled.p`
+  color: black;
 `;
 
 function CalculateMacros() {
@@ -163,28 +167,28 @@ function CalculateMacros() {
         <SplitScreen leftWeight={1} rightWeight={1}>
           <MacrosMainPage>
             <TitleMacros>Calculate Your Macros</TitleMacros>
-            <p>
+            <BoxTitle>
               Craft your ideal macronutrient ratio now using our macros
               calculator
-            </p>
+            </BoxTitle>
             <div>
-              <p>System</p>
+              <BoxTitle>System</BoxTitle>
               <Radio.Group defaultValue="metric" onChange={handleUnitMeasure}>
                 <Radio.Button value="imperial">Imperial</Radio.Button>
                 <Radio.Button value="metric">Metric</Radio.Button>
               </Radio.Group>
             </div>
             <div>
-              <p>I am a</p>
+              <BoxTitle>I am a</BoxTitle>
               <Radio.Group onChange={handleSex}>
                 <Radio.Button value="male">Male</Radio.Button>
                 <Radio.Button value="female">Female</Radio.Button>
               </Radio.Group>
             </div>
             <div>
-              <p>
+              <BoxTitle>
                 I am <b>{age}</b> years old
-              </p>
+              </BoxTitle>
               <InputNumber
                 min={1}
                 max={100}
@@ -194,10 +198,10 @@ function CalculateMacros() {
               />
             </div>
             <div>
-              <p>
+              <BoxTitle>
                 My Height: <b>{height}</b>{" "}
                 {unitMeasure === "metric" ? "cm" : "inch"}
-              </p>
+              </BoxTitle>
               <InputNumber
                 min={1}
                 max={400}
@@ -207,10 +211,10 @@ function CalculateMacros() {
               />
             </div>
             <div>
-              <p>
+              <BoxTitle>
                 Current Weight: <b>{weight}</b>{" "}
                 {unitMeasure === "metric" ? "kg" : "pounds"}
-              </p>
+              </BoxTitle>
               <InputNumber
                 min={1}
                 max={400}
@@ -220,7 +224,7 @@ function CalculateMacros() {
               />
             </div>
             <div>
-              <p>Activity Level</p>
+              <BoxTitle>Activity Level</BoxTitle>
               <Select
                 defaultValue="choose"
                 style={{ width: 420 }}
@@ -257,12 +261,12 @@ function CalculateMacros() {
               />
             </div>
             <CalculateMacrosDiv>
-              <Button
-                className="calculate-macros-button"
+              <button
+                className="btn btn-secondary"
                 onClick={() => handleBmrComputation()}
               >
                 Calculate Macros
-              </Button>
+              </button>
             </CalculateMacrosDiv>
           </MacrosMainPage>
           <DailyMacro />

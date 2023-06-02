@@ -75,6 +75,7 @@ const Results = styled.div`
   background: #fd3d0d;
   border-radius: 15px;
   min-width: 15rem;
+  margin: 1rem;
 `;
 
 const CalculateBodyFatButton = styled.div`
@@ -144,12 +145,12 @@ function CalculateIdealWeight({
                 </Label>
                 <ButtonContainer>
                   <CalculateBodyFatButton>
-                    <Button
-                      className="calculate-bmi-button"
+                    <button
+                      className="btn btn-secondary"
                       onClick={calculateIdealWeight}
                     >
                       Calculate Ideal Weight
-                    </Button>
+                    </button>
                   </CalculateBodyFatButton>
                 </ButtonContainer>
               </Form>

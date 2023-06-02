@@ -131,8 +131,8 @@ p {
 }
 
 .ant-radio-button-wrapper-checked {
-  background-color: #8bd3dd !important;
-  color: #24487a !important;
+  background-color: #fd3d0d !important;
+  color: white !important;
   border-color: none;
 }
 
@@ -572,8 +572,8 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--white);
-  color: var(--coquelicot);
+  background-color: var(--coquelicot);
+  color: var(--white);
 }
 
 .btn-secondary:is(:hover, :focus) {

@@ -38,7 +38,7 @@ const BmiInputs = styled.div`
   align-items: flex-start;
   margin-bottom: 24px;
   background: #f5f5f5;
-  padding: 1rem;
+  padding: 2.41rem;
   min-width: 50%;
 `;
 
@@ -46,7 +46,7 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-
+  margin: 1rem;
   background: #fd3d0d;
   border-radius: 15px;
 `;
@@ -160,12 +160,9 @@ function CalculateBmi({ gender, age }: BmiCalculatorProps) {
               </Form.Item>
               <Form.Item>
                 <CalculateBmiButton>
-                  <Button
-                    className="calculate-bmi-button"
-                    onClick={calculateBmi}
-                  >
+                  <button className="btn btn-secondary" onClick={calculateBmi}>
                     Calculate BMI
-                  </Button>
+                  </button>
                 </CalculateBmiButton>
               </Form.Item>
             </Form>

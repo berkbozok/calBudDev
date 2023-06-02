@@ -59,6 +59,7 @@ const RingText = styled.h3`
   color: rgb(127, 135, 157);
   font-weight: 600;
   font-size: 17px;
+  margin-top: 20px;
 `;
 
 const Table = styled.div`
@@ -151,6 +152,7 @@ const Bmr = styled.h3`
   font-weight: 700;
   color: rgb(0, 24, 88);
   font-size: 38px !important;
+  margin-top: 10px;
 `;
 
 const BmrCalculate = styled.h3`
@@ -172,16 +174,7 @@ function DailyMacro() {
     <DailyMacroRoot>
       <DailyMacroTitle>
         <RightSideTitle>Your Daily Macro Goals</RightSideTitle>
-
         <Ring>
-          <Image
-            src={heroCircleTwo}
-            width="666"
-            height="666"
-            aria-hidden="true"
-            alt=""
-            className="circle circle-2"
-          />
           <RingText>Total Maintain</RingText>
           {bmrValue !== 0 ? (
             <Bmr> {bmrValue} </Bmr>
