@@ -9,6 +9,7 @@ interface CalculateIdealWeightProps {
   age: number;
   height: number;
 }
+
 const { Option } = Select;
 
 const CalculateBodyFatRoot = styled.div`
