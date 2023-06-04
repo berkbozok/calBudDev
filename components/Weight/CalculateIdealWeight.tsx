@@ -113,7 +113,6 @@ function CalculateIdealWeight({
   return (
     <CalculateBodyFatRoot>
       <CalculateBodyFatHeader>
-        {" "}
         <HeartOutlined className="icon-title" />
         Ideal Weight
       </CalculateBodyFatHeader>
