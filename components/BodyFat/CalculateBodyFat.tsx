@@ -82,6 +82,7 @@ const CalculateBodyFatButton = styled.div`
   align-items: center;
   padding: 0 0 30px 0;
 `;
+
 const { Option } = Select;
 
 function CalculateBodyFat({ gender, age }: CalculateBodyFatProps) {
