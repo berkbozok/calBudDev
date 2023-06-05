@@ -4,14 +4,17 @@ import Fat from "../../shared/fat";
 import Carbs from "../../shared/carbs";
 import DemoPie from "../../components/Charts/PieChart";
 import Link from "next/link";
-import { GlobalContext, globalContextTypes } from "@/pages";
+import { GlobalContext, globalContextTypes } from "@/pages/_app";
 import { Button } from "antd";
 import styled from "styled-components";
+import heroCircle from "../images/hero-circle-one.png";
+import heroCircleTwo from "../images/hero-circle-two.png";
+import Image from "next/image";
 
 const DailyMacroRoot = styled.div`
   display: flex;
-  height: 100%;
-  background: #f1ead9;
+  height: 100vh;
+  background: #f5f5f5;
 `;
 
 const DailyMacroTitle = styled.div`
@@ -56,6 +59,7 @@ const RingText = styled.h3`
   color: rgb(127, 135, 157);
   font-weight: 600;
   font-size: 17px;
+  margin-top: 20px;
 `;
 
 const Table = styled.div`
@@ -85,7 +89,7 @@ const DailyMacroValue = styled.div`
 `;
 
 const MacroValueDiv = styled.div`
-  background-color: #fef6e4;
+  background-color: #fd3d0d;
   margin: 10px;
   height: 100px;
   width: 100px;
@@ -105,12 +109,12 @@ const ValueBoxAlignment = styled.div`
 
 const ValueTitle = styled.div`
   font-weight: 700;
-  color: rgb(0, 24, 88);
+  color: white;
   font-size: 25px !important;
 `;
 
 const ValueName = styled.span`
-  color: #001858;
+  color: white;
   font-weight: 700;
   margin-top: 0.3rem;
 `;
@@ -148,6 +152,7 @@ const Bmr = styled.h3`
   font-weight: 700;
   color: rgb(0, 24, 88);
   font-size: 38px !important;
+  margin-top: 10px;
 `;
 
 const BmrCalculate = styled.h3`

@@ -6,8 +6,9 @@ import {
   ToolOutlined,
   CalculatorOutlined,
   HeartOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "../shared/logo";
 import styled from "styled-components";
@@ -31,49 +32,63 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem(
-    "Macros Calc",
+    "Home",
     "1",
     <Link href="/">
-      <PieChartOutlined />
+      <HomeOutlined style={{ color: "white", fontSize: "32px" }} />
+    </Link>
+  ),
+  getItem(
+    "Macros Calc",
+    "2",
+    <Link href="/macros">
+      <PieChartOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "BMI Calc",
-    "2",
+    "3",
     <Link href="/bmi">
-      <CalculatorOutlined />
+      <CalculatorOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Body Fat Calc",
-    "3",
+    "4",
     <Link href="/bodyfat">
-      <PercentageOutlined />
+      <PercentageOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Ideal Weight",
-    "4",
+    "5",
     <Link href="/idealweight">
-      <HeartOutlined />
+      <HeartOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Trainers",
-    "5",
+    "6",
     <Link href="/trainers">
-      <TeamOutlined />
+      <TeamOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
-  getItem("Settings", "6", <ToolOutlined />),
+  getItem(
+    "Settings",
+    "7",
+    <ToolOutlined style={{ color: "white", fontSize: "32px" }} />
+  ),
 ];
 
 const Title = styled.div`
   text-align: center;
-  font-size: 30px;
-  padding: 10px 0 50px 0;
-  font-weight: bold;
-  color: #152a63;
+  font-size: 30px !important;
+  padding: 10px 0 50px 0 !important;
+  font-weight: bold !important;
+  color: #152a63 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 export default function Navigation() {
@@ -95,7 +110,7 @@ export default function Navigation() {
             <div>
               <span className={collapsed ? "hidden" : ""}>
                 <Logo />
-                FITracker
+                <div>FITracker</div>
               </span>
             </div>
           </Title>

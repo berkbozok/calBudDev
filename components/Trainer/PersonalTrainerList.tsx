@@ -9,13 +9,14 @@ const { Meta } = Card;
 const PersonalTrainerListRoot = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fef6e4;
-  min-height: 55rem;
+  background-color: #f5f5f5;
+  // min-height: 55rem;
+  height: 100vh;
 `;
 
 const PersonalTrainerListHeader = styled.div`
   display: flex;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   font-size: 1.5rem;
   font-weight: 600;
   color: #596996;
@@ -28,7 +29,7 @@ const PersonalTrainerListMainPage = styled.div`
 `;
 
 const MainPage = styled.div`
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   height: 100%;
   padding: 10px 30px 10px 30px;
 `;
@@ -100,7 +101,7 @@ function PersonalTrainerList() {
                   <img
                     alt="example"
                     src={card.image}
-                    style={{ height: "22rem" }}
+                    style={{ height: "37rem" }}
                   />
                 }
                 onClick={() => showModal(index)}

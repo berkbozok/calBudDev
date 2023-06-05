@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { CalculatorOutlined } from "@ant-design/icons";
 import { Select, Button, Typography, Form, InputNumber } from "antd";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Gauge } from "@ant-design/plots";
 import SplitScreen from "../Layout/SplitScreen";
 
@@ -13,13 +13,14 @@ interface BmiCalculatorProps {
 const CalculateBmiRoot = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fef6e4;
-  min-height: 55rem;
+  background-color: #f5f5f5;
+  // min-height: 55rem;
+  height: 100vh;
 `;
 
 const CalculateBmiHeader = styled.div`
   display: flex;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   font-size: 1.5rem;
   font-weight: 600;
   color: #596996;
@@ -36,8 +37,8 @@ const BmiInputs = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 24px;
-  background: #fef6e4;
-  padding: 1rem;
+  background: #f5f5f5;
+  padding: 2.41rem;
   min-width: 50%;
 `;
 
@@ -45,7 +46,9 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: #f1ead9;
+  margin: 1rem;
+  background: #fd3d0d;
+  border-radius: 15px;
 `;
 
 const CalculateBmiButton = styled.div`
@@ -116,37 +119,6 @@ function CalculateBmi({ gender, age }: BmiCalculatorProps) {
     }
   };
 
-  interface GaugeConfig {
-    percent: number;
-    range: {
-      color: string;
-    };
-    indicator: {
-      pointer: {
-        style: {
-          stroke: string;
-        };
-      };
-      pin: {
-        style: {
-          stroke: string;
-        };
-      };
-    };
-    axis: {
-      label: {
-        formatter(v: number): number;
-      };
-      subTickLine: {
-        count: number;
-      };
-    };
-    statistic?: {
-      title?: "hello" | false | undefined;
-      content?: "hi" | undefined;
-      style?: "red" | undefined;
-    };
-  }
   return (
     <CalculateBmiRoot>
       <CalculateBmiHeader>
@@ -188,45 +160,42 @@ function CalculateBmi({ gender, age }: BmiCalculatorProps) {
               </Form.Item>
               <Form.Item>
                 <CalculateBmiButton>
-                  <Button
-                    className="calculate-bmi-button"
-                    onClick={calculateBmi}
-                  >
+                  <button className="btn btn-secondary" onClick={calculateBmi}>
                     Calculate BMI
-                  </Button>
+                  </button>
                 </CalculateBmiButton>
               </Form.Item>
             </Form>
           </BmiInputs>
           {bmi > 0 && (
             <Results>
-              <Typography.Paragraph>
+              <Typography.Paragraph className="results-text">
                 Your BMI is: <b>{bmi.toFixed(1)}</b>
               </Typography.Paragraph>
-              <Typography.Paragraph>
+              <Typography.Paragraph className="results-text">
                 Your BMI status is: <b>{getBmiStatus()}</b>
               </Typography.Paragraph>
-              <Typography.Paragraph>
+              <Typography.Paragraph className="results-text">
                 Normal BMI range for your age and gender is:
                 <b> {getBmiStatusByAgeAndGender()}</b>
               </Typography.Paragraph>
-              <Typography.Paragraph>
+              <Typography.Paragraph className="results-text">
                 Normal BMI range for your height is: <b>{getBmiRange()}</b>
               </Typography.Paragraph>
               <Gauge
                 percent={bmi / 100}
                 range={{
-                  color: "#30bf78",
+                  color: "white",
                 }}
                 indicator={{
                   pointer: {
                     style: {
-                      stroke: "#30bf78",
+                      stroke: "white",
                     },
                   },
                   pin: {
                     style: {
-                      stroke: "#30bf78",
+                      stroke: "white",
                     },
                   },
                 }}

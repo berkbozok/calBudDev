@@ -9,18 +9,19 @@ interface CalculateIdealWeightProps {
   age: number;
   height: number;
 }
+
 const { Option } = Select;
 
 const CalculateBodyFatRoot = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fef6e4;
-  min-height: 55rem;
+  background-color: #f5f5f5;
+  height: 100vh;
 `;
 
 const CalculateBodyFatHeader = styled.div`
   display: flex;
-  background-color: #fef6e4;
+  background-color: #f5f5f5;
   font-size: 1.5rem;
   font-weight: 600;
   color: #596996;
@@ -62,7 +63,7 @@ const IdealWeightInput = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 24px;
-  background: #fef6e4;
+  background: #f5f5f5;
   padding: 15px;
   width: 50%;
 `;
@@ -71,8 +72,10 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: #f1ead9;
-  min-width:15rem;
+  background: #fd3d0d;
+  border-radius: 15px;
+  min-width: 15rem;
+  margin: 1rem;
 `;
 
 const CalculateBodyFatButton = styled.div`
@@ -110,59 +113,60 @@ function CalculateIdealWeight({
   return (
     <CalculateBodyFatRoot>
       <CalculateBodyFatHeader>
-        {" "}
         <HeartOutlined className="icon-title" />
         Ideal Weight
       </CalculateBodyFatHeader>
       <CalculateBodyFatMainPage>
         <SplitScreen leftWeight={1} rightWeight={1}>
-        <IdealWeightInput>
-          <FormContainer>
-            <Form layout="vertical">
-              <Label label="Gender">
-                <Select
-                  defaultValue={selectedGender}
-                  onChange={(value: "male" | "female") => setGender(value)}
-                >
-                  <Option value="male">Male</Option>
-                  <Option value="female">Female</Option>
-                </Select>
-              </Label>
-              <Label label="Age">
-                <InputNumber
-                  value={selectedAge}
-                  onChange={(value) => setAge(value ?? 0)}
-                />
-              </Label>
-              <Label label="Height (cm)">
-                <InputNumber
-                  value={selectedHeight}
-                  onChange={(value) => setHeight(value ?? 0)}
-                />
-              </Label>
-              <ButtonContainer>
-                <CalculateBodyFatButton>
-                  <Button
-                    className="calculate-bmi-button"
-                    onClick={calculateIdealWeight}
+          <IdealWeightInput>
+            <FormContainer>
+              <Form layout="vertical">
+                <Label label="Gender">
+                  <Select
+                    defaultValue={selectedGender}
+                    onChange={(value: "male" | "female") => setGender(value)}
                   >
-                    Calculate Ideal Weight
-                  </Button>
-                </CalculateBodyFatButton>
-              </ButtonContainer>
-            </Form>
-          </FormContainer>
-        </IdealWeightInput>
-        {idealWeight !== 0 && (
-          <Results>
-            <ResultContainer>
-              <Title level={4}>Your Ideal Weight:</Title>
-              <Typography.Paragraph>
-                {idealWeight.toFixed(2)} kg
-              </Typography.Paragraph>
-            </ResultContainer>
-          </Results>
-        )}
+                    <Option value="male">Male</Option>
+                    <Option value="female">Female</Option>
+                  </Select>
+                </Label>
+                <Label label="Age">
+                  <InputNumber
+                    value={selectedAge}
+                    onChange={(value) => setAge(value ?? 0)}
+                  />
+                </Label>
+                <Label label="Height (cm)">
+                  <InputNumber
+                    value={selectedHeight}
+                    onChange={(value) => setHeight(value ?? 0)}
+                  />
+                </Label>
+                <ButtonContainer>
+                  <CalculateBodyFatButton>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={calculateIdealWeight}
+                    >
+                      Calculate Ideal Weight
+                    </button>
+                  </CalculateBodyFatButton>
+                </ButtonContainer>
+              </Form>
+            </FormContainer>
+          </IdealWeightInput>
+          {idealWeight !== 0 && (
+            <Results>
+              <ResultContainer>
+                <Title level={4} className="results-text">
+                  Your Ideal Weight:
+                </Title>
+                <Typography.Paragraph className="results-text">
+                  {idealWeight.toFixed(2)} kg
+                </Typography.Paragraph>
+              </ResultContainer>
+            </Results>
+          )}
         </SplitScreen>
       </CalculateBodyFatMainPage>
     </CalculateBodyFatRoot>
