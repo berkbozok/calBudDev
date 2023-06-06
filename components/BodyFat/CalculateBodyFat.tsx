@@ -1,5 +1,5 @@
 import { PercentageOutlined } from "@ant-design/icons";
-import { Input, Select, Button, Typography, Form, InputNumber } from "antd";
+import { Select, Typography, Form, InputNumber } from "antd";
 import { useState } from "react";
 import styled from "styled-components";
 import SplitScreen from "../Layout/SplitScreen";
