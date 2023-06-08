@@ -6,6 +6,7 @@ import {
   ToolOutlined,
   CalculatorOutlined,
   HeartOutlined,
+  OrderedListOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
 import React, { useState } from "react";
@@ -66,16 +67,24 @@ const items: MenuItem[] = [
       <HeartOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
+
+  getItem(
+    "Meal Plan",
+    "6",
+    <Link href="/mealplan">
+      <OrderedListOutlined style={{ color: "white", fontSize: "32px" }} />
+    </Link>
+  ),
   getItem(
     "Trainers",
-    "6",
+    "7",
     <Link href="/trainers">
       <TeamOutlined style={{ color: "white", fontSize: "32px" }} />
     </Link>
   ),
   getItem(
     "Settings",
-    "7",
+    "8",
     <ToolOutlined style={{ color: "white", fontSize: "32px" }} />
   ),
 ];
