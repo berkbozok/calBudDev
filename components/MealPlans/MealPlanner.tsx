@@ -9,6 +9,69 @@ interface MealOptions {
   };
 }
 
+const mealOptions: MealOptions = {
+  chicken: {
+    calories: 250,
+    protein: 30,
+    carbs: 0,
+    fat: 10,
+  },
+  egg: {
+    calories: 80,
+    protein: 6,
+    carbs: 1,
+    fat: 5,
+  },
+  salmon: {
+    calories: 350,
+    protein: 25,
+    carbs: 0,
+    fat: 20,
+  },
+  beef: {
+    calories: 300,
+    protein: 26,
+    carbs: 0,
+    fat: 22,
+  },
+  spinach: {
+    calories: 23,
+    protein: 2.9,
+    carbs: 3.6,
+    fat: 0.4,
+  },
+  broccoli: {
+    calories: 55,
+    protein: 3.7,
+    carbs: 11.2,
+    fat: 0.6,
+  },
+  carrot: {
+    calories: 41,
+    protein: 0.9,
+    carbs: 9.6,
+    fat: 0.2,
+  },
+  potato: {
+    calories: 130,
+    protein: 2,
+    carbs: 30,
+    fat: 0.2,
+  },
+  rice: {
+    calories: 130,
+    protein: 2.7,
+    carbs: 28,
+    fat: 0.3,
+  },
+  pasta: {
+    calories: 131,
+    protein: 5,
+    carbs: 25,
+    fat: 1,
+  },
+};
+
 const MealPlanner = () => {
   const [calories, setCalories] = useState("");
   const [goal, setGoal] = useState("");
@@ -39,34 +102,6 @@ const MealPlanner = () => {
   const generateMealPlan = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Define the meal options with their respective nutritional values
-    const mealOptions: MealOptions = {
-      chicken: {
-        calories: 250,
-        protein: 30,
-        carbs: 0,
-        fat: 10,
-      },
-      egg: {
-        calories: 80,
-        protein: 6,
-        carbs: 1,
-        fat: 5,
-      },
-      salmon: {
-        calories: 350,
-        protein: 25,
-        carbs: 0,
-        fat: 20,
-      },
-      beef: {
-        calories: 300,
-        protein: 26,
-        carbs: 0,
-        fat: 22,
-      },
-    };
-
     // Calculate the total nutritional values based on the selected meals
     let totalCalories = 0;
     let totalProtein = 0;
@@ -82,26 +117,42 @@ const MealPlanner = () => {
     });
 
     // Adjust the meal plan based on the desired calorie intake and goal
+    const desiredCalories = parseInt(calories);
     if (goal === "lose") {
-      const calorieReduction = Math.floor(Number(calories) * 0.2); // Reduce calorie intake by 20%
+      const calorieReduction = Math.floor(desiredCalories * 0.2); // Reduce calorie intake by 20%
       totalCalories -= calorieReduction;
     } else if (goal === "gain") {
-      const calorieIncrease = Math.floor(Number(calories) * 0.2); // Increase calorie intake by 20%
+      const calorieIncrease = Math.floor(desiredCalories * 0.2); // Increase calorie intake by 20%
       totalCalories += calorieIncrease;
     }
 
-    // Generate the meal plan report
-    const report = `
-      Meal Plan Report:
-      ------------------
-      Selected Meals: ${selectedMeals.join(", ")}
-      Total Calories: ${totalCalories} calories
-      Total Protein: ${totalProtein} grams
-      Total Carbs: ${totalCarbs} grams
-      Total Fat: ${totalFat} grams
-    `;
+    // Adjust portion sizes to fit the desired calorie intake
+    const adjustedPortionSizes: { [key: string]: number } = {};
+    selectedMeals.forEach((meal) => {
+      const mealCalories = mealOptions[meal].calories;
+      const mealPortionSize = desiredCalories / totalCalories;
+      adjustedPortionSizes[meal] = mealPortionSize;
+    });
 
-    setMealPlanReport(report);
+    // Generate the meal plan report
+    let mealPlanReport = "Meal Plan Report:\n";
+    mealPlanReport += "------------------\n";
+    selectedMeals.forEach((meal) => {
+      const portionSize = adjustedPortionSizes[meal];
+      const mealNutrition = mealOptions[meal];
+      const portionCalories = portionSize * mealNutrition.calories;
+      const portionProtein = portionSize * mealNutrition.protein;
+      const portionCarbs = portionSize * mealNutrition.carbs;
+      const portionFat = portionSize * mealNutrition.fat;
+
+      mealPlanReport += `${meal} - ${portionSize.toFixed(2)} portion(s):\n`;
+      mealPlanReport += `Calories: ${portionCalories.toFixed(2)} calories\n`;
+      mealPlanReport += `Protein: ${portionProtein.toFixed(2)} grams\n`;
+      mealPlanReport += `Carbs: ${portionCarbs.toFixed(2)} grams\n`;
+      mealPlanReport += `Fat: ${portionFat.toFixed(2)} grams\n\n`;
+    });
+
+    setMealPlanReport(mealPlanReport);
   };
 
   return (
@@ -128,50 +179,20 @@ const MealPlanner = () => {
         </div>
         <div>
           <h2>Select Meals:</h2>
-          <label htmlFor="chicken">
-            <input
-              type="checkbox"
-              id="chicken"
-              value="chicken"
-              onChange={handleMealSelection}
-            />
-            Chicken
-          </label>
-          <br />
-          <label htmlFor="egg">
-            <input
-              type="checkbox"
-              id="egg"
-              value="egg"
-              onChange={handleMealSelection}
-            />
-            Egg
-          </label>
-          <br />
-          <label htmlFor="salmon">
-            <input
-              type="checkbox"
-              id="salmon"
-              value="salmon"
-              onChange={handleMealSelection}
-            />
-            Salmon
-          </label>
-          <br />
-          <label htmlFor="beef">
-            <input
-              type="checkbox"
-              id="beef"
-              value="beef"
-              onChange={handleMealSelection}
-            />
-            Beef
-          </label>
-          <br />
+          {Object.keys(mealOptions).map((meal) => (
+            <label key={meal} htmlFor={meal}>
+              <input
+                type="checkbox"
+                id={meal}
+                value={meal}
+                onChange={handleMealSelection}
+              />
+              {meal}
+            </label>
+          ))}
         </div>
         <button type="submit">Generate Meal Plan</button>
       </form>
-
       {mealPlanReport && (
         <div>
           <h2>Meal Plan Report</h2>
