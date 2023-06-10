@@ -102,7 +102,6 @@ const MealPlanner = () => {
   const generateMealPlan = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Calculate the total nutritional values based on the selected meals
     let totalCalories = 0;
     let totalProtein = 0;
     let totalCarbs = 0;
