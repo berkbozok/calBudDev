@@ -123,8 +123,6 @@ const MealPlanner = () => {
       const calorieIncrease = Math.floor(desiredCalories * 0.2); // Increase calorie intake by 20%
       totalCalories += calorieIncrease;
     }
-
-    // Adjust portion sizes to fit the desired calorie intake
     const adjustedPortionSizes: { [key: string]: number } = {};
     selectedMeals.forEach((meal) => {
       const mealCalories = mealOptions[meal].calories;
