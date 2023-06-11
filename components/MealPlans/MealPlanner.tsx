@@ -115,7 +115,6 @@ const MealPlanner = () => {
       totalFat += mealNutrition.fat;
     });
 
-    // Adjust the meal plan based on the desired calorie intake and goal
     const desiredCalories = parseInt(calories);
     if (goal === "lose") {
       const calorieReduction = Math.floor(desiredCalories * 0.2); // Reduce calorie intake by 20%
