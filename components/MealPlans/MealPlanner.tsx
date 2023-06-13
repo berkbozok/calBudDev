@@ -6,6 +6,7 @@ interface MealOptions {
     protein: number;
     carbs: number;
     fat: number;
+    mealTime: string;
   };
 }
 
@@ -15,60 +16,70 @@ const mealOptions: MealOptions = {
     protein: 30,
     carbs: 0,
     fat: 10,
+    mealTime: "dinner",
   },
   egg: {
     calories: 80,
     protein: 6,
     carbs: 1,
     fat: 5,
+    mealTime: "breakfast",
   },
   salmon: {
     calories: 350,
     protein: 25,
     carbs: 0,
     fat: 20,
+    mealTime: "lunch",
   },
   beef: {
     calories: 300,
     protein: 26,
     carbs: 0,
     fat: 22,
+    mealTime: "dinner",
   },
   spinach: {
     calories: 23,
     protein: 2.9,
     carbs: 3.6,
     fat: 0.4,
+    mealTime: "lunch",
   },
   broccoli: {
     calories: 55,
     protein: 3.7,
     carbs: 11.2,
     fat: 0.6,
+    mealTime: "lunch",
   },
   carrot: {
     calories: 41,
     protein: 0.9,
     carbs: 9.6,
     fat: 0.2,
+    mealTime: "lunch",
   },
   potato: {
     calories: 130,
     protein: 2,
     carbs: 30,
     fat: 0.2,
+    mealTime: "dinner",
   },
   rice: {
     calories: 130,
     protein: 2.7,
     carbs: 28,
     fat: 0.3,
+    mealTime: "dinner",
   },
   pasta: {
     calories: 131,
     protein: 5,
     carbs: 25,
     fat: 1,
+    mealTime: "dinner",
   },
 };
 
@@ -125,22 +136,29 @@ const MealPlanner = () => {
     }
 
     const adjustedPortionSizes: { [key: string]: number } = {};
+    let totalWeight = 0;
     selectedMeals.forEach((meal) => {
       const mealCalories = mealOptions[meal].calories;
-      const mealPortionSize = desiredCalories / totalCalories;
-      adjustedPortionSizes[meal] = mealPortionSize;
+      const mealWeight = (mealCalories / totalCalories) * desiredCalories;
+      adjustedPortionSizes[meal] = mealWeight;
+      totalWeight += mealWeight;
     });
+
     let mealPlanReport = "Meal Plan Report:\n";
     mealPlanReport += "------------------\n";
     selectedMeals.forEach((meal) => {
-      const portionSize = adjustedPortionSizes[meal];
+      const portionSize = adjustedPortionSizes[meal] / totalWeight;
       const mealNutrition = mealOptions[meal];
-      const portionCalories = portionSize * mealNutrition.calories;
-      const portionProtein = portionSize * mealNutrition.protein;
-      const portionCarbs = portionSize * mealNutrition.carbs;
-      const portionFat = portionSize * mealNutrition.fat;
+      const portionCalories = portionSize * totalCalories;
+      const portionProtein = portionSize * totalProtein;
+      const portionCarbs = portionSize * totalCarbs;
+      const portionFat = portionSize * totalFat;
 
-      mealPlanReport += `${meal} - ${portionSize.toFixed(2)} portion(s):\n`;
+      mealPlanReport += `${meal} (${
+        mealNutrition.mealTime
+      }) - ${portionSize.toFixed(2)} portion(s) (${adjustedPortionSizes[
+        meal
+      ].toFixed(2)} grams):\n`;
       mealPlanReport += `Calories: ${portionCalories.toFixed(2)} calories\n`;
       mealPlanReport += `Protein: ${portionProtein.toFixed(2)} grams\n`;
       mealPlanReport += `Carbs: ${portionCarbs.toFixed(2)} grams\n`;
