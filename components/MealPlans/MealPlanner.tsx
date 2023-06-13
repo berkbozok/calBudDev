@@ -7,6 +7,7 @@ interface MealOptions {
     carbs: number;
     fat: number;
     mealTime: string;
+    type: string;
   };
 }
 
@@ -18,6 +19,7 @@ const mealOptions: MealOptions = {
     carbs: 0,
     fat: 10,
     mealTime: "Dinner",
+    type: "meat",
   },
   egg: {
     calories: 80,
@@ -25,6 +27,7 @@ const mealOptions: MealOptions = {
     carbs: 1,
     fat: 5,
     mealTime: "Breakfast",
+    type: "meat",
   },
   salmon: {
     calories: 350,
@@ -32,6 +35,7 @@ const mealOptions: MealOptions = {
     carbs: 0,
     fat: 20,
     mealTime: "Lunch",
+    type: "meat",
   },
   beef: {
     calories: 300,
@@ -39,6 +43,7 @@ const mealOptions: MealOptions = {
     carbs: 0,
     fat: 22,
     mealTime: "Lunch",
+    type: "meat",
   },
   spinach: {
     calories: 23,
@@ -46,6 +51,7 @@ const mealOptions: MealOptions = {
     carbs: 3.6,
     fat: 0.4,
     mealTime: "Lunch",
+    type: "veggies",
   },
   broccoli: {
     calories: 55,
@@ -53,6 +59,7 @@ const mealOptions: MealOptions = {
     carbs: 11.2,
     fat: 0.6,
     mealTime: "Dinner",
+    type: "veggies",
   },
   carrot: {
     calories: 41,
@@ -60,6 +67,7 @@ const mealOptions: MealOptions = {
     carbs: 9.6,
     fat: 0.2,
     mealTime: "Dinner",
+    type: "veggies",
   },
   potato: {
     calories: 130,
@@ -67,6 +75,7 @@ const mealOptions: MealOptions = {
     carbs: 30,
     fat: 0.2,
     mealTime: "Dinner",
+    type: "veggies",
   },
   rice: {
     calories: 130,
@@ -74,6 +83,7 @@ const mealOptions: MealOptions = {
     carbs: 28,
     fat: 0.3,
     mealTime: "Lunch",
+    type: "carbs",
   },
   pasta: {
     calories: 131,
@@ -81,6 +91,7 @@ const mealOptions: MealOptions = {
     carbs: 25,
     fat: 1,
     mealTime: "Dinner",
+    type: "carbs",
   },
 
   // Additional popular food options
@@ -90,6 +101,7 @@ const mealOptions: MealOptions = {
     carbs: 27,
     fat: 2,
     mealTime: "Breakfast",
+    type: "carbs",
   },
   avocado: {
     calories: 160,
@@ -97,6 +109,7 @@ const mealOptions: MealOptions = {
     carbs: 9,
     fat: 15,
     mealTime: "Lunch",
+    type: "veggies",
   },
   quinoa: {
     calories: 222,
@@ -104,6 +117,7 @@ const mealOptions: MealOptions = {
     carbs: 39,
     fat: 4,
     mealTime: "Lunch",
+    type: "carbs",
   },
   banana: {
     calories: 96,
@@ -111,6 +125,7 @@ const mealOptions: MealOptions = {
     carbs: 23,
     fat: 0,
     mealTime: "Breakfast",
+    type: "veggies",
   },
   apple: {
     calories: 52,
@@ -118,6 +133,7 @@ const mealOptions: MealOptions = {
     carbs: 14,
     fat: 0.2,
     mealTime: "Breakfast",
+    type: "veggies",
   },
   yogurt: {
     calories: 150,
@@ -125,6 +141,7 @@ const mealOptions: MealOptions = {
     carbs: 17,
     fat: 5,
     mealTime: "Breakfast",
+    type: "meat",
   },
   almonds: {
     calories: 160,
@@ -132,6 +149,7 @@ const mealOptions: MealOptions = {
     carbs: 6,
     fat: 14,
     mealTime: "Snack",
+    type: "carbs",
   },
   pork: {
     calories: 297,
@@ -139,6 +157,7 @@ const mealOptions: MealOptions = {
     carbs: 0,
     fat: 21,
     mealTime: "Lunch",
+    type: "meat",
   },
   lamb: {
     calories: 294,
@@ -146,6 +165,7 @@ const mealOptions: MealOptions = {
     carbs: 0,
     fat: 21,
     mealTime: "Lunch",
+    type: "meat",
   },
   shrimp: {
     calories: 85,
@@ -153,6 +173,7 @@ const mealOptions: MealOptions = {
     carbs: 0,
     fat: 1,
     mealTime: "Dinner",
+    type: "meat",
   },
   tofu: {
     calories: 144,
@@ -160,6 +181,7 @@ const mealOptions: MealOptions = {
     carbs: 3,
     fat: 8,
     mealTime: "Lunch",
+    type: "veggies",
   },
   // Additional vegetable options
   kale: {
@@ -168,6 +190,7 @@ const mealOptions: MealOptions = {
     carbs: 5.6,
     fat: 0.5,
     mealTime: "Lunch",
+    type: "veggies",
   },
   zucchini: {
     calories: 17,
@@ -175,6 +198,7 @@ const mealOptions: MealOptions = {
     carbs: 3.1,
     fat: 0.2,
     mealTime: "Dinner",
+    type: "veggies",
   },
   cauliflower: {
     calories: 25,
@@ -182,6 +206,7 @@ const mealOptions: MealOptions = {
     carbs: 5,
     fat: 0.3,
     mealTime: "Dinner",
+    type: "veggies",
   },
   // Additional carbohydrate options
   bread: {
@@ -190,6 +215,7 @@ const mealOptions: MealOptions = {
     carbs: 14,
     fat: 1,
     mealTime: "Lunch",
+    type: "carbs",
   },
   couscous: {
     calories: 176,
@@ -197,6 +223,7 @@ const mealOptions: MealOptions = {
     carbs: 38,
     fat: 0.2,
     mealTime: "Dinner",
+    type: "carbs",
   },
   noodles: {
     calories: 221,
@@ -204,6 +231,7 @@ const mealOptions: MealOptions = {
     carbs: 43,
     fat: 1,
     mealTime: "Dinner",
+    type: "carbs",
   },
 };
 
@@ -317,47 +345,84 @@ const MealPlanner = () => {
     <div>
       <h1>Meal Planner</h1>
       <form onSubmit={generateMealPlan}>
+        <label htmlFor="calories">Desired Calories:</label>
+        <input
+          type="text"
+          id="calories"
+          value={calories}
+          onChange={handleCaloriesChange}
+        />
+
+        <label htmlFor="goal">Goal:</label>
+        <select id="goal" value={goal} onChange={handleGoalChange}>
+          <option value="">Select Goal</option>
+          <option value="lose">Lose Weight</option>
+          <option value="maintain">Maintain Weight</option>
+          <option value="gain">Gain Weight</option>
+        </select>
+
         <div>
-          <label htmlFor="calories">Desired Calorie Intake:</label>
-          <input
-            type="text"
-            id="calories"
-            value={calories}
-            onChange={handleCaloriesChange}
-          />
+          <label>Meat Options:</label>
+          <div className="column">
+            {Object.entries(mealOptions).map(
+              ([meal, details]) =>
+                details.type === "meat" && (
+                  <div key={meal}>
+                    <input
+                      type="checkbox"
+                      value={meal}
+                      checked={selectedMeals.includes(meal)}
+                      onChange={handleMealSelection}
+                    />
+                    <label>{meal}</label>
+                  </div>
+                )
+            )}
+          </div>
         </div>
         <div>
-          <label htmlFor="goal">Goal:</label>
-          <select id="goal" value={goal} onChange={handleGoalChange}>
-            <option value="">Select a goal</option>
-            <option value="lose">Lose Weight</option>
-            <option value="maintain">Maintain Weight</option>
-            <option value="gain">Gain Weight</option>
-          </select>
+          <label>Veggie Options:</label>
+          <div className="column">
+            {Object.entries(mealOptions).map(
+              ([meal, details]) =>
+                details.type === "veggies" && (
+                  <div key={meal}>
+                    <input
+                      type="checkbox"
+                      value={meal}
+                      checked={selectedMeals.includes(meal)}
+                      onChange={handleMealSelection}
+                    />
+                    <label>{meal}</label>
+                  </div>
+                )
+            )}
+          </div>
         </div>
         <div>
-          <label>Meal Options:</label>
-          <br />
-          {Object.keys(mealOptions).map((meal) => (
-            <div key={meal}>
-              <input
-                type="checkbox"
-                id={meal}
-                value={meal}
-                onChange={handleMealSelection}
-              />
-              <label htmlFor={meal}>{meal}</label>
-            </div>
-          ))}
+          <label>Carb Options:</label>
+          <div className="column">
+            {Object.entries(mealOptions).map(
+              ([meal, details]) =>
+                details.type === "carbs" && (
+                  <div key={meal}>
+                    <input
+                      type="checkbox"
+                      value={meal}
+                      checked={selectedMeals.includes(meal)}
+                      onChange={handleMealSelection}
+                    />
+                    <label>{meal}</label>
+                  </div>
+                )
+            )}
+          </div>
         </div>
+
         <button type="submit">Generate Meal Plan</button>
       </form>
-      {mealPlanReport && (
-        <div>
-          <h2>Meal Plan Report</h2>
-          <pre>{mealPlanReport}</pre>
-        </div>
-      )}
+
+      <pre>{mealPlanReport}</pre>
     </div>
   );
 };
