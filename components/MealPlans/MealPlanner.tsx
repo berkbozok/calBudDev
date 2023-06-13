@@ -11,75 +11,127 @@ interface MealOptions {
 }
 
 const mealOptions: MealOptions = {
+  // Existing meal options
   chicken: {
     calories: 250,
     protein: 30,
     carbs: 0,
     fat: 10,
-    mealTime: "dinner",
+    mealTime: "Dinner",
   },
   egg: {
     calories: 80,
     protein: 6,
     carbs: 1,
     fat: 5,
-    mealTime: "breakfast",
+    mealTime: "Breakfast",
   },
   salmon: {
     calories: 350,
     protein: 25,
     carbs: 0,
     fat: 20,
-    mealTime: "lunch",
+    mealTime: "Lunch",
   },
   beef: {
     calories: 300,
     protein: 26,
     carbs: 0,
     fat: 22,
-    mealTime: "dinner",
+    mealTime: "Lunch",
   },
   spinach: {
     calories: 23,
     protein: 2.9,
     carbs: 3.6,
     fat: 0.4,
-    mealTime: "lunch",
+    mealTime: "Lunch",
   },
   broccoli: {
     calories: 55,
     protein: 3.7,
     carbs: 11.2,
     fat: 0.6,
-    mealTime: "lunch",
+    mealTime: "Dinner",
   },
   carrot: {
     calories: 41,
     protein: 0.9,
     carbs: 9.6,
     fat: 0.2,
-    mealTime: "lunch",
+    mealTime: "Dinner",
   },
   potato: {
     calories: 130,
     protein: 2,
     carbs: 30,
     fat: 0.2,
-    mealTime: "dinner",
+    mealTime: "Dinner",
   },
   rice: {
     calories: 130,
     protein: 2.7,
     carbs: 28,
     fat: 0.3,
-    mealTime: "dinner",
+    mealTime: "Lunch",
   },
   pasta: {
     calories: 131,
     protein: 5,
     carbs: 25,
     fat: 1,
-    mealTime: "dinner",
+    mealTime: "Dinner",
+  },
+
+  // Additional popular food options
+  oatmeal: {
+    calories: 150,
+    protein: 6,
+    carbs: 27,
+    fat: 2,
+    mealTime: "Breakfast",
+  },
+  avocado: {
+    calories: 160,
+    protein: 2,
+    carbs: 9,
+    fat: 15,
+    mealTime: "Lunch",
+  },
+  quinoa: {
+    calories: 222,
+    protein: 8,
+    carbs: 39,
+    fat: 4,
+    mealTime: "Lunch",
+  },
+  banana: {
+    calories: 96,
+    protein: 1,
+    carbs: 23,
+    fat: 0,
+    mealTime: "Breakfast",
+  },
+  apple: {
+    calories: 52,
+    protein: 0.3,
+    carbs: 14,
+    fat: 0.2,
+    mealTime: "Breakfast",
+  },
+  yogurt: {
+    calories: 150,
+    protein: 12,
+    carbs: 17,
+    fat: 5,
+    mealTime: "Breakfast",
+  },
+  almonds: {
+    calories: 160,
+    protein: 6,
+    carbs: 6,
+    fat: 14,
+    mealTime: "Snack",
   },
 };
 
@@ -136,34 +188,55 @@ const MealPlanner = () => {
     }
 
     const adjustedPortionSizes: { [key: string]: number } = {};
-    let totalWeight = 0;
     selectedMeals.forEach((meal) => {
       const mealCalories = mealOptions[meal].calories;
-      const mealWeight = (mealCalories / totalCalories) * desiredCalories;
-      adjustedPortionSizes[meal] = mealWeight;
-      totalWeight += mealWeight;
+      const mealPortionSize = desiredCalories / totalCalories;
+      adjustedPortionSizes[meal] = mealPortionSize;
     });
 
     let mealPlanReport = "Meal Plan Report:\n";
     mealPlanReport += "------------------\n";
-    selectedMeals.forEach((meal) => {
-      const portionSize = adjustedPortionSizes[meal] / totalWeight;
-      const mealNutrition = mealOptions[meal];
-      const portionCalories = portionSize * totalCalories;
-      const portionProtein = portionSize * totalProtein;
-      const portionCarbs = portionSize * totalCarbs;
-      const portionFat = portionSize * totalFat;
 
-      mealPlanReport += `${meal} (${
-        mealNutrition.mealTime
-      }) - ${portionSize.toFixed(2)} portion(s) (${adjustedPortionSizes[
-        meal
-      ].toFixed(2)} grams):\n`;
+    const mealTimes: { [key: string]: string[] } = {
+      Breakfast: [],
+      Lunch: [],
+      Dinner: [],
+      Snack: [],
+    };
+
+    selectedMeals.forEach((meal) => {
+      const portionSize = adjustedPortionSizes[meal];
+      const mealNutrition = mealOptions[meal];
+      const portionCalories = portionSize * mealNutrition.calories;
+      const portionProtein = portionSize * mealNutrition.protein;
+      const portionCarbs = portionSize * mealNutrition.carbs;
+      const portionFat = portionSize * mealNutrition.fat;
+
+      mealTimes[mealNutrition.mealTime].push(
+        `${meal} - ${portionSize.toFixed(
+          2
+        )} portion(s) (${portionCalories.toFixed(2)} calories)`
+      );
+      mealPlanReport += `${meal} - ${portionSize.toFixed(2)} portion(s):\n`;
       mealPlanReport += `Calories: ${portionCalories.toFixed(2)} calories\n`;
       mealPlanReport += `Protein: ${portionProtein.toFixed(2)} grams\n`;
       mealPlanReport += `Carbs: ${portionCarbs.toFixed(2)} grams\n`;
       mealPlanReport += `Fat: ${portionFat.toFixed(2)} grams\n\n`;
     });
+
+    mealPlanReport += "Meal Plan:\n";
+    mealPlanReport += "-----------\n";
+    mealPlanReport += "Breakfast:\n";
+    mealPlanReport += mealTimes["Breakfast"].join("\n");
+    mealPlanReport += "\n\n";
+    mealPlanReport += "Lunch:\n";
+    mealPlanReport += mealTimes["Lunch"].join("\n");
+    mealPlanReport += "\n\n";
+    mealPlanReport += "Dinner:\n";
+    mealPlanReport += mealTimes["Dinner"].join("\n");
+    mealPlanReport += "\n\n";
+    mealPlanReport += "Snacks:\n";
+    mealPlanReport += mealTimes["Snack"].join("\n");
 
     setMealPlanReport(mealPlanReport);
   };
@@ -191,17 +264,18 @@ const MealPlanner = () => {
           </select>
         </div>
         <div>
-          <h2>Select Meals:</h2>
+          <label>Meal Options:</label>
+          <br />
           {Object.keys(mealOptions).map((meal) => (
-            <label key={meal} htmlFor={meal}>
+            <div key={meal}>
               <input
                 type="checkbox"
                 id={meal}
                 value={meal}
                 onChange={handleMealSelection}
               />
-              {meal}
-            </label>
+              <label htmlFor={meal}>{meal}</label>
+            </div>
           ))}
         </div>
         <button type="submit">Generate Meal Plan</button>
