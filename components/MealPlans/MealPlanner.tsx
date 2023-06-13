@@ -133,6 +133,78 @@ const mealOptions: MealOptions = {
     fat: 14,
     mealTime: "Snack",
   },
+  pork: {
+    calories: 297,
+    protein: 26,
+    carbs: 0,
+    fat: 21,
+    mealTime: "Lunch",
+  },
+  lamb: {
+    calories: 294,
+    protein: 25,
+    carbs: 0,
+    fat: 21,
+    mealTime: "Lunch",
+  },
+  shrimp: {
+    calories: 85,
+    protein: 18,
+    carbs: 0,
+    fat: 1,
+    mealTime: "Dinner",
+  },
+  tofu: {
+    calories: 144,
+    protein: 15,
+    carbs: 3,
+    fat: 8,
+    mealTime: "Lunch",
+  },
+  // Additional vegetable options
+  kale: {
+    calories: 33,
+    protein: 2.9,
+    carbs: 5.6,
+    fat: 0.5,
+    mealTime: "Lunch",
+  },
+  zucchini: {
+    calories: 17,
+    protein: 1.4,
+    carbs: 3.1,
+    fat: 0.2,
+    mealTime: "Dinner",
+  },
+  cauliflower: {
+    calories: 25,
+    protein: 2,
+    carbs: 5,
+    fat: 0.3,
+    mealTime: "Dinner",
+  },
+  // Additional carbohydrate options
+  bread: {
+    calories: 79,
+    protein: 2.7,
+    carbs: 14,
+    fat: 1,
+    mealTime: "Lunch",
+  },
+  couscous: {
+    calories: 176,
+    protein: 6,
+    carbs: 38,
+    fat: 0.2,
+    mealTime: "Dinner",
+  },
+  noodles: {
+    calories: 221,
+    protein: 8,
+    carbs: 43,
+    fat: 1,
+    mealTime: "Dinner",
+  },
 };
 
 const MealPlanner = () => {
