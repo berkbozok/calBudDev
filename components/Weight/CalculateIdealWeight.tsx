@@ -1,4 +1,4 @@
-import { Select, Button, Typography, Form, InputNumber } from "antd";
+import { Select, Typography, Form, InputNumber } from "antd";
 import styled from "styled-components";
 import { HeartOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -9,9 +9,7 @@ interface CalculateIdealWeightProps {
   age: number;
   height: number;
 }
-
 const { Option } = Select;
-
 const CalculateBodyFatRoot = styled.div`
   display: flex;
   flex-direction: column;
