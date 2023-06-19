@@ -341,7 +341,6 @@ const MealPlanner = () => {
 
     setMealPlanReport(mealPlanReport);
   };
-
   return (
     <div>
       <h1>Meal Planner</h1>
