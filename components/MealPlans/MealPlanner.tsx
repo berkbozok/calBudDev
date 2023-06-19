@@ -262,7 +262,6 @@ const MealPlanner = () => {
       );
     }
   };
-
   const generateMealPlan = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
