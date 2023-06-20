@@ -22,6 +22,14 @@ const MealOptions = styled.div`
   margin-right: 5rem;
 `;
 
+const Container = styled.div`
+  padding: 24px;
+  height: 100vh;
+`;
+const MealReport = styled.div`
+  margin-top: 30px;
+`;
+
 const OptionContatiner = styled.div`
   width: 100%;
 `;
@@ -148,7 +156,7 @@ const MealPlanner = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h1>Meal Planner</h1>
       <form onSubmit={generateMealPlan}>
         <label htmlFor="calories">Desired Calories:</label>
@@ -236,9 +244,10 @@ const MealPlanner = () => {
           Generate Meal Plan
         </button>
       </form>
-
-      <pre>{mealPlanReport}</pre>
-    </div>
+      <MealReport>
+        <pre>{mealPlanReport}</pre>
+      </MealReport>
+    </Container>
   );
 };
 
