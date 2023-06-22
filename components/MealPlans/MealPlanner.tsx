@@ -46,7 +46,6 @@ const OptionName = styled.div`
     margin-left: 10px;
   }
 `;
-
 const mealOptions: MealOptions = mealOptionsData as MealOptions;
 
 const MealPlanner = () => {
