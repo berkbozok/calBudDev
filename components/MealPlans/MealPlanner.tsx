@@ -37,11 +37,9 @@ const OptionContatiner = styled.div`
 const OptionName = styled.div`
   display: flex;
   align-items: center;
-
   input[type="checkbox"] {
     margin-right: 5px;
   }
-
   label {
     margin-left: 10px;
   }
