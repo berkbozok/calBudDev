@@ -104,6 +104,7 @@ const MealPlanner = () => {
       const mealPortionSize = desiredCalories / totalCalories;
       adjustedPortionSizes[meal] = mealPortionSize;
     });
+
     let mealPlanReport = "Meal Plan Report:\n";
     mealPlanReport += "------------------\n";
 
