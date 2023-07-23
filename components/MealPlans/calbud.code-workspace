@@ -1,7 +1,17 @@
 {
+<<<<<<< HEAD
   "folders": [
     {
       "path": "."
     }
   ]
 }
+=======
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
+>>>>>>> main
