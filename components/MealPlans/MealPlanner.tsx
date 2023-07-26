@@ -106,7 +106,6 @@ const MealPlanner = () => {
     });
 
     let mealPlanReport = "Meal Plan Report:\n";
-
     mealPlanReport += "------------------\n";
 
     const mealTimes: { [key: string]: string[] } = {
