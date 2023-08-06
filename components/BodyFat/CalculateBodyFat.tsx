@@ -113,7 +113,6 @@ function CalculateBodyFat({ gender, age }: CalculateBodyFatProps) {
     }
     setBodyFat(bodyFatValue);
   };
-
   const getBodyFatStatus = () => {
     if (selectedGender === "male") {
       if (bodyFat < 6) {
