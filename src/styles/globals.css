@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -1037,9 +1041,9 @@ body {
   #CLASS
 \*-----------------------------------*/
 
-.class {
+/* .class {
   padding-block-start: calc(var(--section-padding) + 250px);
-}
+} */
 
 .class .section-subtitle {
   margin-inline: auto;

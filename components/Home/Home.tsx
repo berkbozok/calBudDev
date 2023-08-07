@@ -8,12 +8,12 @@ import Blog from "./Blog";
 import Footer from "./Footer";
 
 const HomeRoot = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  // justify-content: center;
-  // height: 100vh;
-  background: #rgb(254, 246, 228);
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  // // justify-content: center;
+  // // height: 100vh;
+  // background: #rgb(254, 246, 228);
 `;
 
 function HomePage() {
@@ -24,7 +24,7 @@ function HomePage() {
           <article>
             <Hero />
             <About />
-            <Video />
+            {/* <Video /> */}
             <Class />
             <Blog />
             <Footer />
