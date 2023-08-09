@@ -6,6 +6,7 @@ import Video from "./Video";
 import Class from "./Class";
 import Blog from "./Blog";
 import Footer from "./Footer";
+import Navigation from "../Navigation";
 
 const HomeRoot = styled.div`
   // display: flex;
@@ -24,7 +25,6 @@ function HomePage() {
           <article>
             <Hero />
             <About />
-            {/* <Video /> */}
             <Class />
             <Blog />
             <Footer />
