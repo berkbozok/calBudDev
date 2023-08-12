@@ -156,6 +156,7 @@ export default function Navigation() {
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
+
   const [iconOnly, setIconOnly] = useState(false);
   const [sidebarShrunk, setSidebarShrunk] = useState(false);
 
