@@ -152,7 +152,7 @@ export default function Navigation() {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-  
+
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
