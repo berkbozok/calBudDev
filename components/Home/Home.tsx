@@ -6,14 +6,15 @@ import Video from "./Video";
 import Class from "./Class";
 import Blog from "./Blog";
 import Footer from "./Footer";
+import Navigation from "../Navigation";
 
 const HomeRoot = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  // justify-content: center;
-  // height: 100vh;
-  background: #rgb(254, 246, 228);
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  // // justify-content: center;
+  // // height: 100vh;
+  // background: #rgb(254, 246, 228);
 `;
 
 function HomePage() {
@@ -24,7 +25,6 @@ function HomePage() {
           <article>
             <Hero />
             <About />
-            <Video />
             <Class />
             <Blog />
             <Footer />

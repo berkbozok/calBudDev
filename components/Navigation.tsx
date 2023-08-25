@@ -9,6 +9,16 @@ import {
   OrderedListOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
+import {
+  CalendarIcon,
+  ChartPieIcon,
+  DocumentDuplicateIcon,
+  FolderIcon,
+  HomeIcon,
+  HomeModernIcon,
+  UsersIcon,
+  CalculatorIcon,
+} from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "../shared/logo";
@@ -99,12 +109,61 @@ const Title = styled.div`
   flex-direction: row;
   justify-content: center;
 `;
+const navigation = [
+  { name: "Dashboard", href: "/", icon: HomeIcon, count: "5", current: true },
+  { name: "Trainers", href: "/trainers", icon: UsersIcon, current: false },
+  {
+    name: "Macros Calc",
+    href: "/macros",
+    icon: FolderIcon,
+    count: "12",
+    current: false,
+  },
+  {
+    name: "BMI Calc",
+    href: "/bmi",
+    icon: CalendarIcon,
+    count: "20+",
+    current: false,
+  },
+  {
+    name: "Body Fat Calc",
+    href: "/bodyfat",
+    icon: DocumentDuplicateIcon,
+    current: false,
+  },
+  {
+    name: "Ideal Weight",
+    href: "/idealweight",
+    icon: ChartPieIcon,
+    current: false,
+  },
+  { name: "Meal Plan", href: "/mealplan", icon: ChartPieIcon, current: false },
+];
+
+const teams = [
+  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
+  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
+  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+];
 
 export default function Navigation() {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+
+  const [iconOnly, setIconOnly] = useState(false);
+  const [sidebarShrunk, setSidebarShrunk] = useState(false);
+
+  const toggleIconOnly = () => {
+    setIconOnly(!iconOnly);
+    setSidebarShrunk(!iconOnly);
+  };
 
   return (
     <>
@@ -131,6 +190,60 @@ export default function Navigation() {
           items={items}
         />
       </Sider>
+      {/* <div
+        className={classNames(
+          "flex",
+          sidebarShrunk ? "max-w-5" : "", // Apply the 'w-20' class when sidebarShrunk is true
+          "grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 "
+        )}
+      >
+        <div className="flex h-16 shrink-0 items-center">
+          <img
+            className="h-8 w-auto"
+            src="https://tailwindui.com/img/logos/mark.svg?color=white"
+            alt="Your Company"
+          />
+        </div>
+        <nav className="flex flex-1 flex-col">
+          <ul role="list" className="flex flex-1 flex-col gap-y-7">
+            <li>
+              <ul role="list" className="-mx-2 space-y-1">
+                {navigation.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className={classNames(
+                        iconOnly ? "justify-center" : "",
+                        item.current
+                          ? "bg-indigo-700 text-white"
+                          : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                        "group flex gap-x-3 rounded-md p-2 text-2xl leading-6 font-semibold"
+                      )}
+                    >
+                      <item.icon
+                        className={classNames(
+                          item.current
+                            ? "text-white"
+                            : "text-indigo-200 group-hover:text-white",
+                          "h-12 w-12 shrink-0"
+                        )}
+                        aria-hidden="true"
+                      />
+                      {!iconOnly && item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            <button
+              className="px-6 py-3 text-2xl font-semibold leading-6 text-white hover:bg-indigo-700"
+              onClick={toggleIconOnly}
+            >
+              {iconOnly ? "Show Labels" : "Hide Labels"}
+            </button>
+          </ul>
+        </nav>
+      </div> */}
     </>
   );
 }

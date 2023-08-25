@@ -5,23 +5,23 @@ import styled from "styled-components";
 
 const LayoutRoot = styled.div`
   display: flex;
-  min-height: 95vh;
+  flex-direction: row;
 `;
 
 export default function LayoutPage({ children }: any) {
   const { Content } = Layout;
 
   return (
-    <LayoutRoot>
-      <Layout>
-        <Navigation />
+    <>
+      <LayoutRoot>
         <Layout>
+          <Navigation />
+
           <Content>
-            <div className="line" />
             <div className="main-page-layout">{children}</div>
           </Content>
         </Layout>
-      </Layout>
-    </LayoutRoot>
+      </LayoutRoot>
+    </>
   );
 }
