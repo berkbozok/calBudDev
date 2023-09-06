@@ -163,6 +163,7 @@ export default function Navigation() {
 
   const toggleIconOnly = () => {
     setIconOnly(!iconOnly);
+
     setSidebarShrunk(!iconOnly);
   };
 
