@@ -158,7 +158,7 @@ export default function Navigation() {
   }
 
   const [iconOnly, setIconOnly] = useState(false);
-  
+
   const [sidebarShrunk, setSidebarShrunk] = useState(false);
 
   const toggleIconOnly = () => {
