@@ -152,8 +152,6 @@ export default function Navigation() {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
-
   return classes.filter(Boolean).join(" ");
   }
 
