@@ -153,8 +153,8 @@ export default function Navigation() {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(" ");
+
+  return classes.filter(Boolean).join(" ");
   }
 
   const [iconOnly, setIconOnly] = useState(false);
